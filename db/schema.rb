@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 2020_01_21_191006) do
 
   create_table "properties", force: :cascade do |t|
     t.string "name"
-    t.string "adress"
-    t.string "number"
-    t.integer "postalcode"
+    t.string "address"
+    t.string "property_number"
+    t.integer "postal_code"
     t.string "city"
-    t.string "image"
+    t.string "property_image"
     t.integer "rent"
     t.string "tenant"
     t.datetime "created_at", precision: 6, null: false
