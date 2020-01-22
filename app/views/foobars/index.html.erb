@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Foobars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foobars.each do |foobar| %>
+      <tr>
+        <td><%= foobar.name %></td>
+        <td><%= foobar.number %></td>
+        <td><%= link_to 'Show', foobar %></td>
+        <td><%= link_to 'Edit', edit_foobar_path(foobar) %></td>
+        <td><%= link_to 'Destroy', foobar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Foobar', new_foobar_path %>
