@@ -7,7 +7,32 @@
 <%= link_to "Registrer ny eiendom", new_property_path %>
 
 
-<table></table>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Adresse</th>
+      <th scope="col">Husnummer</th>
+      <th scope="col">Postnummer</th>
+      <th scope="col">By/tettsted</th>
+      <th scope="col">Handling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @properties.each_with_index do |property, num| %>
+      <% num += 1 %> <%# increments entry number each loop by one %>
+      <tr>
+        <th scope="row"><%= num %>
+        <td><%= property.address %></td>
+        <td><%= property.property_number %></td>
+        <td><%= property.postal_code %></td>
+        <td><%= property.city %></td>
+        <td><%= link_to "Vis", property %> <%= link_to "Endre", edit_property_path(property) %> 
+            <%= link_to "Slett", property, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <br>
 

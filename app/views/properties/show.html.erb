@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      Adresse: <%= @property.address %>
+    </div>
+    <div class="col-12">
+      Nummer: <%= @property.property_number %>
+    </div>
+    <div class="col-12">
+      Postnummer: <%= @property.postal_code %>
+    </div>
+    <div class="col-12">
+      By/tettsted: <%= @property.city %>
+    </div>
+
+</div>
+
+<%= link_to "Tilbake", properties_path %>
