@@ -1,4 +1,4 @@
-<%= form_with(model: property_unit, local: true) do |form| %>
+<%= form_with(model: [@property, property_unit], local: true) do |form| %>
   <% if property_unit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(property_unit.errors.count, "error") %> prohibited this property_unit from being saved:</h2>

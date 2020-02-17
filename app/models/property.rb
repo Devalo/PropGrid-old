@@ -1,5 +1,6 @@
 class Property < ApplicationRecord
-    has_many :units
+    has_many :property_units, dependent: :destroy
+
     validates :address, length: { in: 2..100}
     validates :property_number, length: { maximum: 1000}
     validates :postal_code, length: { in: 3..4}

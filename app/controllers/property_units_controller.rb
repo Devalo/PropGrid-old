@@ -1,10 +1,12 @@
 class PropertyUnitsController < ApplicationController
+  before_action :get_property
   before_action :set_property_unit, only: [:show, :edit, :update, :destroy]
 
   # GET /property_units
   # GET /property_units.json
   def index
-    @property_units = PropertyUnit.all
+    #finds the property units related to the spesific property
+    @property_units = @property.property_units
   end
 
   # GET /property_units/1
@@ -14,7 +16,8 @@ class PropertyUnitsController < ApplicationController
 
   # GET /property_units/new
   def new
-    @property_unit = PropertyUnit.new
+    #creates a new object with proper relationships
+    @property_unit = @property.property_units.build
   end
 
   # GET /property_units/1/edit
@@ -24,11 +27,11 @@ class PropertyUnitsController < ApplicationController
   # POST /property_units
   # POST /property_units.json
   def create
-    @property_unit = PropertyUnit.new(property_unit_params)
+    @property_unit = @property.property_units.build(property_unit_params)
 
     respond_to do |format|
       if @property_unit.save
-        format.html { redirect_to @property_unit, notice: 'Property unit was successfully created.' }
+        format.html { redirect_to property_property_units_path(@property), notice: 'Property unit was successfully created.' }
         format.json { render :show, status: :created, location: @property_unit }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class PropertyUnitsController < ApplicationController
   def update
     respond_to do |format|
       if @property_unit.update(property_unit_params)
-        format.html { redirect_to @property_unit, notice: 'Property unit was successfully updated.' }
+        format.html { redirect_to property_property_units_path(@property), notice: 'Property unit was successfully updated.' }
         format.json { render :show, status: :ok, location: @property_unit }
       else
         format.html { render :edit }
@@ -56,19 +59,26 @@ class PropertyUnitsController < ApplicationController
   def destroy
     @property_unit.destroy
     respond_to do |format|
-      format.html { redirect_to property_units_url, notice: 'Property unit was successfully destroyed.' }
+      format.html { redirect_to property_property_units_url(@property), notice: 'Property unit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
+    #Creates a local @property instance by finding a property instance by property_id to relate property units and properties.
+    def get_property
+      @property = Property.find(params[:property_id])
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_property_unit
-      @property_unit = PropertyUnit.find(params[:id])
+      @property_unit = @property.property_units.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_unit_params
       params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id)
     end
+
 end

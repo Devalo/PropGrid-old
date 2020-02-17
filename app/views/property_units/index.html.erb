@@ -20,9 +20,9 @@
         <td><%= property_unit.tenant %></td>
         <td><%= property_unit.description %></td>
         <td><%= property_unit.property_id %></td>
-        <td><%= link_to 'Show', property_unit %></td>
-        <td><%= link_to 'Edit', edit_property_unit_path(property_unit) %></td>
-        <td><%= link_to 'Destroy', property_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@property, property_unit]%></td>
+        <td><%= link_to 'Edit', edit_property_property_unit_path(@property, property_unit) %></td>
+        <td><%= link_to 'Destroy', [@property, property_unit], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Property Unit', new_property_unit_path %>
+<%= link_to 'New Property Unit', new_property_property_unit_path %>
