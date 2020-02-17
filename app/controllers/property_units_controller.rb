@@ -31,7 +31,7 @@ class PropertyUnitsController < ApplicationController
 
     respond_to do |format|
       if @property_unit.save
-        format.html { redirect_to property_property_units_path(@property), notice: 'Property unit was successfully created.' }
+        format.html { redirect_to property_path(@property), notice: 'Property unit was successfully created.' }
         format.json { render :show, status: :created, location: @property_unit }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class PropertyUnitsController < ApplicationController
   def update
     respond_to do |format|
       if @property_unit.update(property_unit_params)
-        format.html { redirect_to property_property_units_path(@property), notice: 'Property unit was successfully updated.' }
+        format.html { redirect_to property_path(@property), notice: 'Property unit was successfully updated.' }
         format.json { render :show, status: :ok, location: @property_unit }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class PropertyUnitsController < ApplicationController
   def destroy
     @property_unit.destroy
     respond_to do |format|
-      format.html { redirect_to property_property_units_url(@property), notice: 'Property unit was successfully destroyed.' }
+      format.html { redirect_to property_path(@property), notice: 'Property unit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

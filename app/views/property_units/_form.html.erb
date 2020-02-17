@@ -11,24 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :unit_number %>
-    <%= form.number_field :unit_number %>
+    <%= form.number_field :unit_number, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :tenant %>
-    <%= form.text_field :tenant %>
+    <%= form.text_field :tenant, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit "Lagre" %>
   </div>
 <% end %>
