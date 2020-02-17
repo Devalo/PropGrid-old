@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit number:</strong>
+  <%= @property_unit.unit_number %>
+</p>
+
+<p>
+  <strong>Tenant:</strong>
+  <%= @property_unit.tenant %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @property_unit.description %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @property_unit.property_id %>
+</p>
+
+<%= link_to 'Edit', edit_property_unit_path(@property_unit) %> |
+<%= link_to 'Back', property_units_path %>
