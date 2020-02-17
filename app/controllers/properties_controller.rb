@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
     def index 
         @properties = Property.order('created_at DESC')
+        
     end
 
     def new
@@ -19,6 +20,7 @@ class PropertiesController < ApplicationController
     end
 
     def show
+      @property_units = @property.property_units
     end
 
     def update
@@ -45,6 +47,7 @@ class PropertiesController < ApplicationController
       def set_property
         @property = Property.find(params[:id])
       end
+
 end
 
 #t.string "name"
