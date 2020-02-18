@@ -3,7 +3,8 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
     def index 
         @properties = Property.order('created_at DESC')
-        
+        puts current_user.id
+         
     end
 
     def new
@@ -12,6 +13,8 @@ class PropertiesController < ApplicationController
 
     def create
       @property = Property.new(property_params)
+      user_id = @current_user
+      puts user_id
 
       if @property.save
         redirect_to @property, notice: "Property was successfully created."
