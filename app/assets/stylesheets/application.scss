@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+ body {
+  background-color: #000;
+}
+
+.custom-navbar{
+  margin-top: 1em;
+  border-bottom: 3px solid #e5e5e5;
+  background-color: #fff;
+}
+.nav-link {
+  color: #000 !important;
+}
+.custom-toggler.navbar-toggler {
+  border-color: rgb(247,32,78) !important;
+  background-color: #000 ;
+}
+.custom-toggler .navbar-toggler-icon{width: 18px!important;}
+.custom-toggler:hover{border-color: rgb(255,255,255); background-color: #f76a88;}
+@media only screen and (max-width: 760px) { #logo_custom{width: 40%;}}
+                          
