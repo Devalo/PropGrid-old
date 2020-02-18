@@ -7,6 +7,7 @@
     </button>
     <div class="collapse navbar-collapse " id="collapsibleNavbar">
       <ul class="navbar-nav ml-auto ">
+      <% if user_signed_in? %>
         <li class="nav-item mid-box">
           <b><%= link_to "Registrer eiendom", new_property_path, class: "nav-link" %></b>
         </li>
@@ -15,7 +16,9 @@
         </li>
         <li class="nav-item">
         </li>  
+        <% end %>
       </ul>
+
       <ul class="navbar-nav ml-auto ">
         <li class="nav-item">
         </li>
@@ -23,7 +26,12 @@
           <a class="nav-link" href="#offer">Innstillinger</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#offer">Logg ut</a>
+        <% if user_signed_in? %>
+          <%= link_to 'Logg ut', destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <% else %> 
+          <%= link_to 'Logg inn', new_user_session_path, class: "nav-link" %>
+        <% end %>
+          
         </li>  
       </ul>
     </div>  
