@@ -13,7 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
  body {
+  color: yellow;
   background-color: #000;
 }
 
@@ -21,6 +25,13 @@
   margin-top: 1em;
   border-bottom: 3px solid #e5e5e5;
   background-color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  .brand-text{
+    color: #333;
+  }
+  .brand-text:hover{
+    text-decoration: none;
+  }
 }
 .nav-link {
   color: #000 !important;
@@ -33,3 +44,9 @@
 .custom-toggler:hover{border-color: rgb(255,255,255); background-color: #f76a88;}
 @media only screen and (max-width: 760px) { #logo_custom{width: 40%;}}
                           
+.mid-box {
+  border: 1px solid black;
+  margin: 5px;
+  margin-bottom: 10px;
+  height: 100%;
+}
