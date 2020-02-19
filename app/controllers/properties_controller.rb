@@ -2,17 +2,19 @@ class PropertiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_property, only: [:show, :edit, :update, :destroy]
     def index 
-        @properties = Property.order('created_at DESC')
+       # @properties = Property.order('created_at DESC')
+        @properties = current_user.properties
         puts current_user.id
          
     end
 
     def new
-      @property = Property.new
+      #@property = Property.new
+      @property = current_user.properties.build
     end
 
     def create
-      @property = Property.new(property_params)
+      @property = Property.new(property_params.merge(user_id: current_user.id))
       user_id = @current_user
       puts user_id
 
