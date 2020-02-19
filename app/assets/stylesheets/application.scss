@@ -18,24 +18,36 @@
 
  body {
   color: yellow;
-  background-color: #000;
+  background-color: #f2f2f2 !important;
 }
 
-.custom-navbar{
-  margin-top: 1em;
-  border-bottom: 3px solid #e5e5e5;
-  background-color: #fff;
+.navbar {
   font-family: 'Source Sans Pro', sans-serif;
   .brand-text{
-    color: #333;
+    color: #222;
   }
   .brand-text:hover{
     text-decoration: none;
-  }
+  } 
+}
+
+.upper-navbar{
+  min-height: 6em;
+  padding-top: 50em;
+  border-bottom: 3px solid #e5e5e5;
+  background-color: #fff;
+}
+.lower-navbar{
+  background-color: #fff;
+  border-bottom: 3px solid #e5e5e5;
 }
 .nav-link {
-  color: #000 !important;
+  color: #333 !important;
 }
+.nav-link:hover {
+  color: #666 !important;
+}
+
 .custom-toggler.navbar-toggler {
   border-color: rgb(247,32,78) !important;
   background-color: #000 ;
@@ -45,8 +57,11 @@
 @media only screen and (max-width: 760px) { #logo_custom{width: 40%;}}
                           
 .mid-box {
-  border: 1px solid black;
+  border: 1px solid #666;
   margin: 5px;
   margin-bottom: 10px;
   height: 100%;
+}
+.mid-box:hover {
+  background-color: #f2f2f2;
 }

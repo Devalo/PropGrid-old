@@ -6,7 +6,8 @@ class PropertyUnitsController < ApplicationController
   # GET /property_units.json
   def index
     #finds the property units related to the spesific property
-    @property_units = @property.property_units
+   # @property_units = @property.property_units
+    @property_units = current_user.property_units
   end
 
   # GET /property_units/1
