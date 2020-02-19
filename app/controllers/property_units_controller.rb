@@ -12,6 +12,7 @@ class PropertyUnitsController < ApplicationController
   # GET /property_units/1
   # GET /property_units/1.json
   def show
+    proper_user
   end
 
   # GET /property_units/new
@@ -22,12 +23,14 @@ class PropertyUnitsController < ApplicationController
 
   # GET /property_units/1/edit
   def edit
+    proper_user
   end
 
   # POST /property_units
   # POST /property_units.json
   def create
-    @property_unit = @property.property_units.build(property_unit_params)
+    
+    @property_unit = @property.property_units.build(property_unit_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @property_unit.save
@@ -43,6 +46,7 @@ class PropertyUnitsController < ApplicationController
   # PATCH/PUT /property_units/1
   # PATCH/PUT /property_units/1.json
   def update
+    proper_user
     respond_to do |format|
       if @property_unit.update(property_unit_params)
         format.html { redirect_to property_path(@property), notice: 'Property unit was successfully updated.' }
@@ -57,6 +61,7 @@ class PropertyUnitsController < ApplicationController
   # DELETE /property_units/1
   # DELETE /property_units/1.json
   def destroy
+    proper_user
     @property_unit.destroy
     respond_to do |format|
       format.html { redirect_to property_path(@property), notice: 'Property unit was successfully destroyed.' }
@@ -79,6 +84,13 @@ class PropertyUnitsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_unit_params
       params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id)
+    end
+    
+    def proper_user
+      if current_user.id != @property_unit.user_id 
+        redirect_to properties_url 
+        flash[:notice] = "Fant ikke det du letet etter."
+      end
     end
 
 end

@@ -27,9 +27,16 @@ class PropertiesController < ApplicationController
 
     def show
       @property_units = @property.property_units
+      proper_user
+      
+    end
+
+    def edit
+      proper_user
     end
 
     def update
+      proper_user
       if @property.update(property_params)
         redirect_to @property, notice: "Property was successfully updated."
       else
@@ -38,6 +45,7 @@ class PropertiesController < ApplicationController
     end
 
     def destroy
+      proper_user
       @property.destroy
       redirect_to properties_url, notice: "Property was successfully destroyed"
     end
@@ -53,6 +61,14 @@ class PropertiesController < ApplicationController
       def set_property
         @property = Property.find(params[:id])
       end
+
+      def proper_user
+        if current_user.id != @property.user_id 
+          redirect_to properties_url 
+          flash[:notice] = "Fant ikke det du letet etter."
+        end
+      end
+      
 
 end
 
