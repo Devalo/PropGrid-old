@@ -21,6 +21,7 @@
   background-color: #f2f2f2 !important;
 }
 
+
 .navbar {
   font-family: 'Source Sans Pro', sans-serif;
   .brand-text{
@@ -40,6 +41,7 @@
 .lower-navbar{
   background-color: #fff;
   border-bottom: 3px solid #e5e5e5;
+  margin-bottom: -2em !important;
 }
 .nav-link {
   color: #333 !important;
@@ -64,4 +66,11 @@
 }
 .mid-box:hover {
   background-color: #f2f2f2;
+}
+
+
+.main-container {
+  background-color: #fff;
+  padding: 1em;
+  border: 1px solid #e5e5e5;
 }
