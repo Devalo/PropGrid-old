@@ -35,7 +35,7 @@
   <% @property.property_units.each do |unit| %>
     <tr scope="row">
           <td><%= unit.unit_number %></td>
-          <td><%= unit.tenant %></td>
+          <td><%= Tenant.find(unit.tenant).first_name+" "+Tenant.find(unit.tenant).last_name%></td>
           <td><%= unit.description %></td>
           <td><%= link_to 'Vis', [@property, unit]%>
           <%= link_to 'Rediger', edit_property_property_unit_path(@property, unit) %>

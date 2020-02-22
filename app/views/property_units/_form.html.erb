@@ -1,6 +1,3 @@
-<% @tenants.each do |tenant| %>
-<%= tenant.first_name %>
-<% end %>
 
 <br><br>
 
@@ -18,17 +15,17 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :unit_number %>
+    <%= form.label :unit_number, "Enhetsnummer" %>
     <%= form.number_field :unit_number, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :tenant, "Leietaker" %>
-     <%= form.select :tenant, Tenant.all.collect { |t| [t.first_name, t.id]}, include_blank: true %> 
+     <%= form.select :tenant, Tenant.all.collect { |t| [ t.first_name+" "+t.last_name+", "+t.phone_number.to_s , t.id]}, include_blank: true %> 
   </div>
 
   <div class="form-group">
-    <%= form.label :description %>
+    <%= form.label :description, "Kommentarer" %>
     <%= form.text_area :description, class: "form-control" %>
   </div>
 

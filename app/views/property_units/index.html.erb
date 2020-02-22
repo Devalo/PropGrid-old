@@ -17,7 +17,7 @@
     <% @property_units.each do |property_unit| %>
       <tr>
         <td><%= property_unit.unit_number %></td>
-        <td><%= property_unit.tenant %></td>
+        <td><%= Tenant.property_unit.tenant.first_name %></td>
         <td><%= property_unit.description %></td>
         <td><%= link_to 'Show', [@property, property_unit]%></td>
         <td><%= link_to 'Edit', edit_property_property_unit_path(@property, property_unit) %></td>

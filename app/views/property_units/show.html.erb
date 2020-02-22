@@ -8,7 +8,7 @@
 
 <p>
   <strong>Tenant:</strong>
-  <%= @property_unit.tenant %>
+  <%= Tenant.find(@property_unit.tenant).first_name+" "+Tenant.find(@property_unit.tenant).last_name%>
 </p>
 
 <p>
@@ -20,6 +20,7 @@
   <strong>Property:</strong>
   <%= @property_unit.property_id %>
 </p>
+
 
 <%= link_to 'Edit', edit_property_property_unit_path(@property, @property_unit) %> |
 <%= link_to 'Back', property_path(@property) %>

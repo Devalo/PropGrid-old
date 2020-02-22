@@ -28,6 +28,7 @@ class PropertiesController < ApplicationController
 
     def show
       @property_units = @property.property_units
+      @tenants 
       proper_user
       
     end
