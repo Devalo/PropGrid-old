@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_191803) do
+ActiveRecord::Schema.define(version: 2020_02_22_202035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_02_22_191803) do
     t.string "city"
     t.string "property_image"
     t.integer "rent"
-    t.string "tenant"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
@@ -45,7 +44,9 @@ ActiveRecord::Schema.define(version: 2020_02_22_191803) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.bigint "tenant_id"
     t.index ["property_id"], name: "index_property_units_on_property_id"
+    t.index ["tenant_id"], name: "index_property_units_on_tenant_id"
     t.index ["user_id"], name: "index_property_units_on_user_id"
   end
 
@@ -75,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_02_22_191803) do
 
   add_foreign_key "properties", "users"
   add_foreign_key "property_units", "properties"
+  add_foreign_key "property_units", "tenants"
   add_foreign_key "property_units", "users"
   add_foreign_key "tenants", "users"
 end

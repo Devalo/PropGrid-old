@@ -20,6 +20,9 @@ class PropertyUnitsController < ApplicationController
   def new
     #creates a new object with proper relationships
     @property_unit = @property.property_units.build
+    @tenants = Tenant.all
+
+
   end
 
   # GET /property_units/1/edit

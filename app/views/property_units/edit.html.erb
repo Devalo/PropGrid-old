@@ -1,6 +1,11 @@
-<h1>Editing Property Unit</h1>
+<div class="container">
+  <h1>Rediger enhet</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'form', property_unit: @property_unit %>
 
-<%= render 'form', property_unit: @property_unit %>
-
-<%= link_to 'Show', [@property, @property_unit] %> |
-<%= link_to 'Back', property_path(@property) %>
+      <%= link_to 'Back', property_path(@property) %>
+    
+    </div>
+  </div>
+</div>

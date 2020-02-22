@@ -8,6 +8,7 @@ class PropertiesController < ApplicationController
          
     end
 
+
     def new
       #@property = Property.new
       @property = current_user.properties.build
@@ -54,7 +55,7 @@ class PropertiesController < ApplicationController
     private 
 
     def property_params
-        params.require(:property).permit(:name, :address, :property_number, :property_image, :city, :postal_code, :rent, :tenant)
+        params.require(:property).permit(:name, :address, :property_number, :property_image, :city, :postal_code, :rent)
       end
     
 

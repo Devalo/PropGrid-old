@@ -1,6 +1,12 @@
-<h1>Editing Tenant</h1>
+<div class="container">
+  <h2><%= @tenant.first_name %> <%= @tenant.last_name%></h2>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'form', tenant: @tenant %>
 
-<%= render 'form', tenant: @tenant %>
+      <%= link_to 'Tilbake', tenants_path %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Show', @tenant %> |
-<%= link_to 'Back', tenants_path %>
+
