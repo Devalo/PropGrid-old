@@ -1,6 +1,3 @@
-
-
-
 <h1>Eiendommer</h1>
 
 <%= link_to "Registrer ny eiendom", new_property_path %>
@@ -21,7 +18,7 @@
     <% @properties.each_with_index do |property, num| %>
       <% num += 1 %> <%# increments entry number each loop by one %>
       <tr>
-        <th scope="row"><%= num %>
+        <td scope="row"><%= num %></td>
         <td><%= property.address %></td>
         <td><%= property.property_number %></td>
         <td><%= property.postal_code %></td>
