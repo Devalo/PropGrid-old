@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @tenant.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @tenant.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @tenant.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @tenant.phone_number %>
+</p>
+
+<p>
+  <strong>Social sec number:</strong>
+  <%= @tenant.social_sec_number %>
+</p>
+
+<%= link_to 'Edit', edit_tenant_path(@tenant) %> |
+<%= link_to 'Back', tenants_path %>

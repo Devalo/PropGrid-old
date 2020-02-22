@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tenants
   resources :foobars
 
   #nesting property units under
