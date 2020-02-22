@@ -23,7 +23,7 @@
         <td><%= property.property_number %></td>
         <td><%= property.postal_code %></td>
         <td><%= property.city %></td>
-        <td><%= link_to "Vis", property %> <%= link_to "Endre", edit_property_path(property) %> 
+        <td><%= link_to "Vis", property %> <%= link_to "Rediger", edit_property_path(property) %> 
             <%= link_to "Slett", property, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" } %></td>
       </tr>
     <% end %>

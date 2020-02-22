@@ -4,7 +4,8 @@ class TenantsController < ApplicationController
   # GET /tenants
   # GET /tenants.json
   def index
-    @tenants = Tenant.all
+    #proper_user
+    @tenants = current_user.tenants
   end
 
   # GET /tenants/1
@@ -14,7 +15,7 @@ class TenantsController < ApplicationController
 
   # GET /tenants/new
   def new
-    @tenant = Tenant.new
+    @tenant = current_user.tenants.build
   end
 
   # GET /tenants/1/edit
@@ -24,7 +25,7 @@ class TenantsController < ApplicationController
   # POST /tenants
   # POST /tenants.json
   def create
-    @tenant = Tenant.new(tenant_params)
+    @tenant = Tenant.new(tenant_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @tenant.save
@@ -70,5 +71,13 @@ class TenantsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
       params.require(:tenant).permit(:first_name, :last_name, :email, :phone_number, :social_sec_number)
+    end
+
+
+    def proper_user
+      if current_user.id != @property.user_id 
+        redirect_to properties_url 
+        flash[:notice] = "Fant ikke det du letet etter."
+      end
     end
 end

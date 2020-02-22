@@ -17,18 +17,18 @@
   </thead>
 
   <tbody>
-    <% @tenants.each do |tenant| %>
-    <% num += 1 %> <%# increments entry number each loop by one %>
+    <% @tenants.each_with_index do |tenant, num| %>
+    <% num += 1 %> 
       <tr>
-      <th scope="row"><%= num %>
+      <td scope="row"><%= num %></td>
         <td><%= tenant.first_name %></td>
         <td><%= tenant.last_name %></td>
         <td><%= tenant.email %></td>
         <td><%= tenant.phone_number %></td>
         <td><%= tenant.social_sec_number %></td>
-        <td><%= link_to 'Show', tenant %></td>
-        <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
-        <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' } %></td>
+        <td><%= link_to 'Vis', tenant %>
+        <%= link_to 'Rediger', edit_tenant_path(tenant) %>
+        <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' } %>
       </tr>
     <% end %>
   </tbody>
