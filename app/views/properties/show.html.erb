@@ -1,11 +1,9 @@
 
-<div class="container">
 
   <h1> <%= property_name %></h1>
+  <hr>
 
-</div>
 
-<div class="container">
   <div class="row">
     <div class="col-12">
       Adresse: <%= @property.address %>
@@ -19,8 +17,11 @@
     <div class="col-12">
       By/tettsted: <%= @property.city %>
     </div>
-
-    <%= link_to "Registrer ny enhet", new_property_property_unit_path(@property) %>
+<div class="container">
+<hr>
+    <%= link_to "Registrer ny enhet", new_property_property_unit_path(@property), class: "btn btn-primary btn-sm" %>
+    <br><br>
+    
 
 <table class="table table-striped">
   <thead>
@@ -37,13 +38,14 @@
           <td><%= unit.unit_number %></td>
           <td><%= Tenant.find(unit.tenant).first_name+" "+Tenant.find(unit.tenant).last_name%></td>
           <td><%= unit.description %></td>
-          <td><%= link_to 'Vis', [@property, unit]%>
-          <%= link_to 'Rediger', edit_property_property_unit_path(@property, unit) %>
-           <%= link_to 'Slett', [@property, unit], method: :delete, data: { confirm: 'Er du sikker?' } %>
+          <td><%= link_to 'Vis', [@property, unit], class: "btn btn-outline-primary btn-sm"%>
+          <%= link_to 'Rediger', edit_property_property_unit_path(@property, unit), class: "btn btn-outline-secondary btn-sm"  %>
+           <%= link_to 'Slett', [@property, unit], method: :delete, data: { confirm: 'Er du sikker?' }, class: "btn btn-outline-danger btn-sm"  %>
         </tr>
   <% end %>
   </tbody>
 </table>
+
+<%= link_to "Tilbake", properties_path, class: "btn btn-light" %>
 </div>
 
-<%= link_to "Tilbake", properties_path %>

@@ -1,11 +1,12 @@
-<div class="container">
-  <h1>Rediger enhet</h1>
+  <h1>Rediger enhet: <%= @property_unit.unit_number %></h1>
+  <hr>
   <div class="row">
     <div class="col-md-12">
       <%= render 'form', property_unit: @property_unit %>
 
-      <%= link_to 'Back', property_path(@property) %>
+      <%= link_to 'Back', property_path(@property), class: "btn btn-light" %>
     
     </div>
   </div>
-</div>
+
+

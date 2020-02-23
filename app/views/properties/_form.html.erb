@@ -11,27 +11,34 @@
   <% end %>
 
 
+  <div class="col-md-7 offset-md-1 ">
   <div class="form-group">
     <%= form.label :address, "Adresse" %>
     <%= form.text_field :address, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-row">
+  <div class="form-group col-md-2">
     <%= form.label :property_number, "Husnummer" %>
     <%= form.text_field :property_number, class: "form-control" %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group col-md-3">
     <%= form.label :postal_code, "Postnummer" %>
     <%= form.text_field :postal_code, class: "form-control"  %>
   </div>
-
-  <div class="form-group">
+  <div class="form-group col-md-7">
     <%= form.label :city, "By/Tettsted" %>
     <%= form.text_field :city, class: "form-control" %>
   </div>
+  
+  </div> 
+
+  
 
   <div class="form-group">
-    <%= form.submit "Lagre eiendom" %>
+    <%= form.submit "Lagre eiendom", class: "btn btn-primary btn-sm" %>
+  </div>
+  
   </div>
 <% end %>

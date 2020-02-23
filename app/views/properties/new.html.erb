@@ -1,11 +1,10 @@
 
-<div class="container">
-<h2>Ny eiendom</h2>
+<h1>Ny eiendom</h1>
+<hr>
   <div class="row">
     <div class="col-md-12">
     <%= render 'form', property: @property %>
 
-    <%= link_to 'Back', properties_path %>
+    <%= link_to 'Tilbake', properties_path, class: "btn btn-light" %>
     </div>
   </div>
-</div>
