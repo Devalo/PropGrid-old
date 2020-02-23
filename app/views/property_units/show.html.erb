@@ -1,13 +1,8 @@
-<div class="container">
 <p id="notice"><%= notice %></p>
-
+<h2><%= Property.find(@property_unit.property_id).address %> <span class="small">Enhet <%= @property_unit.unit_number %></span></h2>
+<hr>
 <p>
-  <strong>Unit number:</strong>
-  <%= @property_unit.unit_number %>
-</p>
-
-<p>
-  <strong>Tenant:</strong>
+  <strong>Leietaker:</strong>
   <%= Tenant.find(@property_unit.tenant).first_name+" "+Tenant.find(@property_unit.tenant).last_name%>
 </p>
 
@@ -16,13 +11,8 @@
   <%= @property_unit.description %>
 </p>
 
-<p>
-  <strong>Property:</strong>
-  <%= @property_unit.property_id %>
-</p>
 
 
-<%= link_to 'Edit', edit_property_property_unit_path(@property, @property_unit) %> |
-<%= link_to 'Back', property_path(@property) %>
-</div>
+<%= link_to 'Rediger', edit_property_property_unit_path(@property, @property_unit), class: "btn btn-secondary" %> 
+<%= link_to 'Tilbake', property_path(@property), class: "btn btn-outline-secondary btn-sm" %>
 

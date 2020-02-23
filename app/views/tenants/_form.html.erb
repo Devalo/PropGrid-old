@@ -11,24 +11,30 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :first_name, "Fornavn" %>
-    <%= form.text_field :first_name, class: "form-control" %>
+<div class="col-md-7 offset-md-1">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :first_name, "Fornavn" %>
+      <%= form.text_field :first_name, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :last_name, "Etternavn" %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :last_name, "Etternavn" %>
-    <%= form.text_field :last_name, class: "form-control" %>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <%= form.label :email, "Epost" %>
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :email, "Epost" %>
-    <%= form.text_field :email, class: "form-control" %>
-  </div>
+    <div class="form-group col-md-4">
+      <%= form.label :phone_number, "Telefonnummer" %>
+      <%= form.number_field :phone_number, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= form.label :phone_number, "Telefonnummer" %>
-    <%= form.number_field :phone_number, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -37,6 +43,8 @@
   </div>
 
   <div class="form-group">
-    <%= form.submit "Lagre" %>
+    <%= form.submit "Lagre", class: "btn btn-primary btn-sm" %>
   </div>
 <% end %>
+
+</div>

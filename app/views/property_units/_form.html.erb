@@ -23,7 +23,7 @@
 
       <div class="form-group col-md-7 offset-md-1">
         <%= form.label :tenant, "Leietaker" %>
-        <%= form.select :tenant, Tenant.all.collect { |t| [ t.first_name+" "+t.last_name+", "+t.phone_number.to_s , t.id]}, {include_blank: true}, {class: "form-control"} %> 
+        <%= form.select :tenant, @tenants.collect { |t| [ t.first_name+" "+t.last_name+", "+t.phone_number.to_s , t.id]}, {include_blank: true}, {class: "form-control"} %> 
       </div>
 
     </div>

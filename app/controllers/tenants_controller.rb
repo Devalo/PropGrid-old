@@ -11,6 +11,7 @@ class TenantsController < ApplicationController
   # GET /tenants/1
   # GET /tenants/1.json
   def show
+    proper_user
   end
 
   # GET /tenants/new
@@ -20,6 +21,7 @@ class TenantsController < ApplicationController
 
   # GET /tenants/1/edit
   def edit
+    proper_user
   end
 
   # POST /tenants
@@ -41,6 +43,7 @@ class TenantsController < ApplicationController
   # PATCH/PUT /tenants/1
   # PATCH/PUT /tenants/1.json
   def update
+    proper_user
     respond_to do |format|
       if @tenant.update(tenant_params)
         format.html { redirect_to @tenant, notice: 'Tenant was successfully updated.' }
@@ -55,6 +58,7 @@ class TenantsController < ApplicationController
   # DELETE /tenants/1
   # DELETE /tenants/1.json
   def destroy
+    proper_user
     @tenant.destroy
     respond_to do |format|
       format.html { redirect_to tenants_url, notice: 'Tenant was successfully destroyed.' }
@@ -75,8 +79,8 @@ class TenantsController < ApplicationController
 
 
     def proper_user
-      if current_user.id != @property.user_id 
-        redirect_to properties_url 
+      if current_user.id != @tenant.user_id 
+        redirect_to tenants_url 
         flash[:notice] = "Fant ikke det du letet etter."
       end
     end

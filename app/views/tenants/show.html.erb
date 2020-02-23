@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
+  <strong>Fornavn:</strong>
   <%= @tenant.first_name %>
 </p>
 
 <p>
-  <strong>Last name:</strong>
+  <strong>Etternavn:</strong>
   <%= @tenant.last_name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>Epost:</strong>
   <%= @tenant.email %>
 </p>
 
 <p>
-  <strong>Phone number:</strong>
+  <strong>Telefon:</strong>
   <%= @tenant.phone_number %>
 </p>
 
 <p>
-  <strong>Social sec number:</strong>
+  <strong>Fødsels og personnummer:</strong>
   <%= @tenant.social_sec_number %>
 </p>
 
-<%= link_to 'Edit', edit_tenant_path(@tenant) %> |
-<%= link_to 'Back', tenants_path %>
+<%= link_to 'Rediger', edit_tenant_path(@tenant), class: "btn btn-secondary" %> 
+<%= link_to 'Tilbake', tenants_path, class: "btn btn-outline-secondary btn-sm" %>
