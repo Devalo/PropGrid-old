@@ -25,6 +25,7 @@ class PropertiesController < ApplicationController
         render :new
       end
     end
+    
 
     def show
       @property_units = @property.property_units
