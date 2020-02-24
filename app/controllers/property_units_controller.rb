@@ -29,6 +29,7 @@ class PropertyUnitsController < ApplicationController
   # GET /property_units/1/edit
   def edit
     proper_user
+    @tenants = current_user.tenants
   end
 
   # POST /property_units

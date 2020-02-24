@@ -3,7 +3,11 @@
 <hr>
 <p>
   <strong>Leietaker:</strong>
+  <% if @property_unit.tenant.present? %>
   <%= Tenant.find(@property_unit.tenant).first_name+" "+Tenant.find(@property_unit.tenant).last_name%>
+  <% else %>
+  Ingen leietaker
+  <% end %>
 </p>
 
 <p>
