@@ -4,40 +4,42 @@
   <div class="container">
     <%= link_to "Registrer ny eiendom", new_property_path, class: "btn btn-primary btn-sm" %><br>  </div>
 </div>
-
-<table class="table table-bordered table-striped table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Adresse</th>
-      <th scope="col">Husnummer</th>
-      <th scope="col">Postnummer</th>
-      <th scope="col">By/tettsted</th>
-      <th scope="col">Handling</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @properties.each_with_index do |property, num| %>
-      <% num += 1 %> <%# increments entry number each loop by one %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
       <tr>
-        <td scope="row"><%= num %></td>
-        <td><%= property.address %></td>
-        <td><%= property.property_number %></td>
-        <td><%= property.postal_code %></td>
-        <td><%= property.city %></td>
-
-        <div class="btn-group" role="group">
-        
-        <td>
-        <%= link_to "Vis", property, class: "btn btn-outline-primary btn-sm" %> 
-            <%= link_to "Rediger", edit_property_path(property), class: "btn btn-outline-secondary btn-sm" %> 
-            <%= link_to "Slett", property, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" }, class: "btn btn-outline-danger btn-sm" %>
-        </td>
-        </div>
-
+        <th scope="col">#</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Husnummer</th>
+        <th scope="col">Postnummer</th>
+        <th scope="col">By/tettsted</th>
+        <th scope="col">Handling</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @properties.each_with_index do |property, num| %>
+        <% num += 1 %> <%# increments entry number each loop by one %>
+        <tr>
+          <td scope="row"><%= num %></td>
+          <td><%= property.address %></td>
+          <td><%= property.property_number %></td>
+          <td><%= property.postal_code %></td>
+          <td><%= property.city %></td>
+
+          <div class="btn-group" role="group">
+          
+          <td>
+          <%= link_to "Vis", property, class: "btn btn-outline-primary btn-sm" %> 
+              <%= link_to "Rediger", edit_property_path(property), class: "btn btn-outline-secondary btn-sm" %> 
+              <%= link_to "Slett", property, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" }, class: "btn btn-outline-danger btn-sm" %>
+          </td>
+          </div>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
 
 <br>

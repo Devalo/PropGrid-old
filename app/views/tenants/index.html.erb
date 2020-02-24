@@ -6,37 +6,39 @@
   </div>
 </div>
 <br>
-
-<table class="table table-bordered table-striped table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Fornavn</th>
-      <th scope="col">Etternavn</th>
-      <th scope="col">Telefon</th>
-      <th scope="col">Epost</th>
-      <th scope="col">Personnummer</th>
-      <th scope="col">Handling</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tenants.each_with_index do |tenant, num| %>
-    <% num += 1 %> 
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
       <tr>
-      <td scope="row"><%= num %></td>
-        <td><%= tenant.first_name %></td>
-        <td><%= tenant.last_name %></td>
-        <td><%= tenant.phone_number %></td>
-        <td><%= tenant.email %></td>
-        <td><%= tenant.social_sec_number %></td>
-        <td><%= link_to 'Vis', tenant, class: "btn btn-outline-primary btn-sm" %>
-        <%= link_to 'Rediger', edit_tenant_path(tenant), class: "btn btn-outline-secondary btn-sm"  %>
-        <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' }, class: "btn btn-outline-danger btn-sm" %>
+        <th scope="col">#</th>
+        <th scope="col">Fornavn</th>
+        <th scope="col">Etternavn</th>
+        <th scope="col">Telefon</th>
+        <th scope="col">Epost</th>
+        <th scope="col">Personnummer</th>
+        <th scope="col">Handling</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @tenants.each_with_index do |tenant, num| %>
+      <% num += 1 %> 
+        <tr>
+        <td scope="row"><%= num %></td>
+          <td><%= tenant.first_name %></td>
+          <td><%= tenant.last_name %></td>
+          <td><%= tenant.phone_number %></td>
+          <td><%= tenant.email %></td>
+          <td><%= tenant.social_sec_number %></td>
+          <td><%= link_to 'Vis', tenant, class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to 'Rediger', edit_tenant_path(tenant), class: "btn btn-outline-secondary btn-sm"  %>
+          <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' }, class: "btn btn-outline-danger btn-sm" %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
 
 <br>
 
