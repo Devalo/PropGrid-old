@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-PropertyUnit.all.each do |u|
-  5.times do |i|
-    u.todo_items.create(title: "Gjøremål #{1+i}", complete: i % 3  == 0 ? true : false)
+User.all.each do |u|
+  PropertyUnit.all.each do |p|
+    10.times do |i|
+        u.todo_items.create(title: "To Do Item #{i+1} for #{u.email}", complete: i % 3  == 0 ? true : false, property_unit_id: p.id  )
+    end
   end
 end
