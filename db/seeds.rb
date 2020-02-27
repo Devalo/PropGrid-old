@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+PropertyUnit.all.each do |u|
+  5.times do |i|
+    u.todo_items.create(title: "Gjøremål #{1+i}", complete: i % 3  == 0 ? true : false)
+  end
+end

@@ -75,28 +75,30 @@ class PropertyUnitsController < ApplicationController
     end
   end
 
+  def todo_items
+  end
+
   private
 
-    #Creates a local @property instance by finding a property instance by property_id to relate property units and properties.
-    def get_property
-      @property = Property.find(params[:property_id])
-    end
-    
-    # Use callbacks to share common setup or constraints between actions.
-    def set_property_unit
-      @property_unit = @property.property_units.find(params[:id])
-    end
+  # Creates a local @property instance by finding a property instance by property_id to relate property units and properties.
+  def get_property
+    @property = Property.find(params[:property_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def property_unit_params
-      params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id)
-    end
-    
-    def proper_user
-      if current_user.id != @property_unit.user_id 
-        redirect_to properties_url 
-        flash[:notice] = "Fant ikke det du letet etter."
-      end
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_property_unit
+    @property_unit = @property.property_units.find(params[:id])
+  end
 
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def property_unit_params
+    params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id)
+  end
+
+  def proper_user
+    if current_user.id != @property_unit.user_id 
+      redirect_to properties_url
+      flash[:notice] = 'Fant ikke det du letet etter.'
+    end
+  end
 end
