@@ -8,12 +8,27 @@ class PropertyUnitsController < ApplicationController
     #finds the property units related to the spesific property
    # @property_units = @property.property_units
     @property_units = current_user.property_units
+    @todo_items     = current_user.todo_items.all
+
+    render json: @todo_items
+
   end
 
   # GET /property_units/1
   # GET /property_units/1.json
   def show
     proper_user
+
+    @todo_items     = current_user.todo_items.all
+
+
+    respond_to do |format|
+
+  format.html # show.html.erb
+  format.json { render json: @todo_items}
+
+ end
+
   end
 
   # GET /property_units/new
@@ -35,7 +50,7 @@ class PropertyUnitsController < ApplicationController
   # POST /property_units
   # POST /property_units.json
   def create
-    
+
     @property_unit = @property.property_units.build(property_unit_params.merge(user_id: current_user.id))
 
     respond_to do |format|
@@ -96,7 +111,7 @@ class PropertyUnitsController < ApplicationController
   end
 
   def proper_user
-    if current_user.id != @property_unit.user_id 
+    if current_user.id != @property_unit.user_id
       redirect_to properties_url
       flash[:notice] = 'Fant ikke det du letet etter.'
     end

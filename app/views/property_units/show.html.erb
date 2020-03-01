@@ -1,22 +1,30 @@
 <p id="notice"><%= notice %></p>
 <h2><%= Property.find(@property_unit.property_id).address %> <span class="small">Enhet <%= @property_unit.unit_number %></span></h2>
 <hr>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Leietaker:</strong>
+    <% if @property_unit.tenant.present? %>
+    <%= Tenant.find(@property_unit.tenant).first_name+" "+Tenant.find(@property_unit.tenant).last_name%>
+    <% else %>
+    Ingen leietaker
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @property_unit.description %>
+  </p>
+  </div>
+  <div class="col-md-6">
+    <h3>Mine gjøremål</h3>
+    <hr>
+    <div id="todo-app"></div>
+
+  </div>
+</div>
 <p>
-  <strong>Leietaker:</strong>
-  <% if @property_unit.tenant.present? %>
-  <%= Tenant.find(@property_unit.tenant).first_name+" "+Tenant.find(@property_unit.tenant).last_name%>
-  <% else %>
-  Ingen leietaker
-  <% end %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @property_unit.description %>
-</p>
 
 
-
-<%= link_to 'Rediger', edit_property_property_unit_path(@property, @property_unit), class: "btn btn-secondary" %> 
+<%= link_to 'Rediger', edit_property_property_unit_path(@property, @property_unit), class: "btn btn-secondary" %>
 <%= link_to 'Tilbake', property_path(@property), class: "btn btn-outline-secondary btn-sm" %>
-
