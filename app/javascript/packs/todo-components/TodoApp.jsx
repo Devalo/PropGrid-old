@@ -46,6 +46,7 @@ class TodoApp extends React.Component {
       hideCompletedTodoItems: !this.state.hideCompletedTodoItems
     });
   }
+  
   getTodoItems(){
     axios
       .get("/api/v1/todo_items")
@@ -62,7 +63,7 @@ class TodoApp extends React.Component {
           errorMessage: {
             message: "Det oppsto et problem ved henting av gjøremålene."
           }
-        }) 
+        })
       });
   }
   createTodoItem(todoItem){
