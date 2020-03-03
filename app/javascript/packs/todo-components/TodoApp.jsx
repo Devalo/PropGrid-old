@@ -62,7 +62,7 @@ class TodoApp extends React.Component {
           errorMessage: {
             message: "Det oppsto et problem ved henting av gjøremålene."
           }
-        })
+        }) 
       });
   }
   createTodoItem(todoItem){
