@@ -2,8 +2,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// lodash to postpone server update, so the server doesnt get hit with every key
+import _ from 'lodash';
 import axios from 'axios';
 import setAxiosHeaders from './AxiosHeaders';
+
+
 
 class TodoItem extends React.Component {
   constructor(props) {
@@ -24,9 +28,13 @@ class TodoItem extends React.Component {
     this.path = `/api/v1/todo_items/${this.props.todoItem.id}`;
   }
   handleChange() {
+    this.setState({
+      complete: this.completedRef.current.checked
+    });
     this.updateTodoItem();
   }
-  updateTodoItem() {
+  // the update will run after 1 sec after typing
+  updateTodoItem = _.debounce(() => {
     this.setState({ complete: this.completedRef.current.checked });
     setAxiosHeaders();
     axios
@@ -40,7 +48,7 @@ class TodoItem extends React.Component {
       .catch(error => {
         console.log(error);
       });
-  }
+  }, 1000);
   // This method sends a delete request to the API. If successful
   // then render TodoItems,
   handleDestroy() {
@@ -62,7 +70,9 @@ class TodoItem extends React.Component {
   render() {
     const { todoItem } = this.props
     return (
-      <tr className={`${this.state.complete ? 'table-light' : ''}`}>
+      // show or hide <TodoItem /> depending on whether or not hideCompletedTodoItems and props are true or not
+        <tr className={`${ this.state.complete && this.props.hideCompletedTodoItems ? `d-none` : "" } ${this.state.complete ? "table-light" : ""}`}
+      >
         <td>
           <svg
             className={`bi bi-check-circle ${
@@ -116,7 +126,7 @@ class TodoItem extends React.Component {
             </label>
           </div>
           <button
-            className="btn btn-outline-danger"
+            className="btn btn-outline-danger btn-sm"
             onClick={this.handleDestroy}>Slett</button>
         </td>
       </tr>
@@ -129,4 +139,5 @@ export default TodoItem
 TodoItem.propTypes = {
   todoItem: PropTypes.object.isRequired,
   getTodoItems: PropTypes.func.isRequired,
+  hideCompletedTodoItems: PropTypes.bool.isRequired,
 }
