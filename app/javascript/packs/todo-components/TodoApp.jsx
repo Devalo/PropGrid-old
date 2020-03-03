@@ -24,10 +24,23 @@ class TodoApp extends React.Component {
     this.getTodoItems = this.getTodoItems.bind(this);
     this.createTodoItem = this.createTodoItem.bind(this);
     this.toggleCompletedTodoItems = this.toggleCompletedTodoItems.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
+    this.clearErrors = this.clearErrors.bind(this);
   }
   componentDidMount(){
     this.getTodoItems();
   }
+  //sets the error message
+  handleErrors(errorMessage){
+    this.setState({ errorMessage });
+  }
+  // deletes the error message from state
+  clearErrors(){
+    this.setState({
+      errorMessage: null
+    });
+  }
+
   toggleCompletedTodoItems(){
     this.setState({
       hideCompletedTodoItems: !this.state.hideCompletedTodoItems
@@ -37,6 +50,7 @@ class TodoApp extends React.Component {
     axios
       .get("/api/v1/todo_items")
       .then(response => {
+        this.clearErrors();
         this.setState({ isLoading: true });
         const todoItems = response.data;
         this.setState({ todoItems });
@@ -44,7 +58,11 @@ class TodoApp extends React.Component {
       })
       .catch(error => {
         this.setState({ isLoading: true });
-        console.log(error);
+        this.setState({
+          errorMessage: {
+            message: "Det oppsto et problem ved henting av gjøremålene."
+          }
+        })
       });
   }
   createTodoItem(todoItem){
@@ -59,7 +77,9 @@ class TodoApp extends React.Component {
         )}
         {!this.state.isLoading && (
         <>
-        <TodoForm createTodoItem={this.createTodoItem} />
+        <TodoForm createTodoItem={this.createTodoItem}
+                  handleErrors={this.handleErrors}
+                  clearErrors={this.clearErrors}/>
         <TodoItems
           toggleCompletedTodoItems={this.toggleCompletedTodoItems}
           hideCompletedTodoItems={this.state.hideCompletedTodoItems}>
@@ -67,7 +87,11 @@ class TodoApp extends React.Component {
             <TodoItem key={todoItem.id}
                       todoItem={todoItem}
                       getTodoItems={this.getTodoItems}
-                      hideCompletedTodoItems={this.state.hideCompletedTodoItems}/>
+                      hideCompletedTodoItems={this.state.hideCompletedTodoItems}
+                      handleErrors={this.handleErrors}
+                      clearErrors={this.clearErrors}
+
+                      />
 
           ))}
         </TodoItems>

@@ -23,14 +23,16 @@ class TodoForm extends React.Component{
         }
       })
       .then(response => {
-        const todoItem = response.data
-        this.props.createTodoItem(todoItem)
+        const todoItem = response.data;
+        this.props.createTodoItem(todoItem);
+        this.props.clearErrors();
       })
       .catch(error => {
-        console.log(error)
-      })
+        this.props.handleErrors(error);
+      });
     e.target.reset();
   }
+
   render(){
     return (
 
@@ -39,9 +41,9 @@ class TodoForm extends React.Component{
           <div className="form-group col-md-8">
             <input
               type="text"
-              name="title"
+              name="gjøremål"
               ref={this.titleRef}
-              required
+              // required
               className="form-control"
               id="title"
               placeholder="Skriv ned gjøremål"
@@ -62,4 +64,6 @@ export default TodoForm
 
 TodoForm.protoTypes = {
   createTodoItem: PropTypes.func.isRequired,
+  handleErrors: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
 }
