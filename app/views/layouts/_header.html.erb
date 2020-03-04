@@ -11,7 +11,7 @@
       <span class="navbar-toggler-icon "></span>
     </button>
     <div class="collapse navbar-collapse " id="collapsibleNavbar">
-      
+
 
       <ul class="navbar-nav ml-auto ">
         <li class="nav-item">
@@ -22,13 +22,13 @@
         <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to 'Logg ut', destroy_user_session_path, method: :delete, class: "nav-link" %>
-        <% else %> 
+        <% else %>
           <%= link_to 'Logg inn', new_user_session_path, class: "nav-link" %>
         <% end %>
-          
-        </li>  
+
+        </li>
       </ul>
-    </div>  
+    </div>
   </div>
 </nav>
 <% if user_signed_in? %>
@@ -39,8 +39,8 @@
     </button>
     <div class="collapse navbar-collapse d-flex justify-content-center" id="collapsibleNavbar">
       <ul class="navbar-nav m  ">
-       
-      
+
+
         <li class="nav-item mid-box">
           <b><%= link_to "Eiendom", properties_path, class: "nav-link" %></b>
         </li>
@@ -51,12 +51,12 @@
           <a class="nav-link" href="#offer" disabled><b>Innboks</b></a>
         </li>
         <li class="nav-item">
-        </li>  
-      
+        </li>
+
       </ul>
 
-      
-    </div>  
+
+    </div>
   </div>
 </nav>
   <% end %>

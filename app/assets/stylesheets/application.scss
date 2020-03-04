@@ -18,18 +18,100 @@
  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
  @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
+ @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap');
+
+ $background-color: #FFF3E4;
+ $primary-c: #FB781F;
+ $secondary-c: #1F1F56;
+ $support-green-c: #35C2A1;
+ $support-red-c: #FF0000;
+
+ $primary-hoover-c: #FBBD1F;
+ $click-c: #FFAB54;
+
+
  body {
-  color: yellow;
-  background-color: #f2f2f2 !important;
-  font-family: 'Open Sans';
+   color: $secondary-c !important;
+  background-color: $background-color !important;
+  font-family: 'Quicksand', sans-serif !important;
+
+  p {
+    color: $secondary-c;
+  }
+
+  a {
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  hr {
+    border-color: $primary-c;
+  }
+
+  h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 30px !important;
+    font-weight: 600 !important;
+    color: $secondary-c;
+  }
+
+  .btn-primary-c {
+    background-color: $primary-c;
+    border-color: $primary-c;
+    color: #fff;
+  }
+  .btn-primary-c:hover {
+    background: $primary-hoover-c;
+    border-color: $primary-hoover-c;
+    color: #fff;
+  }
+  .btn-primary-c:active {
+    background: $click-c;
+    border-color: $click-c;
+  }
+  .btn-primary-c:focus {
+    background: $click-c;
+    border-color: $click-c;
+  }
+
+  table {
+    th {
+      color: $secondary-c;
+      border-top: 1px solid $secondary-c !important;
+      border-bottom: 1px solid #E5E5EA !important;
+    }
+    tr {
+      td {
+        color: $secondary-c;
+        border-top: 1px solid #E5E5EA !important;
+        border-bottom: 1px solid #E5E5EA !important;
+
+        .btn-outline-primary-c {
+          border: 1px solid $secondary-c;
+        }
+        .btn-outline-primary-c:hover {
+          background: $secondary-c;
+          color: #fff;
+        }
+        .btn-outline-secondary-c {
+          border: 1px solid $primary-c;
+        }
+        .btn-outline-secondary-c:hover {
+          background: $primary-c;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+// Change color on bootstrap table striped
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: #F6F6F8;
 }
 
-h1 h2 {
-  font-family: 'Open Sans';
-  font-size: 40px !important;
-  font-weight: 600 !important;
-  color: #333;
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: $background-color;
 }
+
 
 
 .navbar {
@@ -39,22 +121,25 @@ h1 h2 {
   }
   .brand-text:hover{
     text-decoration: none;
-  } 
+  }
 }
 
 .upper-navbar{
   min-height: 6em;
   padding-top: 50em;
-  border-bottom: 3px solid #e5e5e5;
+  border-bottom: 1px solid $secondary-c;
   background-color: #fff;
 }
 .lower-navbar{
   background-color: #fff;
-  border-bottom: 3px solid #e5e5e5;
+  // border-bottom: 3px solid #e5e5e5;
   margin-bottom: -2em !important;
 }
+.nav-item {
+  border-color: 5px solid black !important;
+}
 .nav-link {
-  color: #333 !important;
+  color: $secondary-c !important;
 }
 .nav-link:hover {
   color: #666 !important;
@@ -67,20 +152,27 @@ h1 h2 {
 .custom-toggler .navbar-toggler-icon{width: 18px!important;}
 .custom-toggler:hover{border-color: rgb(255,255,255); background-color: #f76a88;}
 @media only screen and (max-width: 760px) { #logo_custom{width: 40%;}}
-                          
+
 .mid-box {
-  border: 1px solid #666;
+  border: 1px solid $primary-c;
+  border-radius: 5px;
   margin: 5px;
   margin-bottom: 10px;
   height: 100%;
 }
 .mid-box:hover {
-  background-color: #f2f2f2;
+  border: 1px solid $primary-hoover-c;
+  a {
+    color: $secondary-c !important;
+  }
 }
 
 
 .main-container {
   background-color: #fff;
   padding: 1em;
-  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 0px 15px -1px rgba(168,168,184,1);
+  -moz-box-shadow: 0px 0px 15px -1px rgba(168,168,184,1);
+  box-shadow: 0px 0px 6px -1px rgba(168,168,184,1);
 }

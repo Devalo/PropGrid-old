@@ -2,12 +2,12 @@
 <hr>
 <div class="row">
   <div class="container">
-    <%= link_to "Registrer ny eiendom", new_property_path, class: "btn btn-primary btn-sm" %>
+    <%= link_to "Registrer ny eiendom", new_property_path, class: "btn btn-primary-c btn-sm" %>
   </div>
 </div>
 <br>
 <div class="table-responsive">
-  <table class="table table-bordered table-striped table-hover">
+  <table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -29,10 +29,10 @@
           <td><%= property.city %></td>
 
           <div class="btn-group" role="group">
-          
+
           <td>
-          <%= link_to "Vis", property, class: "btn btn-outline-primary btn-sm" %> 
-              <%= link_to "Rediger", edit_property_path(property), class: "btn btn-outline-secondary btn-sm" %> 
+          <%= link_to "Vis", property, class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to "Rediger", edit_property_path(property), class: "btn btn-outline-secondary btn-sm" %>
               <%= link_to "Slett", property, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" }, class: "btn btn-outline-danger btn-sm" %>
           </td>
           </div>

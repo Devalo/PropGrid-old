@@ -2,12 +2,12 @@
 <hr>
 <div class="row">
   <div class="container">
-    <%= link_to "Registrer ny leietaker", new_tenant_path, class: "btn btn-primary btn-sm" %>
+    <%= link_to "Registrer ny leietaker", new_tenant_path, class: "btn btn-primary-c btn-sm" %>
   </div>
 </div>
 <br>
 <div class="table-responsive">
-  <table class="table table-bordered table-striped table-hover">
+  <table class="table  table-striped ">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -22,7 +22,7 @@
 
     <tbody>
       <% @tenants.each_with_index do |tenant, num| %>
-      <% num += 1 %> 
+      <% num += 1 %>
         <tr>
         <td scope="row"><%= num %></td>
           <td><%= tenant.first_name %></td>
@@ -41,8 +41,3 @@
 </div>
 
 <br>
-
-
-
-
-
