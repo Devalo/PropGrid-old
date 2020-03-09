@@ -1,2 +1,12 @@
-<h1>TenantSpace#index</h1>
-<p>Find me in app/views/tenant_space/index.html.erb</p>
+<h2><%= current_tenant.email %></h2>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+  <strong>Navn: </strong><%= current_tenant.first_name %> <%= current_tenant.last_name %><br>
+  <strong>Epost: </strong><%= current_tenant.email %><br>
+  <strong>Telefonnummer: </strong><%= current_tenant.phone_number %><br>
+  <strong>Fødselsdato: </strong> <%= current_tenant.birth_date.strftime("%d.%m.%Y")  %>
+
+  </div>
+
+</div>
