@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :property_units
   end
   devise_for :users, path: "user", controllers: { sessions: "users/sessions"}
-  devise_for :tenants, path: "tnt", controllers: { sessions: "tenants/sessions"}
+
+  devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions"}
+  get 'tenant_space/index', as: 'tenant_space'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "properties#index"
