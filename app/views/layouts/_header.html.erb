@@ -11,46 +11,7 @@
       <span class="navbar-toggler-icon "></span>
     </button>
     <div class="collapse navbar-collapse " id="collapsibleNavbar">
-
-
-      <ul class="navbar-nav ml-auto ">
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <% if current_user.admin_role? %>
-            <%= link_to "Admin", rails_admin_path, class: "nav-link" %>
-          <% end %>
-          <% end %>
-        </li>
-          <% if user_signed_in? %>
-        <li class="nav-item">
-          <a class="nav-link" href="#offer">Innstillinger</a>
-        </li>
-        <li class="nav-item">
-            <%= link_to 'Logg ut', destroy_user_session_path, method: :delete, class: "nav-link" %>
-          <% elsif current_tenant %>
-            <%= link_to 'Logg ut', destroy_tenant_session_path, method: :delete, class: "nav-link" %>
-          <% else %>
-        </li>
-        <li>
-          <div class="dropdown dropleft">
-            <a  class="dropdown-toggle nav-link"
-                id="dropdownLoginLink"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                Innlogging
-            </a>
-            <div class="dropdown-menu aria-labelledby="dropdownLoginLink">
-            <%= link_to 'Huseier', new_user_session_path, class: "nav-link dropdown-item" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to 'Leietaker', new_tenant_session_path, class: "nav-link dropdown-item" %>
-
-            </div>
-          </div>
-        </li>
-        <% end %>
-
-      </ul>
+      <%= render 'layouts/header_logins' %>
     </div>
   </div>
 </nav>
