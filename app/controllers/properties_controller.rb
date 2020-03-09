@@ -1,11 +1,11 @@
 class PropertiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-    def index 
+    def index
        # @properties = Property.order('created_at DESC')
         @properties = current_user.properties
         puts current_user.id
-         
+
     end
 
 
@@ -25,13 +25,13 @@ class PropertiesController < ApplicationController
         render :new
       end
     end
-    
+
 
     def show
       @property_units = @property.property_units
-      @tenants 
+      @tenants
       proper_user
-      
+
     end
 
     def edit
@@ -54,24 +54,24 @@ class PropertiesController < ApplicationController
     end
 
 
-    private 
+    private
 
     def property_params
         params.require(:property).permit(:name, :address, :property_number, :property_image, :city, :postal_code, :rent)
       end
-    
+
 
       def set_property
         @property = Property.find(params[:id])
       end
 
       def proper_user
-        if current_user.id != @property.user_id 
-          redirect_to properties_url 
+        if current_user.id != @property.user_id
+          redirect_to properties_url
           flash[:notice] = "Fant ikke det du letet etter."
         end
       end
-      
+
 
 end
 
