@@ -3,7 +3,8 @@ Opprettet Devise for tenant.
 User kan ikke logge inn som tenant.
 
 TENANT
-- Må kunne opprette login-able tenant fra tenant-panel.
-- Random passord må genereres, for å få lagret tenant
+- Må kunne opprette login-able tenant fra tenant-panel. OK
+- Random passord må genereres, for å få lagret tenant. OK
+- Kan logge inn som tenant OK
 - Epost til tenant sendes, hvor tenant kan skifte passordet sitt selv
 - tenant skal kun kunne se sin egen side, med info om sin egen leilighet/enhet.

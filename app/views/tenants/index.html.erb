@@ -15,7 +15,7 @@
         <th scope="col">Etternavn</th>
         <th scope="col">Telefon</th>
         <th scope="col">Epost</th>
-        <th scope="col">Personnummer</th>
+        <th scope="col">Fødselsdato</th>
         <th scope="col">Handling</th>
       </tr>
     </thead>
@@ -29,7 +29,7 @@
           <td><%= tenant.last_name %></td>
           <td><%= tenant.phone_number %></td>
           <td><%= tenant.email %></td>
-          <td><%= tenant.social_sec_number %></td>
+          <td><%= tenant.birth_date %></td>
           <td><%= link_to 'Vis', tenant, class: "btn btn-outline-primary btn-sm" %>
           <%= link_to 'Rediger', edit_tenant_path(tenant), class: "btn btn-outline-secondary btn-sm"  %>
           <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' }, class: "btn btn-outline-danger btn-sm" %>

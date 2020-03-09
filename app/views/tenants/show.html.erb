@@ -21,9 +21,10 @@
 </p>
 
 <p>
-  <strong>Fødsels og personnummer:</strong>
-  <%= @tenant.social_sec_number %>
+  <strong>Fødselsdato:</strong>
+  <%= @tenant.birth_date %>
 </p>
 
-<%= link_to 'Rediger', edit_tenant_path(@tenant), class: "btn btn-primary-c" %> 
+
+<%= link_to 'Rediger', edit_tenant_path(@tenant), class: "btn btn-primary-c" %>
 <%= link_to 'Tilbake', tenants_path, class: "btn btn-outline-secondary btn-sm" %>
