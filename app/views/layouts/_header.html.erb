@@ -27,9 +27,12 @@
         <li class="nav-item">
         <% if user_signed_in? %>
           <%= link_to 'Logg ut', destroy_user_session_path, method: :delete, class: "nav-link" %>
+        <% elsif current_tenant %>
+        <%= link_to 'Logg ut', destroy_tenant_session_path, method: :delete, class: "nav-link" %>
         <% else %>
           <%= link_to 'Logg inn', new_user_session_path, class: "nav-link" %>
         <% end %>
+
 
         </li>
       </ul>
