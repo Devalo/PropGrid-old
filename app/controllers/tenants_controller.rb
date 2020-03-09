@@ -17,7 +17,6 @@ class TenantsController < ApplicationController
   # GET /tenants/new
   def new
     @tenant = current_user.tenants.build
-    @user = User.new
   end
 
   # GET /tenants/1/edit
@@ -28,37 +27,18 @@ class TenantsController < ApplicationController
   # POST /tenants
   # POST /tenants.json
   def create
-# lage ny user object, hente epost fra tenant
-# når tenant er opprettet, skaffe tenant id
-# opprette ny user fra tenant epost, og bruke tenant id som foreign key
-# hvis ikke, roll tilbake tenant
+    @tenant = Tenant.new(tenant_params.merge(user_id: current_user.id))
 
-    password = "foobar123"
-          @tenant = Tenant.new(tenant_params.merge(user_id: current_user.id))
-
-      @tenant.transaction do
-
-    #respond_to do |format|
-        if @tenant.save
-          @user = User.new
-          #@user = User.new(user_params.merge(encrypted_password: password))
-          @user.email = @tenant.email
-          @user.encrypted_password = password
-          if @user.save
-            redirect_to @tenant, notice: 'okey'
-
-      #      format.html { redirect_to @tenant, notice: 'Tenant was successfully created.' }
-      #      format.json { render :show, status: :created, location: @tenant }
-          else
-          #  raise ActiveRecord::Rollback, "nei"
-            render :new, error: "noe gikk galt"
-      #      format.html { render :new }
-      #      format.json { render json: @tenant.errors, status: :unprocessable_entity }
-          end
-        end
+    respond_to do |format|
+      if @tenant.save
+        format.html { redirect_to @tenant, notice: 'Tenant was successfully created.' }
+        format.json { render :show, status: :created, location: @tenant }
+      else
+        format.html { render :new }
+        format.json { render json: @tenant.errors, status: :unprocessable_entity }
       end
+    end
   end
-
 
   # PATCH/PUT /tenants/1
   # PATCH/PUT /tenants/1.json
@@ -94,11 +74,7 @@ class TenantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.require(:tenant).permit(:first_name, :last_name, :email, :phone_number, :social_sec_number)
-    end
-
-    def user_params
-      params.require(:tenant).permit(:email)
+      params.require(:tenant).permit(:first_name, :last_name, :email, :phone_number)
     end
 
 
