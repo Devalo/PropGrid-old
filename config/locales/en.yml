@@ -31,9 +31,49 @@
 
 en:
   activerecord:
+    errors:
+      models:
+        tenant:
+          attributes:
+            email:
+              too_short: "er for kort. (minimum %{count} tegn)"
+              too_long: "er for lang.  (maximum %{count} tall)"
+              blank: "må fylles ut"
+              invalid: "er i feil format."
+        property:
+          attributes:
+            address:
+              too_short: "er for kort. (minimum %{count} tegn)"
+              too_long: "er for lang.  (maximum %{count} tall)"
+              blank: "må fylles ut"
+              invalid: "er i feil format."
+            postal_code:
+              too_short: "er for kort. (minimum %{count} tegn)"
+              too_long: "er for langt. (maximum %{count} tall)"
+              blank: "må fylles ut"
+              invalid: "er i feil format."
+            city:
+              too_short: "er for kort. (minimum %{count} tegn)"
+              too_long: "er for langt. (maximum %{count} tall)"
+              blank: "må fylles ut"
+              invalid: "er i feil format."
+            property_number:
+              too_short: "er for kort. (minimum %{count} tegn)"
+              too_long: "er for langt. (maximum %{count} tall)"
+              blank: "må fylles ut"
+              invalid: "er i feil format."
+          property_unit:
+            attributes:
+
     attributes:
+      tenant:
+        email: "Epost"
+      property:
+        address: "Adresse"
+        postal_code: "Postnummer"
+        city: "By/tettsted"
+        property_number: "Husnummer"
       todo_item:
         title: "test"
-  errors:
     messages:
       blank: "Må fylles ut"

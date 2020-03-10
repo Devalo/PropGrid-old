@@ -1,7 +1,7 @@
 <%= form_with(model: property, local: true) do |form| %>
   <% if property.errors.any? %>
     <div class="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> probibited this property from being saved:</h2>
+      <h2><%= property.errors.count %> feil gjorde at eiendommen ikke kunne lagres:</h2>
       <ul>
         <%= property.errors.full_messages.each do |message| %>
           <li><%= message %></li>
