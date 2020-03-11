@@ -32,5 +32,18 @@ import "../stylesheets/application";
 import 'bootstrap'
 import "../stylesheets/application";
 
+//$(document).ready(function(){
+//$('.dropdown').hover(function(){
+//   $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+//}, function(){
+//  $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+//});
+//);
+
 document.addEventListener("turbolinks:load", () => {
+  $('.dropdown').hover(function(){
+    $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(300);
+  }, function(){
+    $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
+  });
 })
