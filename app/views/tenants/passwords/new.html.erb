@@ -1,4 +1,7 @@
-<h2>Forgot your password?</h2>
+<h2>Glemt ditt passord?</h2>
+<hr />
+<div class="row">
+  <div class="col-md-6">
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -14,3 +17,5 @@
 <% end %>
 
 <%= render "tenants/shared/links" %>
+  </div>
+</div>
