@@ -27,8 +27,9 @@ class TenantsController < ApplicationController
   # POST /tenants
   # POST /tenants.json
   def create
-    password = "foobar123"
-    @tenant = Tenant.new(tenant_params.merge(user_id: current_user.id, password: password))
+    #password = "foobar123"
+    #@tenant = Tenant.new(tenant_params.merge(user_id: current_user.id, password: password))
+    @tenant = Tenant.new(tenant_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @tenant.save

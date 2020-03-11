@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   end
   devise_for :users, path: "user", controllers: { sessions: "users/sessions"}
 
-  devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions"}
+  devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions", confirmations: "tenants/confirmations"}
   get 'tenant_space/index', as: 'tenant_space'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "properties#index"
+
 
   # Todo API namespace, makes routes render at /api/v1/todo_items
   # defaults { format: :json } ensures that the data returned from the routes is JSON.
