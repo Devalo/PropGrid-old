@@ -14,16 +14,49 @@
     </div>
   <% end %>
 
-  <div class="col-md-7 offset-md-1 ">
+  <div class="col-md-8 offset-md-1 ">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= form.label :tenant, "Leietaker" %>
+        <%= form.select :tenant, @tenants.collect { |t| [ t.first_name+" "+t.last_name+", "+t.phone_number.to_s , t.id]},
+                                                  {include_blank: true, prompt: "Ingen leietaker"},
+                                                  {class: "form-control"} %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.label :property_type, "Type enhet" %>
+        <%= form.select :property_type, PropertyUnit.property_types.keys, {prompt: "Velg type enhet"},
+                                                                          {class: "form-control"} %>
+      </div>
+    </div>
     <div class="form-row">
       <div class="form-group col-md-2">
         <%= form.label :unit_number, "Enhetsnummer" %>
         <%= form.number_field :unit_number, class: "form-control" %>
       </div>
+      <div class="form-group col-md-2">
+        <%= form.label :number_of_rooms, "Antall rom" %>
+        <%= form.number_field :number_of_rooms, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= form.label :number_of_rooms, "Antall boder" %>
+        <%= form.number_field :storage_spaces, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= form.label :number_of_rooms, "Parkeringsplasser" %>
+        <%= form.number_field :number_of_rooms, class: "form-control" %>
+      </div>
+    </div>
 
-      <div class="form-group col-md-7 offset-md-1">
-        <%= form.label :tenant, "Leietaker" %>
-        <%= form.select :tenant, @tenants.collect { |t| [ t.first_name+" "+t.last_name+", "+t.phone_number.to_s , t.id]}, {include_blank: true}, {class: "form-control"} %>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <div class="form-check form-check-inline col-md-4">
+        <%= form.check_box :kitchen, checked: false, class: "form-check-input" %>
+        <%= form.label :kitchen, "Kjøkken", class: "form-check-label" %>
+        </div>
+        <div class="form-check form-check-inline col-md-4">
+        <%= form.check_box :bathroom, checked: false, class: "form-check-input" %>
+        <%= form.label :bathroom, "Bad", class: "form-check-label" %>
+        </div>
       </div>
 
     </div>
