@@ -55,7 +55,7 @@ class PropertyUnitsController < ApplicationController
 
     respond_to do |format|
       if @property_unit.save
-        format.html { redirect_to property_path(@property), notice: 'Property unit was successfully created.' }
+        format.html { redirect_to property_path(@property), notice: 'Enheten ble opprettet' }
         format.json { render :show, status: :created, location: @property_unit }
       else
         format.html { render :new }
@@ -70,7 +70,7 @@ class PropertyUnitsController < ApplicationController
     proper_user
     respond_to do |format|
       if @property_unit.update(property_unit_params)
-        format.html { redirect_to property_path(@property), notice: 'Property unit was successfully updated.' }
+        format.html { redirect_to property_path(@property), notice: 'Enheten ble oppdatert' }
         format.json { render :show, status: :ok, location: @property_unit }
       else
         format.html { render :edit }
@@ -85,7 +85,7 @@ class PropertyUnitsController < ApplicationController
     proper_user
     @property_unit.destroy
     respond_to do |format|
-      format.html { redirect_to property_path(@property), notice: 'Property unit was successfully destroyed.' }
+      format.html { redirect_to property_path(@property), notice: 'Enheten ble slettet' }
       format.json { head :no_content }
     end
   end
@@ -107,7 +107,9 @@ class PropertyUnitsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def property_unit_params
-    params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id)
+    params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id,
+                                          :property_type, :kitchen, :bathroom, :number_of_rooms,
+                                          :storage_spaces, :parking_lots)
   end
 
   def proper_user
