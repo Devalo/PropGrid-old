@@ -9,7 +9,6 @@ class PropertyUnitsController < ApplicationController
    # @property_units = @property.property_units
     @property_units = current_user.property_units
     @todo_items     = current_user.todo_items.all
-
     render json: @todo_items
 
   end
@@ -20,13 +19,9 @@ class PropertyUnitsController < ApplicationController
     proper_user
 
     @todo_items     = current_user.todo_items.all
-
-
     respond_to do |format|
-
-  format.html # show.html.erb
-  format.json { render json: @todo_items}
-
+    format.html # show.html.erb
+    format.json { render json: @todo_items}
  end
 
   end
@@ -55,7 +50,8 @@ class PropertyUnitsController < ApplicationController
 
     respond_to do |format|
       if @property_unit.save
-        format.html { redirect_to property_path(@property), notice: 'Enheten ble opprettet' }
+
+        format.html { redirect_to property_property_unit_path(@property), notice: 'Enheten ble opprettet' }
         format.json { render :show, status: :created, location: @property_unit }
       else
         format.html { render :new }
@@ -70,7 +66,8 @@ class PropertyUnitsController < ApplicationController
     proper_user
     respond_to do |format|
       if @property_unit.update(property_unit_params)
-        format.html { redirect_to property_path(@property), notice: 'Enheten ble oppdatert' }
+#        format.html { redirect_to property_path(@property), notice: 'Enheten ble oppdatert' }
+        format.html { redirect_to property_property_unit_path(@property), notice: 'Enheten ble oppdatert' }
         format.json { render :show, status: :ok, location: @property_unit }
       else
         format.html { render :edit }

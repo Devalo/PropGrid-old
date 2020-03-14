@@ -6,6 +6,8 @@ module ApplicationHelper
   end
 
   def nok_currency(currency)
-    number_to_currency(currency, :unit => "Kr. ", :delimiter => " ") + ",-"
+    if currency
+      number_to_currency(currency, :unit => "Kr. ", :delimiter => " ") + ",-"
+    end
   end
 end
