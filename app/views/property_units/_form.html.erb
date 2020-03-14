@@ -14,7 +14,7 @@
     </div>
   <% end %>
 
-  <div class="col-md-8 offset-md-1 ">
+  <div class="col-md-9 offset-md-1 ">
     <div class="form-row">
       <div class="form-group col-md-4">
         <%= form.label :tenant, "Leietaker" %>
@@ -27,6 +27,11 @@
         <%= form.select :property_type, PropertyUnit.property_types.keys, {prompt: "Velg type enhet"},
                                                                           {class: "form-control"} %>
       </div>
+      <div class="form-group col-md-2">
+  <%= form.label :rent, "Husleie" %>
+  <%= form.number_field :rent, class: "form-control" %>
+</div>
+
     </div>
     <div class="form-row">
       <div class="form-group col-md-2">
@@ -50,12 +55,12 @@
     <div class="form-row">
       <div class="form-group col-md-4">
         <div class="form-check form-check-inline col-md-4">
-        <%= form.check_box :kitchen, checked: false, class: "form-check-input" %>
-        <%= form.label :kitchen, "Kjøkken", class: "form-check-label" %>
+          <%= form.check_box :kitchen, checked: false, class: "form-check-input" %>
+          <%= form.label :kitchen, "Kjøkken", class: "form-check-label" %>
         </div>
-        <div class="form-check form-check-inline col-md-4">
-        <%= form.check_box :bathroom, checked: false, class: "form-check-input" %>
-        <%= form.label :bathroom, "Bad", class: "form-check-label" %>
+        <div class="form-check form-check-inline col-md-2">
+          <%= form.check_box :bathroom, checked: false, class: "form-check-input" %>
+          <%= form.label :bathroom, "Bad", class: "form-check-label" %>
         </div>
       </div>
 

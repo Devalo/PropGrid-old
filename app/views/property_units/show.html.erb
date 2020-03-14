@@ -10,10 +10,28 @@
     Ingen leietaker
     <% end %>
   </p>
+  <p><strong>Husleie:</strong>
+  <%= nok_currency(@property_unit.rent) %>
+  </p>
   <p>
     <strong>Description:</strong>
     <%= @property_unit.description %>
   </p>
+  <p><strong>Type enhet:</strong>
+  <%= @property_unit.property_type %>
+
+  <p><strong>Antall rom:</strong/>
+  <%= @property_unit.number_of_rooms %></p>
+
+  <p><strong>Antall boder:</strong>
+    <%= @property_unit.storage_spaces %></p>
+  <p><strong>Parkeringsplasser:</strong>
+  <%= @property_unit.parking_lots %></p>
+  <p><strong>Kjøkken:</strong>
+  <%= human_boolean(@property_unit.kitchen) %></p>
+  <p><strong>Toalett:</strong>
+  <%= human_boolean(@property_unit.bathroom) %></p>
+
   </div>
   <div class="col-md-6">
     <h3>Mine gjøremål</h3>

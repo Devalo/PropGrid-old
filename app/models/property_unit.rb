@@ -4,6 +4,8 @@ class PropertyUnit < ApplicationRecord
   #has_one :tenant
 
 
+
+
   # Typpe of property that will be used when creating a new unit
   enum property_type: {
     "Leilighet"           => 0,
@@ -12,4 +14,5 @@ class PropertyUnit < ApplicationRecord
     "Næringsbygg"         => 3,
     "Lager"               => 4,
   }
+  #validates :property_type, inclusion: property_selections.keys
 end

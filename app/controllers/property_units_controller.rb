@@ -109,7 +109,7 @@ class PropertyUnitsController < ApplicationController
   def property_unit_params
     params.require(:property_unit).permit(:unit_number, :tenant, :description, :property_id,
                                           :property_type, :kitchen, :bathroom, :number_of_rooms,
-                                          :storage_spaces, :parking_lots)
+                                          :storage_spaces, :parking_lots, :rent)
   end
 
   def proper_user
