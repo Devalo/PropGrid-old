@@ -1,4 +1,11 @@
-hei
-<%= @property_unit.id %>
-<%= @property_unit.tenant %>
-<%= @property_unit.kitchen %>
+
+<h2>Registrer Leiekontakt</h2>
+<hr>
+  <div class="row">
+    <div class="col-md-12">
+    <%= render 'form', lease: @lease %>
+
+      <%= link_to 'Tilbake', property_property_unit_path(@property, @property_unit), class: "btn btn-outline-secondary btn-sm" %>
+
+    </div>
+  </div>

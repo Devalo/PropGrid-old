@@ -1,0 +1,43 @@
+
+<%= form_with(model: [@property, @property_unit, lease], local: true) do |form| %>
+  <% if lease.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lease.errors.count, "error") %> prohibited this property_unit from being saved:</h2>
+
+      <ul>
+        <% lease.errors.full_messages.each do |message| %>
+          <li>%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-10 offset-md-2">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Partene i avtalen</h3>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Leietaker</h5>
+            <p>Leietaker: <%= tenant_name(@property_unit) %></p>
+            <p>Epost: <%= tenant_email(@property_unit) %></p>
+            <p>Telefonnummer: <%= tenant_phone(@property_unit) %></p>
+          </div>
+          <div class="col-md-6">
+            <h5>Utleier</h5>
+            <p>Utleier: Utleiers navn</p>
+            <p>Epost: <%= landlord_email(@property_unit.user_id) %></p>
+            <p>Telefonnummer: 123 45 678</p>
+
+          </div>
+
+        </div>
+
+    </div>
+  </div>
+
+
+<% end %>

@@ -1,1 +1,1 @@
-Få korrekt path fra property_unit create til property_unit show
+Routes slik at lease index kun er 

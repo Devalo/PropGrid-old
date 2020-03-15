@@ -1,5 +1,6 @@
 class LeasesController < ApplicationController
   before_action :get_property_unit
+  before_action :get_property
   before_action :set_lease, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,10 +15,19 @@ class LeasesController < ApplicationController
 
   end
 
+
+  def create
+  #  @match = Match.find(params[:match_id])
+  #  @score = @match.create_score(params[:score])
+  end
+
   private
   #Make @property_unit available in class
   def get_property_unit
     @property_unit = PropertyUnit.find(params[:property_unit_id])
+  end
+  def get_property
+    @property = Property.find(params[:property_id])
   end
 
   def set_lease
