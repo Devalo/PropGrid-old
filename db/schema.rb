@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_14_124938) do
+ActiveRecord::Schema.define(version: 2020_03_15_145656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,23 +28,25 @@ ActiveRecord::Schema.define(version: 2020_03_14_124938) do
     t.bigint "tenant_id", null: false
     t.boolean "power_included" #
     t.boolean "water_wastewater" #
-    t.boolean "cable_tv"
-    t.boolean "internet"
-    t.decimal "deposit"
-    t.string "deposit_account"
-    t.boolean "animals"
-    t.string "animal_specify"
-    t.boolean "smoking"
+    t.boolean "cable_tv" #
+    t.boolean "internet" #
+    t.decimal "deposit" #
+    t.string "deposit_account" #
+    t.boolean "animals" #
+    t.string "animal_specify" #
+    t.boolean "smoking" #
     t.string "rules_of_conduct_other"
     t.boolean "rent_as_is"
     t.text "other_description"
-    t.date "due_date" #ok
-    t.string "rent_account" #ok
+    t.date "due_date" #
+    t.string "rent_account" #
     t.boolean "rent_indefinite" #
     t.date "rent_start_date" #
     t.date "rent_stop_date" #
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "deposit_guarantee" #
+    t.string "deposit_guarantee_issuer" #
     t.index ["property_unit_id"], name: "index_leases_on_property_unit_id"
     t.index ["tenant_id"], name: "index_leases_on_tenant_id"
     t.index ["user_id"], name: "index_leases_on_user_id"

@@ -35,7 +35,7 @@
             <p><strong>Telefonnummer:</strong> 123 45 678</p>
           </div>
         </div>
-
+        <br>
         <div class="row">
           <div class="col-md-5">
             <h3>2. Leiekontrakten gjelder</h3>
@@ -59,19 +59,17 @@
             <p><strong>Parkeringsplasser:</strong> <%= @property_unit.parking_lots %></p>
           </div>
         </div>
+        <br>
         <div class="row">
           <div class="col-md-5">
             <h3>3. Husleie</h3>
             <hr>
           </div>
         </div>
-
+        <br>
         <div class="row">
           <div class="col-md-12">
-
-
             <p><strong>Husleie pr måned:</strong> <%= nok_currency(@property_unit.rent) %></p>
-
             <div class="form-group row">
                 <strong><%= form.label  :due_date,
                                 "Forskuddsvis betaling av leie innen denne dato:",
@@ -111,6 +109,7 @@
             </div>
           </div>
         </div>
+        <br>
         <div class="row ">
           <div class="col-md-5">
             <h3>4. Leiens varighet</h3>
@@ -148,19 +147,117 @@
           </div>
 
         </div>
+        <br>
         <div class="row ">
           <div class="col-md-5">
-            <h3>5. Depositum</h3>
+            <h3>5. Depositum eller garanti</h3>
             <hr>
           </div>
         </div>
         <div class="row ">
-          <div class="col-md-12">
-            HER KOMMER INFO OM DEPOSITUM
+          <div class="col-md-6">
+            <h5>Depositum</h5>
+
+            <div class="form-group row">
+                <strong><%= form.label  :deposit,
+                                "Depositum Kr:",
+                                class: "col-sm-12 col-form-label" %>
+                </strong>
+              <div class="col-sm-5">
+                <%= form.text_field :deposit, class: "lease-text-form form-control" %>
+              </div>
+            </div>
+            <div class="form-group row">
+                <strong><%= form.label  :deposit_account,
+                                "Depositumskonto:",
+                                class: "col-sm-12 col-form-label" %>
+                </strong>
+              <div class="col-sm-6">
+                <%= form.text_field :deposit_account, class: "lease-text-form form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h5>Garanti</h5>
+
+            <div class="form-group row">
+                <strong><%= form.label  :deposit_guarantee,
+                                "Garanti Kr:",
+                                class: "col-sm-12 col-form-label" %>
+                </strong>
+              <div class="col-sm-5">
+                <%= form.text_field :deposit_guarantee, class: "lease-text-form form-control" %>
+              </div>
+            </div>
+            <div class="form-group row">
+                <strong><%= form.label  :deposit_guarantee_issuer,
+                                "Garanti utstedt av:",
+                                class: "col-sm-12 col-form-label" %>
+                </strong>
+              <div class="col-sm-6">
+                <%= form.text_field :deposit_account_issuer, class: "lease-text-form form-control" %>
+              </div>
+            </div>
           </div>
         </div>
+        <br>
+        <div class="row ">
+          <div class="col-md-5">
+            <h3>6. Ordensregler og annet</h3>
+            <hr>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+              <%= form.check_box :animals, checked: false, class: "form-check-input" %>
+              <%= form.label :animals, "Lov med dyrehold?", class: "form-check-label"%>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= form.label :animal_specify, "Hvis ja, hvilke dyr?" %>
+              <%= form.text_area :animal_specify, class: "form-control col-md-10"%>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+              <%= form.check_box :smoking, checked: false, class: "form-check-input" %>
+              <%= form.label :smoking, "Røyking tillatt inne?", class: "form-check-label"%>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+              <%= form.check_box :cable_tv, checked: false, class: "form-check-input" %>
+              <%= form.label :cable_tv, "Kabel-TV inkludert?", class: "form-check-label"%>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check form-check-inline">
+              <%= form.check_box :internet, checked: false, class: "form-check-input" %>
+              <%= form.label :internet, "Internett inkludert?", class: "form-check-label"%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= form.label :other_description, "Annet: " %>
+              <%= form.text_area :other_description, class: "form-control", rows: "4", cols: "2" %>
+            </div>
+          </div>
+        </div>
+        <div class="row ">
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= form.submit "Lagre kontrakt", class: "btn btn-primary-c btn-sm" %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
 
 <% end %>
