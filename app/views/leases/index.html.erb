@@ -1,0 +1,43 @@
+<h2>Leiekontrakter</h2>
+<hr>
+<div class="row">
+  <div class="container">
+    Registrer ny leiekontrakt
+  </div>
+</div>
+<br>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Husnummer</th>
+        <th scope="col">Postnummer</th>
+        <th scope="col">By/tettsted</th>
+        <th scope="col">Handling</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @lease.each_with_index do |property, num| %>
+        <% num += 1 %> <%# increments entry number each loop by one %>
+        <tr>
+          <td scope="row"><%= num %></td>
+
+          <div class="btn-group" role="group">
+
+          <td>
+          <%= link_to "Vis", lease, class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to "Rediger", edit_lease_path(lease), class: "btn btn-outline-secondary btn-sm" %>
+              <%= link_to "Slett", lease, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" }, class: "btn btn-outline-danger btn-sm" %>
+          </td>
+          </div>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<br>

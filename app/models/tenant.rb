@@ -4,6 +4,7 @@ class Tenant < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
   belongs_to :user
+  has_one :lease
   #has_many :property_units
 
   protected

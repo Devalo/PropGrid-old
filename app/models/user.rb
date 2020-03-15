@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :properties
   has_many :tenants
   has_many :todo_items, dependent: :destroy
+  has_one :lease
 end

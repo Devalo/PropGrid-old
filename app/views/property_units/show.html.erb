@@ -1,8 +1,21 @@
 <p id="notice"><%= notice %></p>
-<h2><%= Property.find(@property_unit.property_id).address %> <span class="small">Enhet <%= @property_unit.unit_number %></span></h2>
+<div class="row">
+  <div class="col-md-5">
+  <h2><%= Property.find(@property_unit.property_id).address %>
+    <span class="small">
+      Enhet <%= @property_unit.unit_number %>
+    </span>
+  </h2>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "Opprett leiekontrakt", new_property_property_unit_lease_path(@property, @property_unit) %>
+
+
+  </div>
+</div>
 <hr>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <strong>Leietaker:</strong>
     <% if @property_unit.tenant.present? %>
     <%= Tenant.find(@property_unit.tenant).first_name+" "+Tenant.find(@property_unit.tenant).last_name%>

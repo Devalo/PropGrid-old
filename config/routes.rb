@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  resources :leases
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tenants
   resources :foobars
 
   #nesting property units under
   resources :properties do
-    resources :property_units
+    resources :property_units do
+      resources :leases
+    end
   end
   devise_for :users, path: "user", controllers: { sessions: "users/sessions"}
 
