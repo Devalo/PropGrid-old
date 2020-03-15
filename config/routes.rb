@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :leases
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tenants
   resources :foobars

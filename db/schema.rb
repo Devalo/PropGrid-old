@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_201446) do
+ActiveRecord::Schema.define(version: 2020_03_14_124938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,34 @@ ActiveRecord::Schema.define(version: 2020_03_13_201446) do
     t.integer "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "leases", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "property_unit_id", null: false
+    t.bigint "tenant_id", null: false
+    t.boolean "power_included"
+    t.boolean "water_wastewater"
+    t.boolean "cable_tv"
+    t.boolean "internet"
+    t.decimal "deposit"
+    t.string "deposit_account"
+    t.boolean "animals"
+    t.string "animal_specify"
+    t.boolean "smoking"
+    t.string "rules_of_conduct_other"
+    t.boolean "rent_as_is"
+    t.text "other_description"
+    t.date "due_date"
+    t.string "rent_account"
+    t.boolean "rent_indefinite"
+    t.date "rent_start_date"
+    t.date "rent_stop_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_unit_id"], name: "index_leases_on_property_unit_id"
+    t.index ["tenant_id"], name: "index_leases_on_tenant_id"
+    t.index ["user_id"], name: "index_leases_on_user_id"
   end
 
   create_table "properties", force: :cascade do |t|
@@ -105,6 +133,9 @@ ActiveRecord::Schema.define(version: 2020_03_13_201446) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "leases", "property_units"
+  add_foreign_key "leases", "tenants"
+  add_foreign_key "leases", "users"
   add_foreign_key "properties", "users"
   add_foreign_key "property_units", "properties"
   add_foreign_key "property_units", "tenants"

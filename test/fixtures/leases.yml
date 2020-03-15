@@ -1,0 +1,45 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  property_unit: one
+  tenant: one
+  power_included: false
+  water_wastewater: false
+  cable_tv: false
+  internet: false
+  deposit: 9.99
+  deposit_account: MyString
+  animals: false
+  animal_specify: MyString
+  smoking: false
+  rules_of_conduct_other: MyString
+  rent_as_is: false
+  other_description: MyText
+  due_date: 2020-03-14
+  rent_account: MyString
+  rent_indefinite: false
+  rent_start_date: 2020-03-14
+  rent_stop_date: 2020-03-14
+
+two:
+  user: two
+  property_unit: two
+  tenant: two
+  power_included: false
+  water_wastewater: false
+  cable_tv: false
+  internet: false
+  deposit: 9.99
+  deposit_account: MyString
+  animals: false
+  animal_specify: MyString
+  smoking: false
+  rules_of_conduct_other: MyString
+  rent_as_is: false
+  other_description: MyText
+  due_date: 2020-03-14
+  rent_account: MyString
+  rent_indefinite: false
+  rent_start_date: 2020-03-14
+  rent_stop_date: 2020-03-14
