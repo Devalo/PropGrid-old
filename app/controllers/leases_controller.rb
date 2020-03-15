@@ -19,10 +19,38 @@ class LeasesController < ApplicationController
   def create
   #  @match = Match.find(params[:match_id])
   #  @score = @match.create_score(params[:score])
+
+    @property_unit = PropertyUnit.find(params[:property_unit_id])
+    tenant = @property_unit.tenant
+    user = current_user.id
+    @lease = @property_unit.create_lease(lease_params.merge(user_id: user, tenant_id: tenant))
+
+
+      respond_to do |format|
+        if @lease.save
+
+          #format.html { redirect_to property_property_unit_path(@property), notice: 'Enheten ble opprettet' }
+          format.html { redirect_to property_property_unit_path(@property, @property_unit), notice: 'Opprettet' }
+          format.json { render :show, status: :created, location: @property_unit }
+        else
+          format.html { render :new }
+          format.json { render json: @lease.errors, status: :unprocessable_entity }
+        end
+    end
+
+    p @lease
   end
 
   private
   #Make @property_unit available in class
+  def lease_params
+    params.require(:lease).permit(:due_date,  :rent_account, :power_included, :water_wastewater,
+                                              :rent_indefinite, :rent_start_date, :rent_stop_date,
+                                              :deposit, :deposit_account, :deposit_guarantee, :deposit_guarantee_issuer,
+                                              :animals, :animal_specify, :smoking, :cable_tv, :internet, :other_description
+                                              )
+  end
+
   def get_property_unit
     @property_unit = PropertyUnit.find(params[:property_unit_id])
   end

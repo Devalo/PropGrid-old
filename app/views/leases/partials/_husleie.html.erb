@@ -1,0 +1,48 @@
+<h3>3. Husleie</h3>
+<hr>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12">
+<p><strong>Husleie pr måned:</strong> <%= nok_currency(@property_unit.rent) %></p>
+<div class="form-group row">
+    <strong><%= form.label  :due_date,
+                    "Forskuddsvis betaling av leie innen denne dato:",
+                    class: "col-sm-12 col-form-label" %>
+    </strong>
+  <div class="col-sm-4">
+    <%= form.text_field :due_date, class: "lease-text-form form-control" %>
+  </div>
+</div>
+<div class="form-group row ">
+  <strong>
+    <%= form.label :rent_account, "Betales inn på kontonummer:", class: "col-sm-12 col-form-label" %>
+  </strong>
+  <div class="col-sm-5">
+    <%= form.text_field  :rent_account, class: "form-control" %>
+  </div>
+</div><br>
+<div class="row ">
+  <div class="col-md-6">
+    <h5>Strøm</h5>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+      <%= form.check_box :power_included, checked: false, class: "form-check-input" %>
+      <%= form.label :power_included, "Strøm inkludert?", class: "form-check-label"%>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h5>Vann og avløp</h5>
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+      <%= form.check_box :water_wastewater, checked: false, class: "form-check-input" %>
+      <%= form.label :water_wastewater, "Vann og avløpsavgifter inkludert?", class: "form-check-label"%>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<br>

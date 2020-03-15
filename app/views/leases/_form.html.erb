@@ -6,7 +6,7 @@
 
       <ul>
         <% lease.errors.full_messages.each do |message| %>
-          <li>%= message %></li>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
@@ -14,52 +14,9 @@
   <div class="col-md-10 offset-md-2">
       <div class="col-md-12">
 
-        <div class="row">
-          <div class="col-md-5">
-            <h3>1. Partene i avtalen</h3>
-            <hr>
-          </div>
-        </div>
+      <%= render "leases/partials/partene_i_avtalen" %>
+      <%= render "leases/partials/leiekontrakten_gjelder" %>
 
-        <div class="row">
-          <div class="col-md-6">
-            <h5>Leietaker</h5>
-            <p><strong>Leietaker:</strong> <%= tenant_name(@property_unit) %></p>
-            <p><strong>Epost:</strong> <%= tenant_email(@property_unit) %></p>
-            <p><strong>Telefonnummer:</strong> <%= tenant_phone(@property_unit) %></p>
-          </div>
-          <div class="col-md-6">
-            <h5>Utleier</h5>
-            <p><strong>Utleier:</strong> Utleiers navn</p>
-            <p><strong>Epost:</strong> <%= landlord_email(@property_unit.user_id) %></p>
-            <p><strong>Telefonnummer:</strong> 123 45 678</p>
-          </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-md-5">
-            <h3>2. Leiekontrakten gjelder</h3>
-            <hr>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <p><strong>Type leieobjekt:</strong> <%= @property_unit.property_type %></p>
-            <p><strong>Enhetsnummer:</strong> <%= @property_unit.unit_number %></p>
-            <p><strong>Adresse: </strong> <%= @property.address %></p>
-            <p><strong>Postnummer:</strong> <%= @property.postal_code%> </p>
-            <p><strong>Sted:</strong> <%= @property.city %> </p>
-          </div>
-          <div class="col-md-6">
-            <p><strong>Bad:</strong> <%= human_boolean(@property_unit.bathroom) %></p>
-            <p><strong>Kjøkken:</strong> <%= human_boolean(@property_unit.kitchen) %></p>
-            <p><strong>Antall rom:</strong> <%= @property_unit.number_of_rooms %></p>
-            <p><strong>Antall boder:</strong> <%= @property_unit.storage_spaces %></p>
-            <p><strong>Parkeringsplasser:</strong> <%= @property_unit.parking_lots %></p>
-          </div>
-        </div>
-        <br>
         <div class="row">
           <div class="col-md-5">
             <h3>3. Husleie</h3>
@@ -195,7 +152,7 @@
                                 class: "col-sm-12 col-form-label" %>
                 </strong>
               <div class="col-sm-6">
-                <%= form.text_field :deposit_account_issuer, class: "lease-text-form form-control" %>
+                <%= form.text_field :deposit_guarantee_issuer, class: "lease-text-form form-control" %>
               </div>
             </div>
           </div>
