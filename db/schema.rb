@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2020_03_14_124938) do
     t.bigint "user_id", null: false
     t.bigint "property_unit_id", null: false
     t.bigint "tenant_id", null: false
-    t.boolean "power_included"
-    t.boolean "water_wastewater"
+    t.boolean "power_included" #
+    t.boolean "water_wastewater" #
     t.boolean "cable_tv"
     t.boolean "internet"
     t.decimal "deposit"
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 2020_03_14_124938) do
     t.string "rules_of_conduct_other"
     t.boolean "rent_as_is"
     t.text "other_description"
-    t.date "due_date"
-    t.string "rent_account"
-    t.boolean "rent_indefinite"
-    t.date "rent_start_date"
-    t.date "rent_stop_date"
+    t.date "due_date" #ok
+    t.string "rent_account" #ok
+    t.boolean "rent_indefinite" #
+    t.date "rent_start_date" #
+    t.date "rent_stop_date" #
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_unit_id"], name: "index_leases_on_property_unit_id"
