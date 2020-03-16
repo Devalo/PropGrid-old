@@ -71,9 +71,10 @@ class LeasesController < ApplicationController
     @property_unit = PropertyUnit.find(params[:property_unit_id])
     find_lease = Lease.find_by(property_unit_id: @property_unit.id)
 
-    if find_lease.property_unit.id == @property_unit.id
-      puts "Hello"
-      redirect_to property_property_unit_path(@property, @property_unit), notice: 'Allerede opprettet'
+    if find_lease
+      if find_lease.property_unit_id == @property_unit.id
+        redirect_to property_property_unit_path(@property, @property_unit), notice: 'Allerede opprettet'
+      end
     else
       #build_lease because of the one_to_one relationship
       #which differs from "property_unit.leases.build" since property unit
