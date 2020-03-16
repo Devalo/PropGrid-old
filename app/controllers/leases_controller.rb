@@ -8,11 +8,7 @@ class LeasesController < ApplicationController
   end
 
   def new
-    #build_lease because of the one_to_one relationship
-    #which differs from "property_unit.leases.build" since property unit
-    #only has one lease.
-    @lease = @property_unit.build_lease
-
+    lease_exists?
   end
 
 
@@ -69,4 +65,22 @@ class LeasesController < ApplicationController
       flash[:notice] = 'Fant ikke det du letet etter.'
     end
   end
+
+  def lease_exists?
+    # TODO:  MÅ REFACTORES TIL MODEL ELLER CONCERN
+    @property_unit = PropertyUnit.find(params[:property_unit_id])
+    find_lease = Lease.find_by(property_unit_id: @property_unit.id)
+
+    if find_lease.property_unit.id == @property_unit.id
+      puts "Hello"
+      redirect_to property_property_unit_path(@property, @property_unit), notice: 'Allerede opprettet'
+    else
+      #build_lease because of the one_to_one relationship
+      #which differs from "property_unit.leases.build" since property unit
+      #only has one lease.
+      @lease = @property_unit.build_lease
+    end
+
+  end
+
 end
