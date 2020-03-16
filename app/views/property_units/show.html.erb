@@ -9,8 +9,9 @@
     </span>
   </h2>
   </div>
+
   <div class="col-md-6">
-    <%= link_to "Opprett leiekontrakt", new_property_property_unit_lease_path(@property, @property_unit) %>
+    <%= show_proper_links_if_or_not_lease_exist %>
 
 
   </div>

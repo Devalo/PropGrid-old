@@ -1,7 +1,7 @@
 class LeasesController < ApplicationController
   before_action :get_property_unit
   before_action :get_property
-  before_action :set_lease, only: [:show, :edit, :update, :destroy]
+  before_action :set_lease, only: [:edit, :update, :destroy]
 
   def index
     @lease = Lease.all
