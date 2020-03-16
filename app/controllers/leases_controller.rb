@@ -11,6 +11,10 @@ class LeasesController < ApplicationController
     lease_exists?
   end
 
+  def show
+    @lease = Lease.find_by(property_unit_id: @property_unit.id)
+  end
+
 
   def create
   #  @match = Match.find(params[:match_id])

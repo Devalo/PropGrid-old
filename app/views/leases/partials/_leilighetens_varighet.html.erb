@@ -1,0 +1,38 @@
+<div class="row ">
+  <div class="col-md-5">
+    <h3>4. Leiens varighet</h3>
+    <hr>
+  </div>
+</div>
+<div class="row ">
+  <div class="col-md-12">
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        %= form.check_box :rent_indefinite, checked: false, class: "form-check-input" %>
+        <= form.label :rent_indefinite, "Tidsubestemt leie?", class: "form-check-label" %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+        <strong>%= form.label  :rent_start_date,
+                        "Startdato for utleie:",
+                        class: "col-sm-12 col-form-label" %>
+        </strong>
+      <div class="col-sm-6">
+        %= form.date_field :rent_start_date, class: "lease-text-form form-control" %>
+      </div>
+    </div>
+      <p>Hvis ikke Tidsubestemt:</p>
+    <div class="form-group row">
+        <strong>%= form.label  :rent_stop_date,
+                        "Startdato for utleie:",
+                        class: "col-sm-12 col-form-label" %>
+        </strong>
+      <div class="col-sm-6">
+        %= form.date_field :rent_stop_date, class: "lease-text-form form-control" %>
+      </div>
+    </div>
+  </div>
+
+</div>
+<br>
