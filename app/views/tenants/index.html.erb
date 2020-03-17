@@ -29,7 +29,7 @@
           <td><%= tenant.last_name %></td>
           <td><%= tenant.phone_number %></td>
           <td><%= tenant.email %></td>
-          <td><%= tenant.birth_date %></td>
+          <td><%= nor_date(tenant.birth_date) %></td>
           <td><%= link_to 'Vis', tenant, class: "btn btn-outline-primary btn-sm" %>
           <%= link_to 'Rediger', edit_tenant_path(tenant), class: "btn btn-outline-secondary btn-sm"  %>
           <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' }, class: "btn btn-outline-danger btn-sm" %>
