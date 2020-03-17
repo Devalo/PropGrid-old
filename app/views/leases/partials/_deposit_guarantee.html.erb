@@ -1,0 +1,49 @@
+<div class="row ">
+  <div class="col-md-5">
+    <h3>5. Depositum eller garanti</h3>
+    <hr>
+  </div>
+</div>
+<div class="row ">
+  <div class="col-md-6">
+    <h5>Depositum</h5>
+
+    <div class="col row">
+        <p><strong>
+          Depositum:
+        </strong></p>
+      <div class="col-sm-5">
+        <%= nok_currency(@lease.deposit) %>
+      </div>
+    </div>
+    <div class="col row">
+        <p><strong>
+          Depositumskonto:
+        </strong></p>
+      <div class="col-sm-6">
+        <%= @lease.deposit_account %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h5>Garanti</h5>
+
+    <div class="col row">
+        <p><strong>
+          Garanti:
+        </strong></p>
+      <div class="col-sm-5">
+        <%= @lease.deposit_guarantee %>
+      </div>
+    </div>
+    <div class="col row">
+        <p><strong>
+          Garanti utstedt av:
+        </strong></p>
+      <div class="col-sm-6">
+        <%= @lease.deposit_guarantee_issuer %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

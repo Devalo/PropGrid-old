@@ -6,9 +6,7 @@ module ApplicationHelper
   end
 
   def nok_currency(currency)
-    if currency
-      number_to_currency(currency, :unit => "Kr. ", :delimiter => " ") + ",-"
-    end
+    currency ? number_to_currency(currency, :unit => "Kr. ", :delimiter => " ") + ",-" : "Ingen sum registrert"
   end
 end
 
@@ -27,4 +25,17 @@ end
 
  def landlord_email(id)
    User.find(id).email
+ end
+
+ def nor_date(date)
+   date ? date.strftime("%d.%m.%Y") : "Ingen dato registrert."
+ end
+
+ def form_checkbox(entry)
+      
+   if entry == true
+     raw('<i class="far fa-check-square"></i>')
+   else
+     raw('<i class="far fa-square"></i>')
+   end
  end
