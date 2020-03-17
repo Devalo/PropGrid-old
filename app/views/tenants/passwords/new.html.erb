@@ -6,13 +6,13 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="form-field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  </div><br>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="form-field">
+    <%= f.submit "Send instrukser for å nullstille passord", class: "btn btn-primary" %>
   </div>
 <% end %>
 
