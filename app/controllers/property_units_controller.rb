@@ -50,8 +50,9 @@ class PropertyUnitsController < ApplicationController
 
     respond_to do |format|
       if @property_unit.save
+        puts "VISES DETTE?"
 
-        format.html { redirect_to property_property_unit_path(@property), notice: 'Enheten ble opprettet' }
+        format.html { redirect_to property_property_unit_path(@property, @property_unit), notice: 'Enheten ble opprettet' }
         format.json { render :show, status: :created, location: @property_unit }
       else
         format.html { render :new }
