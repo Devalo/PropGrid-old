@@ -1,1 +1,1 @@
-Routes slik at lease index kun er 
+Copy current_user inn i lease, slik at den lagres i lease. 
