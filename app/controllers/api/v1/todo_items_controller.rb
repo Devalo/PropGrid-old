@@ -4,7 +4,7 @@ class Api::V1::TodoItemsController < ApplicationController
 
   def index
   #  @todo_items = TodoItem.all
- @todo_items = current_user.todo_items.all
+    @todo_items = current_user.todo_items.all
     # @todo_items = current_user.property_units
     #@todo_items = @property_unit.user_id
 
@@ -22,7 +22,8 @@ class Api::V1::TodoItemsController < ApplicationController
   end
 
   def create
-    @todo_item = current_user.todo_items.build(todo_item_params)
+
+    @todo_item = current_user.todo_items.build(todo_item_params.merge(user_id: current_user.id))
     if authorized?
       respond_to do |format|
         if @todo_item.save
