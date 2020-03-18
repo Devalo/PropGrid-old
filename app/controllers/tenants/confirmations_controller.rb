@@ -18,6 +18,7 @@ class Tenants::ConfirmationsController < Devise::ConfirmationsController
   # protected
   protected
     def after_confirmation_path_for(resource_name, resource)
+      puts("CONFIRMATION CONTROLLER")
       token = resource.send(:set_reset_password_token)
       edit_tenant_password_path(resource, reset_password_token: token)
     end
