@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_19_185232) do
+ActiveRecord::Schema.define(version: 2020_03_19_195004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,12 @@ ActiveRecord::Schema.define(version: 2020_03_19_185232) do
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "deposit_guarantee"
     t.string "deposit_guarantee_issuer"
+    t.string "landlord_name"
+    t.string "landlord_email"
+    t.string "landlord_phone"
+    t.string "tenant_name"
+    t.string "tenant_email"
+    t.string "tenant_phone"
     t.index ["property_unit_id"], name: "index_leases_on_property_unit_id"
     t.index ["tenant_id"], name: "index_leases_on_tenant_id"
     t.index ["user_id"], name: "index_leases_on_user_id"
@@ -136,6 +142,7 @@ ActiveRecord::Schema.define(version: 2020_03_19_185232) do
     t.string "first_name"
     t.string "last_name"
     t.string "company"
+    t.string "phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

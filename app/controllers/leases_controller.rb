@@ -13,6 +13,8 @@ class LeasesController < ApplicationController
 
   def show
     @lease = Lease.find_by(property_unit_id: @property_unit.id)
+    puts "---"
+
   end
 
 
@@ -21,9 +23,28 @@ class LeasesController < ApplicationController
   #  @score = @match.create_score(params[:score])
 
     @property_unit = PropertyUnit.find(params[:property_unit_id])
-    tenant = @property_unit.tenant
-    user = current_user.id
-    @lease = @property_unit.create_lease(lease_params.merge(user_id: user, tenant_id: tenant))
+    tenantid = @property_unit.tenant
+    tenant = Tenant.find(tenantid)
+    tenant_name = tenant.first_name + " " + tenant.last_name
+    tenant_email = tenant.email
+    tenant_phone = tenant.phone_number
+
+
+    userid = current_user.id
+    landlord_name = current_user.first_name + " " + current_user.last_name
+    landlord_email = current_user.email
+    landlord_phone_number = current_user.phone_number
+
+
+
+    @lease = @property_unit.create_lease(lease_params.merge(user_id: userid,
+                                                            tenant_id: tenantid,
+                                                            landlord_name: landlord_name,
+                                                            landlord_phone: landlord_phone_number,
+                                                            landlord_email: landlord_email,
+                                                            tenant_name: tenant_name,
+                                                            tenant_email: tenant_email,
+                                                            tenant_phone: tenant_phone))
 
 
       respond_to do |format|
@@ -37,8 +58,6 @@ class LeasesController < ApplicationController
           format.json { render json: @lease.errors, status: :unprocessable_entity }
         end
     end
-
-    p @lease
   end
 
   private
@@ -47,8 +66,7 @@ class LeasesController < ApplicationController
     params.require(:lease).permit(:due_date,  :rent_account, :power_included, :water_wastewater,
                                               :rent_indefinite, :rent_start_date, :rent_stop_date,
                                               :deposit, :deposit_account, :deposit_guarantee, :deposit_guarantee_issuer,
-                                              :animals, :animal_specify, :smoking, :cable_tv, :internet, :other_description
-                                              )
+                                              :animals, :animal_specify, :smoking, :cable_tv, :internet, :other_description)
   end
 
   def get_property_unit

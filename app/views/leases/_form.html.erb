@@ -14,7 +14,28 @@
   <div class="col-md-10 offset-md-2">
       <div class="col-md-12">
 
-      <%= render "leases/partials/partene_i_avtalen" %>
+        <div class="row">
+          <div class="col-md-5">
+            <h3>1. Partene i avtalen</h3>
+            <hr>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <h5>Leietaker</h5>
+            <p><strong>Leietaker:</strong> <%= tenant_name(@property_unit) %></p>
+            <p><strong>Epost:</strong> <%= tenant_email(@property_unit) %></p>
+            <p><strong>Telefonnummer:</strong> <%= tenant_phone(@property_unit) %></p>
+          </div>
+          <div class="col-md-6">
+            <h5>Utleier</h5>
+            <p><strong>Utleier:</strong> <%= current_user.first_name + " " + current_user.last_name %></p>
+            <p><strong>Epost:</strong> <%= landlord_email(@property_unit.user_id) %></p>
+            <p><strong>Telefonnummer:</strong> <%= current_user.phone_number %></p>
+          </div>
+        </div>
+        <br>
       <%= render "leases/partials/leiekontrakten_gjelder" %>
 
         <div class="row">
