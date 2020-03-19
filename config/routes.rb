@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :leases
     end
   end
-  devise_for :users, path: "user", controllers: { sessions: "users/sessions"}
+  devise_for :users, path: "user", controllers: { sessions: "users/sessions", registrations: "users/registrations"}
 
   devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions", confirmations: "tenants/confirmations"}
   get 'tenant_space/index', as: 'tenant_space'

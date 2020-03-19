@@ -2,25 +2,51 @@
 <hr>
 <div class="row">
   <div class="col-md-12">
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-6 offset-md-3">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <%= f.label :first_name, "Fornavn" %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name, "Etternavn" %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :birth_date, "Fødselsdato" %>
+        <%= f.date_field :birth_date, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :company, "Firmanavn" %>
+        <%= f.text_field :company, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :org_number, "Organisasjonsnummer" %>
+        <%= f.text_field :org_number, class: "form-control" %>
+      </div>
 
       <div class="form-group">
         <%= f.label :email, "Epost" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
+
       <div class="form-group">
         <%= f.label :password, "Passord" %>
         <% if @minimum_password_length %>
-        <em>(minimum tegn  <%= @minimum_password_length %>)</em>
+        <em>(minimum <%= @minimum_password_length %> tegn)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation, "Bekreft passord" %>
+        <%= f.label :password_confirmation, "Gjenta passord" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 

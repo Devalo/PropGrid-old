@@ -1,43 +1,78 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1>Endre kontoinformasjon</h1>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6 offset-md-3">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+    <%= f.label :first_name, "Fornavn" %>
+    <%= f.text_field :first_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name, "Etternavn" %>
+    <%= f.text_field :last_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :birth_date, "Fødselsdato" %>
+    <%= f.date_field :birth_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :company, "Firmanavn" %>
+    <%= f.text_field :company, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :org_number, "Organisasjonsnummer" %>
+    <%= f.text_field :org_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "Epost" %>
+    <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Venter på bekreftelse av konto: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="form-group">
+    <%= f.label :password, "Passord" %> <i>(La stå blankt hvis du ikke ønsker å skifte passord.)</i>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>Minimum <%= @minimum_password_length %> tegn</em>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Gjenta passord" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+  </div>
+  <hr>
+
+  <div class="form-group">
+    <%= f.label :current_password, "Nåværende passord" %> <br><i>(Du må skrive inn passordet for at endringene skal tre i kraft.)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+  <div class="form-group">
+    <%= f.submit "Oppdater kontoinformasjon", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Avslutt min konto</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Ikke fornøyd? <%= button_to "Avslutt min konto", registration_path(resource_name),
+                              data: { confirm: "Er du sikker? Denne handlingen er ikke reversibel." },
+                              method: :delete, class: "btn btn-danger" %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Tilbake", :back %>
+
+</div>
+</div>
+</div>
