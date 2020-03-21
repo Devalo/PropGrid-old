@@ -1,2 +1,1 @@
-Copy current_user inn i lease, slik at den lagres i lease.
-Copy leietaker inn i lease slik at den lagres i lease
+Opprette PDF. Prawn ?
