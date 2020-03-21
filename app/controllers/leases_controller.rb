@@ -15,6 +15,17 @@ class LeasesController < ApplicationController
     @lease = Lease.find_by(property_unit_id: @property_unit.id)
     puts "---"
 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = LeasePdf.new(@lease)
+        send_data pdf.render,
+          filename: "leiekontrakt.pdf",
+          type: "application/pdf",
+          disposition: 'inline'
+      end
+    end
+
   end
 
 

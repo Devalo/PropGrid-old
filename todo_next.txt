@@ -2,8 +2,10 @@ Opprette PDF. Prawn ?
 
 
 colors: #274869 - lilla - nav
-        #ECF0F5 - bakgrunn 
+        #ECF0F5 - bakgrunn
         #FDB22B - orange
         #1EABF1 - lyseblå
         #2FA69A - grå
         #AA4CBA - mørkerosa?
+        #273238 - hover
+        #2B5074 - primary btn?

@@ -22,11 +22,17 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#ADMINS AND ROLE
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
+
+#EMAIL
 gem 'sendgrid-ruby'
 
+#PDF
+gem  'prawn'
 
+#AUTHENTICAITON
 gem 'devise'
 
 # Use Active Storage variant
