@@ -1,5 +1,5 @@
 <ul class="navbar-nav ml-auto ">
-  <li class="nav-item">
+  <li class="nav-item navbar-links">
     <% if user_signed_in? %>
       <% if current_user.admin_role? %>
       <%= link_to "Admin", rails_admin_path, class: "nav-link" %>
@@ -7,10 +7,12 @@
     <% end %>
   </li>
     <% if user_signed_in? %>
-  <li class="nav-item">
-    <%= link_to "Innstillinger", edit_user_registration_path, class: "nav-link" %>
+  <li class="nav-item navbar-links">
+    <%= link_to edit_user_registration_path, class: "nav-link" do %>
+    <i class="fas fa-cog"></i>
+    <% end %>
   </li>
-  <li class="nav-item">
+  <li class="nav-item navbar-links">
       <%= link_to 'Logg ut', destroy_user_session_path, method: :delete, class: "nav-link" %>
     <% elsif current_tenant %>
       <%= link_to 'Logg ut', destroy_tenant_session_path, method: :delete, class: "nav-link" %>
@@ -26,9 +28,9 @@
           Innlogging
       </a>
       <div class="dropdown-menu aria-labelledby="dropdownLoginLink">
-      <%= link_to 'Huseier', new_user_session_path, class: "nav-link dropdown-item" %>
+      <%= link_to 'Huseier', new_user_session_path, class: "dropdown-item" %>
       <div class="dropdown-divider"></div>
-      <%= link_to 'Leietaker', new_tenant_session_path, class: "nav-link dropdown-item" %>
+      <%= link_to 'Leietaker', new_tenant_session_path, class: "dropdown-item" %>
 
       </div>
     </div>

@@ -1,1 +1,9 @@
 Opprette PDF. Prawn ?
+
+
+colors: #274869 - lilla - nav
+        #ECF0F5 - bakgrunn 
+        #FDB22B - orange
+        #1EABF1 - lyseblå
+        #2FA69A - grå
+        #AA4CBA - mørkerosa?

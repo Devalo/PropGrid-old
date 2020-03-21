@@ -7,7 +7,7 @@
 </div>
 <br>
 <div class="table-responsive">
-  <table class="table table-striped">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -31,7 +31,7 @@
           <div class="btn-group" role="group">
 
           <td>
-          <%= link_to "Vis", property, class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to "Vis", property, class: "btn btn-outline-primary-c btn-sm" %>
               <%= link_to "Rediger", edit_property_path(property), class: "btn btn-outline-secondary btn-sm" %>
               <%= link_to "Slett", property, method: :delete, data: { confirm: "Er du sikker på at du ønsker å slette eiendommen?" }, class: "btn btn-outline-danger btn-sm" %>
           </td>
