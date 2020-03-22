@@ -25,7 +25,7 @@
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 
- $background-color: #FFF3E4;
+ $background-color: #ECF0F5;
  $primary-c: #2B5074;
  $secondary-c: #1F1F56;
  $support-green-c: #35C2A1;
@@ -33,6 +33,9 @@
 
  $primary-hoover-c: #273238;
  $click-c: #FFAB54;
+ $gray-p-text: #6A757B;
+
+ $placeholder-grey: #B1B9BD;
 
 
  body {
@@ -211,4 +214,60 @@
   -webkit-box-shadow: 0px 0px 0px -1px rgba(168,168,184,1);
   -moz-box-shadow: 0px 0px 0px -1px rgba(168,168,184,1);
   box-shadow: 0px 0px 0px -1px rgba(168,168,184,1);
+}
+
+.auth-forms {
+  .auth-text {
+    h4 {
+      color: #4E637A;
+      font-family: "Open Sans";
+    }
+    p {
+      color: $gray-p-text;
+      font-size: 14px;
+    }
+      padding-bottom: 1em;
+  }
+
+  .auth-field {
+    border: 0;
+    border-radius: 2px;
+    color: #6A757B !important;
+    background-color: #fff;
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    padding: 5px;
+
+  }
+  .auth-checkbox-label {
+    color: $gray-p-text;
+  }
+
+  .auth-button {
+    width: 100%;
+    height: 45px;
+    border-radius: 2px;
+  }
+
+  .auth-links {
+    color: $gray-p-text;
+  }
+
+  input[type="date"]:before {
+   content: attr(placeholder) !important;
+   color: #aaa;
+   margin-right: 0.5em;
+ }
+ input[type="date"]:focus:before,
+ input[type="date"]:valid:before {
+   content: "";
+ }
+
+
+
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $placeholder-grey;
+    opacity: 1; /* Firefox */
+  }
 }

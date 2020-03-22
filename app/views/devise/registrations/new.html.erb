@@ -1,67 +1,69 @@
-<h1>Opprett konto</h1>
-<hr>
-<div class="row">
-  <div class="col-md-12">
-    <div class="col-md-6 offset-md-3">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+<div class="container auth-forms">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-8 offset-md-2 text-center">
+        <div class="auth-text">
+          <h4>Opprett konto</h4>
+          <p>Fyll inn feltene for å opprette konto</p>
+        </div>
 
-      <div class="form-group">
-        <%= f.label :first_name, "Fornavn" %>
-        <%= f.text_field :first_name, class: "form-control" %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.text_field :first_name, class: "auth-field", placeholder: "Fornavn" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.text_field :last_name, class: "auth-field", placeholder: "Etternavn" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <%= f.date_field :birth_date, class: "auth-field", placeholder: "Fødselsdato" %>
+          </div>
+
+          <div class="form-group col-md-4">
+            <%= f.text_field :phone_number, class: "auth-field", placeholder: "Telefonnummer" %>
+          </div>
+
+          <div class="form-group col-md-4">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-field", placeholder: "Epost"%>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.text_field :company, class: "auth-field", placeholder: "Firmanavn" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.text_field :org_number, class: "auth-field", placeholder: "Organisasjonsnummer" %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.password_field :password, autocomplete: "new-password", class: "auth-field",
+                      placeholder: "Passord (minimum 6 tegn)" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "auth-field",
+                      placeholder: "Gjenta passord"%>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Opprett konto", class: "btn btn-primary-c auth-button" %>
+        </div>
+      <% end %>
+
+        <%= render "devise/shared/links" %>
+
       </div>
-
-      <div class="form-group">
-        <%= f.label :last_name, "Etternavn" %>
-        <%= f.text_field :last_name, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :birth_date, "Fødselsdato" %>
-        <%= f.date_field :birth_date, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :phone_number, "Telefonnummer" %>
-        <%= f.text_field :phone_number, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :company, "Firmanavn" %>
-        <%= f.text_field :company, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :org_number, "Organisasjonsnummer" %>
-        <%= f.text_field :org_number, class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :email, "Epost" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-
-      <div class="form-group">
-        <%= f.label :password, "Passord" %>
-        <% if @minimum_password_length %>
-        <em>(minimum <%= @minimum_password_length %> tegn)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, "Gjenta passord" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.submit "Opprett konto", class: "btn btn-primary" %>
-      </div>
-    <% end %>
-
-      <%= render "devise/shared/links" %>
-
     </div>
   </div>
+
 </div>

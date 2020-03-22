@@ -1,3 +1,5 @@
+<div class="container main-container">
+
 <div class="row">
   <div class="col-md-5">
   <h2><%= Property.find(@property_unit.property_id).address %>
@@ -75,3 +77,4 @@
 
 <%= link_to 'Rediger', edit_property_property_unit_path(@property, @property_unit), class: "btn btn-primary-c" %>
 <%= link_to 'Tilbake', property_path(@property), class: "btn btn-outline-secondary btn-sm" %>
+</div>
