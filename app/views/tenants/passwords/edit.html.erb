@@ -1,33 +1,29 @@
-<h2>Sett ditt passord</h2>
-<hr>
-<div class="row">
-  <div class="col-md-6">
-
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-      <%= f.hidden_field :reset_password_token %>
-
-      <div class="form-group">
-        <%= f.label :password, "Passord" %>
-        <% if @minimum_password_length %>
-          <em>(Minimum <%= @minimum_password_length %> tegn)</em><br />
-        <% end %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+<div class="container auth-forms">
+  <div class="row">
+    <div class="col-md-4 col-offset-4 text-center">
+      <div class="auth-text">
+        <h4>Sett ditt passord</h4>
+        <<p>Skriv inn ønsket passord</p>
       </div>
 
-      <div class="form-group">
-        <%= f.label :password_confirmation, "Bekreft passord" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-      </div>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.hidden_field :reset_password_token %>
 
-      <div class="form-group">
-        <%= f.submit "Lagre passord", class: "btn btn-primary-c btn-sm" %>
-      </div>
-    <% end %>
+        <div class="form-group">
+          <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "auth-field", placeholder: "Passord (minimum 6 tegn)" %>
+        </div>
 
-    <%= render "tenants/shared/links" %>
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "auth-field", placeholder: "Gjenta passord" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Lagre passord", class: "btn btn-primary-c auth-button" %>
+        </div>
+      <% end %>
+
+      <%= render "tenants/shared/links" %>
+    </div>
   </div>
-
-
-
 </div>

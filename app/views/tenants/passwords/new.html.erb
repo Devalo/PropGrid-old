@@ -1,21 +1,25 @@
-<h2>Glemt ditt passord?</h2>
-<hr />
-<div class="row">
-  <div class="col-md-6">
+<div class="container auth-forms">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+      <div class="auth-text">
+        <h4>Leietaker glemt passord</h4>
+        <p>Skriv inn epostadressen for å tilbakestille passordet</p>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-  </div><br>
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-field", placeholder: "Epost" %>
+    </div>
 
-  <div class="form-field">
-    <%= f.submit "Send instrukser for å nullstille passord", class: "btn btn-primary" %>
+    <div class="form-group">
+      <%= f.submit "Send instrukser for å nullstille passord", class: "btn btn-primary-c auth-button" %>
+    </div>
+  <% end %>
+
+  <%= render "tenants/shared/links" %>
+    </div>
   </div>
-<% end %>
 
-<%= render "tenants/shared/links" %>
-  </div>
 </div>

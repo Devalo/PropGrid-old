@@ -1,32 +1,35 @@
-<h1>Innlogging Leietaker</h1>
-<hr>
-<div class="row">
-  <div class="col-md-12">
-    <div class="col-md-4 offset-md-4">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-group">
-          <%= f.label :email, "Epost" %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+<div class="container auth-forms">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-4 offset-md-4 text-center">
+        <div class="auth-text">
+          <h4>Innlogging Leietaker</h4>
+          <p>Logg inn på din konto</p>
         </div>
-
-
-        <div class="form-group">
-          <%= f.label :password, "Passord" %>
-          <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="form-group">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, "Husk meg" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-field", placeholder: "Epost" %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: "current-password", class: "auth-field", placeholder: "Passord" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group text-left">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, "Husk meg" %>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= f.submit "Logg inn", class: "btn btn-primary-c auth-button" %>
           </div>
         <% end %>
-
-        <div class="form-group">
-          <%= f.submit "Logg inn", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-      <%= render "tenants/shared/links" %>
+        <%= render "tenants/shared/links" %>
+      </div>
     </div>
   </div>
+
 </div>
