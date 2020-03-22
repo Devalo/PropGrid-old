@@ -31,6 +31,7 @@ gem 'sendgrid-ruby'
 
 #PDF
 gem  'prawn'
+gem 'prawn-icon'
 
 #AUTHENTICAITON
 gem 'devise'

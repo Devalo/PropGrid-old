@@ -13,12 +13,13 @@ class LeasesController < ApplicationController
 
   def show
     @lease = Lease.find_by(property_unit_id: @property_unit.id)
+
     puts "---"
 
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = LeasePdf.new(@lease)
+        pdf = LeasePdf.new(@lease, @property_unit, @property)
         send_data pdf.render,
           filename: "leiekontrakt.pdf",
           type: "application/pdf",

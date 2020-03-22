@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #nesting property units under
   resources :properties do
     resources :property_units do
-      resources :leases
+      resources :leases, only: [:new, :show, :create, :destroy]
     end
   end
   devise_for :users, path: "user", controllers: { sessions: "users/sessions", registrations: "users/registrations"}

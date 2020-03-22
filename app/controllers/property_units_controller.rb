@@ -17,6 +17,7 @@ class PropertyUnitsController < ApplicationController
   # GET /property_units/1.json
   def show
     proper_user
+    @lease = Lease.find_by(property_unit_id: @property_unit.id)
 
     @todo_items     = current_user.todo_items.all
     respond_to do |format|
