@@ -1,13 +1,15 @@
-<div class="container main-container">
+<div class="container">
+  <div class="main-background main-container">
 
-  <h2> <%= Property.find(@property_unit.property_id).address %><span class="small">Enhet <%= @property_unit.unit_number %></span></h2>
-  <hr>
-  <div class="row">
-    <div class="col-md-12">
-      <%= render 'form', property_unit: @property_unit %>
+    <h4> <%= Property.find(@property_unit.property_id).address %><span class="small">Enhet <%= @property_unit.unit_number %></span></h4>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'form', property_unit: @property_unit %>
 
-      <%= link_to 'Tilbake', property_property_unit_path(@property), class: "btn btn-outline-secondary btn-sm" %>
+        <%= link_to 'Tilbake', property_property_unit_path(@property), class: "btn btn-outline-secondary btn-sm" %>
 
+      </div>
     </div>
   </div>
 </div>

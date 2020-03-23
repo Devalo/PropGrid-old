@@ -1,0 +1,62 @@
+<div id="wrapper">
+  <nav id="sidebar-wrapper">
+
+    <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          PropGrid
+        </li>
+        <li>
+          <span class="navi-info">NAVIGASJON</span>
+        </li>
+        <li>
+          <%= link_to properties_path do %>
+          <i class="fa fa-desktop"></i>
+          Dashboard
+          <% end %>
+        </li>
+        <li>
+          <%= link_to properties_path do %>
+          <i class="fa fa-home"></i>
+          Eiendommer
+          <% end %>
+        </li>
+        <li>
+          <%= link_to tenants_path do %>
+          <i class="fa fa-users"></i>
+          Leietakere
+          <% end %>
+        </li>
+        <hr class="sidebar-divider">
+        <li>
+          <%= link_to  edit_user_registration_path do %>
+          <i class="fa fa-cogs"></i>
+          Innstillinger
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <span class="fa fa-sign-out"></span>
+            Logg ut
+          <% end %>
+        </li>
+      <!--  <hr class="sidebar-divider">
+        <li class="active">
+
+          <a href="#homeSubmenu" data-toggle="collapse"
+                                aria-expanded="false"
+                                class="dropdown-toggle">Home</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+              <li><a href="#">Home 1</a></li>
+              <li><a href="#">Home 2</a></li>
+              <li><a href="#">Home 3</a></li>
+
+            </ul>
+        </li>
+        <li>
+          <a href="#">Link 2</a>
+        </li>
+        <li>
+          <a href="#">Link 3</a>
+        </li> -->
+    </ul>
+  </nav>

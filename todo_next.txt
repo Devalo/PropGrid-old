@@ -9,3 +9,6 @@ colors: #274869 - lilla - nav
         #AA4CBA - mørkerosa?
         #273238 - hover
         #2B5074 - primary btn?
+        #4E637A
+        #6A757B
+        #B1B9BD

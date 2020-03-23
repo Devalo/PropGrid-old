@@ -1,13 +1,14 @@
-<div class="container main-container">
+<div class="container">
+  <div class="main-background main-container">
 
-  <h2>Ny leietaker</h2>
-  <hr >
-  <div class="row">
-    <div class="col-md-12">
-      <%= render 'form', tenant: @tenant %>
+    <h4>Ny leietaker</h4>
+    <hr >
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'form', tenant: @tenant %>
 
-      <%= link_to 'Tilbake', tenants_path, class: "btn btn-outline-secondary btn-sm" %>
+        <%= link_to 'Tilbake', tenants_path, class: "btn btn-outline-secondary btn-sm" %>
+      </div>
     </div>
   </div>
-
-  </div>
+</div>

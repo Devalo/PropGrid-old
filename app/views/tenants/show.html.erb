@@ -1,33 +1,35 @@
-<div class="container main-container">
+<div class="container">
+  <div class="main-background main-container">
 
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Fornavn:</strong>
-  <%= @tenant.first_name %>
-</p>
+  <p>
+    <strong>Fornavn:</strong>
+    <%= @tenant.first_name %>
+  </p>
 
-<p>
-  <strong>Etternavn:</strong>
-  <%= @tenant.last_name %>
-</p>
+  <p>
+    <strong>Etternavn:</strong>
+    <%= @tenant.last_name %>
+  </p>
 
-<p>
-  <strong>Epost:</strong>
-  <%= @tenant.email %>
-</p>
+  <p>
+    <strong>Epost:</strong>
+    <%= @tenant.email %>
+  </p>
 
-<p>
-  <strong>Telefon:</strong>
-  <%= @tenant.phone_number %>
-</p>
+  <p>
+    <strong>Telefon:</strong>
+    <%= @tenant.phone_number %>
+  </p>
 
-<p>
-  <strong>Fødselsdato:</strong>
-  <%= @tenant.birth_date.strftime("%d.%m.%Y") %>
-</p>
+  <p>
+    <strong>Fødselsdato:</strong>
+    <%= @tenant.birth_date.strftime("%d.%m.%Y") %>
+  </p>
 
 
-<%= link_to 'Rediger', edit_tenant_path(@tenant), class: "btn btn-primary-c" %>
-<%= link_to 'Tilbake', tenants_path, class: "btn btn-outline-secondary btn-sm" %>
+  <%= link_to 'Rediger', edit_tenant_path(@tenant), class: "btn btn-primary-c" %>
+  <%= link_to 'Tilbake', tenants_path, class: "btn btn-outline-secondary btn-sm" %>
+  </div>
 </div>

@@ -1,2 +1,43 @@
 // Place all the styles related to the static_pages controller here.
+
+
 // They will automatically be included in application.css.
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+$background-color: #ECF0F5;
+$primary-c: #2B5074;
+$secondary-c: #1F1F56;
+$support-green-c: #35C2A1;
+$support-red-c: #FF0000;
+
+$primary-hoover-c: #273238;
+$click-c: #FFAB54;
+$gray-p-text: #6A757B;
+
+$placeholder-grey: #B1B9BD;
+.topline {
+
+
+  height: 60px;
+  background-color: $primary-c;
+  padding-left: 10px;
+  line-height: 60px;
+  color: #fea500;
+  margin-left: 120px;
+
+
+
+
+
+
+}

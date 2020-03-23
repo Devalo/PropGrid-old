@@ -1,46 +1,48 @@
-<div class="container main-container">
+<div class="container">
+  <div class="main-background main-container">
 
-<h2>Leietakere</h2>
-<hr>
-<div class="row">
-  <div class="container">
-    <%= link_to "Registrer ny leietaker", new_tenant_path, class: "btn btn-primary-c btn-sm" %>
+  <h4>Leietakere</h4>
+  <hr>
+  <div class="row">
+    <div class="container">
+      <%= link_to "Registrer ny leietaker", new_tenant_path, class: "btn btn-primary-c btn-sm" %>
+    </div>
   </div>
-</div>
-<br>
-<div class="table-responsive">
-  <table class="table  table-bordered ">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Fornavn</th>
-        <th scope="col">Etternavn</th>
-        <th scope="col">Telefon</th>
-        <th scope="col">Epost</th>
-        <th scope="col">Fødselsdato</th>
-        <th scope="col">Handling</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @tenants.each_with_index do |tenant, num| %>
-      <% num += 1 %>
+  <br>
+  <div class="table-responsive">
+    <table class="table  table-bordered ">
+      <thead>
         <tr>
-        <td scope="row"><%= num %></td>
-          <td><%= tenant.first_name %></td>
-          <td><%= tenant.last_name %></td>
-          <td><%= tenant.phone_number %></td>
-          <td><%= tenant.email %></td>
-          <td><%= nor_date(tenant.birth_date) %></td>
-          <td><%= link_to 'Vis', tenant, class: "btn btn-outline-primary-c btn-sm" %>
-          <%= link_to 'Rediger', edit_tenant_path(tenant), class: "btn btn-outline-secondary btn-sm"  %>
-          <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' }, class: "btn btn-outline-danger btn-sm" %>
+          <th scope="col">#</th>
+          <th scope="col">Fornavn</th>
+          <th scope="col">Etternavn</th>
+          <th scope="col">Telefon</th>
+          <th scope="col">Epost</th>
+          <th scope="col">Fødselsdato</th>
+          <th scope="col">Handling</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
 
-</div>
+      <tbody>
+        <% @tenants.each_with_index do |tenant, num| %>
+        <% num += 1 %>
+          <tr>
+          <td scope="row"><%= num %></td>
+            <td><%= tenant.first_name %></td>
+            <td><%= tenant.last_name %></td>
+            <td><%= tenant.phone_number %></td>
+            <td><%= tenant.email %></td>
+            <td><%= nor_date(tenant.birth_date) %></td>
+            <td><%= link_to 'Vis', tenant, class: "btn btn-outline-primary-c btn-sm" %>
+            <%= link_to 'Rediger', edit_tenant_path(tenant), class: "btn btn-outline-secondary btn-sm"  %>
+            <%= link_to 'Slett', tenant, method: :delete, data: { confirm: 'Er du sikker på at du ønsker å slette denne leietakeren?' }, class: "btn btn-outline-danger btn-sm" %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+  </div>
+
+  <br>
+  </div>
 </div>

@@ -1,14 +1,16 @@
+<div class="container">
+  <div class="main-background main-container">
 
-<div class="container main-container">
 
+  <h4>Rediger eiendom</h4>
+  <hr>
+    <div class="row">
+      <div class="col-md-12">
+      <%= render 'form', property: @property %>
 
-<h2>Rediger eiendom</h2>
-<hr>
-  <div class="row">
-    <div class="col-md-12">
-    <%= render 'form', property: @property %>
-
-<%= link_to 'Tilbake', properties_path, class: "btn btn-outline-secondary btn-sm" %>
+  <%= link_to 'Tilbake', properties_path, class: "btn btn-outline-secondary btn-sm" %>
+      </div>
     </div>
   </div>
+
 </div>
