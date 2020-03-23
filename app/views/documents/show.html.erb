@@ -1,0 +1,22 @@
+<p id'="notice"><%= notice %></p>
+<br><br><br><br><br><br>
+
+<p>
+  <strong>Name:</strong>
+  <%= @document.title %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+</p>
+
+<p>
+  <%= image_tag url_for(@document.doc) %>
+</p>
+
+<p>
+  <%= link_to @document.doc.filename, rails_blob_path(@document.doc, disposition: "attachment") %>
+</p>
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
