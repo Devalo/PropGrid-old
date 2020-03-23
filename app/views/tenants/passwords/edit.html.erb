@@ -1,9 +1,9 @@
 <div class="container auth-forms">
   <div class="row">
-    <div class="col-md-4 col-offset-4 text-center">
+    <div class="col-md-4 offset-md-4 text-center">
       <div class="auth-text">
         <h4>Sett ditt passord</h4>
-        <<p>Skriv inn ønsket passord</p>
+        <p>Skriv inn ønsket passord</p>
       </div>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>

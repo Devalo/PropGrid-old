@@ -15,7 +15,7 @@
   </head>
 
   <body>
-<% if !user_signed_in? && !tenant_signed_in? %> <!-- start skjule for innloggede -->
+<% if !user_signed_in?  %> <!-- start skjule for innloggede -->
   <main class='<%= controller.controller_name %>'>
 
       <% unless flash.empty? %>
