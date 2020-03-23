@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("./todo-components/TodoApp");
+require("./direct_upload")
 
 global.toastr = require("toastr")
 toastr.options = {

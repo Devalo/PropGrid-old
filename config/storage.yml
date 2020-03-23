@@ -14,23 +14,26 @@ local:
 #   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
 #   region: us-east-1
 #   bucket: your_own_bucket
-
-
 google:
   service: GCS
-  credentials:
-    type: "service_account"
-    project_id: ENV[GCP_PROJECT_ID]
-    private_key_id: ENV[GCP_PROJECT_ID]
-    private_key: ENV[GCP_PRIVATE_KEY]
-    client_email: ENV[GCP_CLIENT_EMAIL]
-    client_id: ENV[GCP_CLIENT_ID]
-    auth_uri: ENV[GCP_AUTH_URI]
-    token_uri: ENV[GCP_TOKEN_URI]
-    auth_provider_x509_cert_url: ENV[GCP_AUTH_PROVIDER_X509_CERT_URL]
-    client_x509_cert_url: ENV[GCP_CLIENT_X509_CERT_URL]
+  credentials: <%= Rails.root.join("path/to/keyfile.json") %>
   project: ""
   bucket: ""
+#google:
+#  service: GCS
+#  credentials:
+#    type: "service_account"
+#    project_id: ENV[GCP_PROJECT_ID]
+#    private_key_id: ENV[GCP_PROJECT_ID]
+#    private_key: ENV[GCP_PRIVATE_KEY]
+#    client_email: ENV[GCP_CLIENT_EMAIL]
+#    client_id: ENV[GCP_CLIENT_ID]
+#    auth_uri: ENV[GCP_AUTH_URI]
+#    token_uri: ENV[GCP_TOKEN_URI]
+#    auth_provider_x509_cert_url: ENV[GCP_AUTH_PROVIDER_X509_CERT_URL]
+#    client_x509_cert_url: ENV[GCP_CLIENT_X509_CERT_URL]
+#  project: ""
+#  bucket: "leases"
 
 # Use rails credentials:edit to set the Azure Storage secret (as azure_storage:storage_access_key)
 # microsoft:
