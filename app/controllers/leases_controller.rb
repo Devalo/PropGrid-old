@@ -21,9 +21,10 @@ class LeasesController < ApplicationController
       format.pdf do
         pdf = LeasePdf.new(@lease, @property_unit, @property)
         send_data pdf.render,
-          filename: "leiekontrakt.pdf",
+          filename: "leiekontrakt-#{@property.address}-#{@property.property_number}-#{@lease.rent_start_date}.pdf",
           type: "application/pdf",
           disposition: 'inline'
+
       end
     end
 

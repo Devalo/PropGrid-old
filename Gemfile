@@ -35,6 +35,11 @@ gem 'prawn-icon'
 
 #AUTHENTICAITON
 gem 'devise'
+# OPTIMIZE:
+
+
+# Google Cloud Platform
+gem 'google-cloud-storage'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
