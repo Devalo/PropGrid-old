@@ -30,7 +30,7 @@ google:
     type: "service_account"
     project_id: "propgrid-1584978193000"
     private_key_id: <%= Rails.application.credentials.dig(:gcs, :private_key_id) %>
-    private_key: <%= Rails.application.credentials.dig(:gcs, :private_key).lines.join("\\n") %>
+    private_key: <%= Rails.application.credentials.dig(:gcs, :private_key).dump %>
     client_email: "starting-account-lfkdsx7ugofc@propgrid-1584978193000.iam.gserviceaccount.com"
     client_id: "103375861722636023634"
     auth_uri: "https://accounts.google.com/o/oauth2/auth"
