@@ -32,3 +32,5 @@ yarn-debug.log*
 
 /config/test.yml
 /config/local_env.yml
+
+/config/secrets/*

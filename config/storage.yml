@@ -13,12 +13,32 @@ local:
 #   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
 #   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
 #   region: us-east-1
+
+
 #   bucket: your_own_bucket
+google_dev:
+  service: GCS
+  project: PropGrid
+  credentials: <%= Rails.root.join("config/secrets/test.json") %>
+  bucket: leases
+
+
+
 google:
   service: GCS
-  credentials: <%= Rails.root.join("path/to/keyfile.json") %>
+  credentials:
+    type: "service_account"
+    project_id: ENV['GCP_PROJECT_ID']
+    private_key_id: ENV['GCP_PRIVATE_KEY_ID']
+    private_key: ENV['GCP_PRIVATE_KEY']
+    client_email: ENV['GCP_CLIENT_EMAIL']
+    client_id: ENV['GCP_CLIENT_ID']
+    auth_uri: "https://accounts.google.com/o/oauth2/auth"
+    token_uri: "https://accounts.google.com/o/oauth2/token"
+    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
+    client_x509_cert_url: ""
   project: ""
-  bucket: ""
+  bucket: leases
 #google:
 #  service: GCS
 #  credentials:

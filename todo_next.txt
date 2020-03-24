@@ -12,3 +12,9 @@ colors: #274869 - lilla - nav
         #4E637A
         #6A757B
         #B1B9BD
+
+
+
+
+GCP virker local.
+Få det til å virke i prod!
