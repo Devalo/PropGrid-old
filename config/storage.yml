@@ -27,16 +27,16 @@ google_dev:
 google:
   service: GCS
   credentials:
-    type: "service_account"
+    type: service_account
     project_id: ENV['GCP_PROJECT_ID']
     private_key_id: ENV['GCP_PRIVATE_KEY_ID']
     private_key: ENV['GCP_PRIVATE_KEY']
     client_email: ENV['GCP_CLIENT_EMAIL']
     client_id: ENV['GCP_CLIENT_ID']
-    auth_uri: "https://accounts.google.com/o/oauth2/auth"
-    token_uri: "https://accounts.google.com/o/oauth2/token"
-    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs"
-    client_x509_cert_url: ""
+    auth_uri: https://accounts.google.com/o/oauth2/auth
+    token_uri: https://accounts.google.com/o/oauth2/token
+    auth_provider_x509_cert_url: https://www.googleapis.com/oauth2/v1/certs
+    client_x509_cert_url: https://www.googleapis.com/robot/v1/metadata/x509/starting-account-lfkdsx7ugofc%40propgrid-1584978193000.iam.gserviceaccount.com 
   project: PropGrid
   bucket: leases
 #google:
