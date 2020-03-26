@@ -37,6 +37,9 @@ gem 'prawn-icon'
 gem 'devise'
 # OPTIMIZE:
 
+# IMAGE PROCESSING
+gem "image_processing"
+
 
 # Google Cloud Platform
 gem 'google-cloud-storage'

@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
     before_action :set_document, only: [:show, :edit, :update, :destroy]
+    require "image_processing/mini_magick"
 
     # GET /documents
     # GET /documents.json
@@ -26,8 +27,17 @@ class DocumentsController < ApplicationController
     def create
       @document = Document.new(document_params)
 
+      uploaded_item = params[:document][:doc]
+      file_type = uploaded_item.content_type
+      
+      if file_type.include?("image")
+        mini_image = MiniMagick::Image.new(uploaded_item.tempfile.path)
+        mini_image.resize '1200x1200'
+      end
+
       respond_to do |format|
         if @document.save
+
           format.html { redirect_to @document, notice: 'Document was successfully created.' }
           format.json { render :show, status: :created, location: @document }
         else
