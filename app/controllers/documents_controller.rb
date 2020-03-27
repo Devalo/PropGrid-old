@@ -29,7 +29,7 @@ class DocumentsController < ApplicationController
 
       uploaded_item = params[:document][:doc]
       file_type = uploaded_item.content_type
-      
+    # this should probably go in the model..  
       if file_type.include?("image")
         mini_image = MiniMagick::Image.new(uploaded_item.tempfile.path)
         mini_image.resize '1200x1200'
