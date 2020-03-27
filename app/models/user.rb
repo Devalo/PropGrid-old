@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :tenants
   has_many :todo_items, dependent: :destroy
   has_one :lease
+  has_many :documents
 end
