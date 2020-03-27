@@ -89,6 +89,16 @@
     background: $primary-hoover-c;
   }
 
+  .btn-upload {
+    font-size: 1.2em;
+    background: #22B3F9;
+    border-color: #22B3F9;
+  }
+  .btn-upload:hover {
+    background-color: #2f8cd4;
+    border-color: #2f8cd4;
+  }
+
   table {
     th {
       color: $secondary-c;
@@ -342,6 +352,11 @@ transition: all 0.5s ease;
   border-color: $placeholder-grey;
 }
 
+.divider {
+  border-color: $placeholder-grey;
+
+}
+
 .sidebar-nav li {
   text-indent: 30px;
   line-height: 40px;
@@ -442,12 +457,40 @@ transition: all 0.5s ease;
 
 }
 
+.custom-file-input ~ .custom-file-label::after {
+    content: "Velg fil";
+    color: $primary-c;
+    background-color: #fff;
+}
 
 
+.document-link {
+  display: block;
+  text-decoration: none;
+  color: $secondary-c;
+}
+.document-link:hover {
+  text-decoration: none;
+  color: $secondary-c;
+}
 
+.document-list-cell {
+  display: inline-block;
+  .document-list-icon {
+    font-size: 2em;
+  }
+  .document-list-name {
+    display: inline-block;
+    vertical-align: super;
+  }
 
+  .document-list-created-at {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 0.7em;
+  }
 
-
+}
 
 
 // ------- SIDEBAR

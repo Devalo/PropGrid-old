@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="main-background main-container">
+
+    <div class="row">
+      <div class="col-md-12">
+        <h4>Dokumenter</h4>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="row ">
+
+        <div class="col-md-2">
+          <button class="btn btn-primary-c btn-upload">Last opp</button>
+        </div>
+        <div class="col-md-6 col-offset-4">
+          <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
+          <label class="custom-file-label" for="exampleInputFile">
+            Ingen fil er valgt
+          </label>
+        </div>
+    </div>
+    <hr class="divider">
+    <div class="row ">
+      <div class="col-md-12">
+        <table class="table table-borderless table-striped table-hover">
+          <tr>
+            <td>
+              <div class="document-list-cell">
+
+              <a href="#" class="document-link">
+                <i class="far fa-file-pdf document-list-icon"></i>
+                <span class="document-list-name">Dokument 1</span>
+              </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="document-list-cell">
+
+              <a href="#" class="document-link">
+                <i class="far fa-file-pdf document-list-icon"></i>
+                <span class="document-list-name">Dokument 1</span>
+              </a>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td><a href="#" class="document-link"><i class="far fa-file-image document-list-icon"></i> Dokument 2</a></td>
+          </tr>
+          <tr>
+            <td><a href="#" class="document-link"><i class="far fa-file-word document-list-icon"></i> Dokument 3</a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
