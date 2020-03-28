@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :properties do
     resources :property_units do
       resources :leases, only: [:new, :show, :create, :destroy]
-      get 'show_documents'
+      resources :documents, only: [:index, :new, :show, :create, :destroy]
     end
   end
   devise_for :users, path: "user", controllers: { sessions: "users/sessions", registrations: "users/registrations"}

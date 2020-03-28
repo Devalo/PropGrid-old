@@ -465,6 +465,10 @@ transition: all 0.5s ease;
   font-size: 14px;
   padding: 5px;
 }
+
+
+
+// ------ DOCUMENT //
 .document-item {
   color: $primary-c;
   #document-folder {
@@ -473,11 +477,7 @@ transition: all 0.5s ease;
 
 }
 
-.custom-file-input ~ .custom-file-label::after {
-    content: "Velg fil";
-    color: $primary-c;
-    background-color: #fff;
-}
+
 
 
 .document-link {
@@ -508,5 +508,27 @@ transition: all 0.5s ease;
 
 }
 
+.document-form {
+  display: flex;
+  flex-flow: row;
+
+
+
+
+}
+
+.document-title-field {
+  border: 1px solid #CED4DA !important;
+}
+.custom-file-input ~ .custom-file-label::after {
+    content: "Velg fil";
+    color: $primary-c;
+    background-color: #fff;
+}
+.custom-file-label~ .custom-file-input::after {
+    content: "Velg fil";
+    color: $primary-c;
+    background-color: #fff;
+}
 
 // ------- SIDEBAR
