@@ -66,6 +66,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    breadcrumbs_on_rails (4.0.0)
+      rails (>= 5.0)
     builder (3.2.4)
     byebug (11.1.0)
     cancancan (3.0.2)
@@ -336,6 +338,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
+  breadcrumbs_on_rails
   byebug
   cancancan
   capybara (>= 2.15)

@@ -23,6 +23,10 @@ class PropertyUnitsController < ApplicationController
     respond_to do |format|
     format.html # show.html.erb
     format.json { render json: @todo_items}
+
+      add_breadcrumb "Eiendommer", properties_path
+      add_breadcrumb "Enheter ", @property
+      add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
  end
 
   end
@@ -41,6 +45,11 @@ class PropertyUnitsController < ApplicationController
   def edit
     proper_user
     @tenants = current_user.tenants
+  end
+
+  def show_documents
+    add_breadcrumb "Eiendommer", properties_path
+    add_breadcrumb "Enheter ", @property
   end
 
   # POST /property_units

@@ -1,13 +1,18 @@
 class PropertiesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+
+
+
+
+
     def index
        # @properties = Property.order('created_at DESC')
         @properties = current_user.properties
         puts current_user.id
 
+        add_breadcrumb "Eiendommer", properties_path
     end
-
 
     def new
       #@property = Property.new
@@ -31,6 +36,10 @@ class PropertiesController < ApplicationController
       @property_units = @property.property_units
       @tenants
       proper_user
+
+      add_breadcrumb "Eiendommer", properties_path
+      add_breadcrumb "Enheter ", @property
+
 
     end
 
