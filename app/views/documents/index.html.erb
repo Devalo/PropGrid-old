@@ -21,53 +21,21 @@
     <hr class="divider">
     <div class="row ">
       <div class="col-md-12">
+
         <table class="table table-borderless table-striped table-hover">
-          <tr>
-            <td>
-              <div class="document-list-cell">
+          <% @documents.each do |document| %>
+            <tr>
+              <td>
+                <div class="document-list-cell">
+                  <%= link_to [@property, @property_unit, document], class: "document-link" do %>
+                    <%= document_icon(document.doc.filename) %>
+                    <%= document.title %> ( <%= document.doc.filename %> )
 
-              <a href="#" class="document-link">
-                <i class="far fa-file-pdf document-list-icon"></i>
-                <span class="document-list-name">Dokument 1</span>
-              </a>
+                  <% end %>
               </div>
             </td>
           </tr>
-          <tr>
-            <td>
-              <div class="document-list-cell">
-
-              <a href="#" class="document-link">
-                <i class="far fa-file-image document-list-icon"></i>
-                <span class="document-list-name">Dokument 1</span>
-              </a>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="document-list-cell">
-
-              <a href="#" class="document-link">
-                <i class="far fa-file-word document-list-icon"></i>
-                <span class="document-list-name">Dokument 1</span>
-              </a>
-              </div>
-            </td>
-          </tr>
-
-          <tr>
-            <td>
-              <div class="document-list-cell">
-
-              <a href="#" class="document-link">
-                <i class="far fa-file-excel document-list-icon"></i>
-                <span class="document-list-name">Dokument 1</span>
-              </a>
-              </div>
-            </td>
-          </tr>
+          <% end %>
         </table>
       </div>
     </div>

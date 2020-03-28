@@ -14,3 +14,21 @@ colors: #274869 - lilla - nav
         #B1B9BD
 
 SETTE PROPER REDIRECT URL VED OPPRETTE DOKUMENT
+
+
+<% @documents.each do |document| %>
+<tr>
+  <td>
+    <div class="document-list-cell">
+      <%= link_to [@property, @property_unit, document], class: "document-link" do %>
+        <%= document_icon(document.doc.filename) %>hei
+      <%= link_to rails_blob_path(document.doc) do %>
+      <% end %>
+
+      <% end %>
+
+
+    </div>
+  </td>
+</tr>
+<% end %>
