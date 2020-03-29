@@ -6,22 +6,34 @@ class TenantsController < ApplicationController
   def index
     #proper_user
     @tenants = current_user.tenants
+
+    add_breadcrumb "Leietakere", tenants_path
   end
 
   # GET /tenants/1
   # GET /tenants/1.json
   def show
     proper_user
+
+    add_breadcrumb "Leietakere", tenants_path
+    add_breadcrumb "Leietaker", @tenant
   end
 
   # GET /tenants/new
   def new
     @tenant = current_user.tenants.build
+
+    add_breadcrumb "Leietakere", tenants_path
+    add_breadcrumb "Opprett", new_tenant_path
   end
 
   # GET /tenants/1/edit
   def edit
     proper_user
+
+    add_breadcrumb "Leietakere", tenants_path
+    add_breadcrumb "Leietaker", @tenant
+    add_breadcrumb "Rediger", edit_tenant_path(@tenant)
   end
 
   # POST /tenants

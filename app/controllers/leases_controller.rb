@@ -9,6 +9,11 @@ class LeasesController < ApplicationController
 
   def new
     lease_exists?
+
+    add_breadcrumb "Eiendommer", properties_path
+    add_breadcrumb "Enheter", @property
+    add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
+    add_breadcrumb "Leiekontrakt", new_property_property_unit_lease_path(@property, @property_unit)
   end
 
   def show
