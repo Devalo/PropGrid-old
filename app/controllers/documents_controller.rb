@@ -24,6 +24,11 @@ class DocumentsController < ApplicationController
       @property_units = @property.property_units
 
       proper_user
+      add_breadcrumb "Eiendommer", properties_path
+      add_breadcrumb "Enheter ", @property
+      add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
+      add_breadcrumb "Dokumenter", [@property, @property_unit, @document]
+
     end
 
     # GET /documents/1
