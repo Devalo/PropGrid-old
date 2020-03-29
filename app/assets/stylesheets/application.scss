@@ -37,7 +37,7 @@
  $placeholder-grey: #B1B9BD;
 
  $navigation-info: #3C4045;
-
+ $text-on-background: #4E637A;
 
  body {
    color: $secondary-c !important;
@@ -87,6 +87,16 @@
   }
   .btn-primary-c:focus {
     background: $primary-hoover-c;
+  }
+
+  .btn-upload {
+    font-size: 1.2em;
+    background: #22B3F9;
+    border-color: #22B3F9;
+  }
+  .btn-upload:hover {
+    background-color: #2f8cd4;
+    border-color: #2f8cd4;
   }
 
   table {
@@ -214,12 +224,28 @@
 
 
 .main-container {
-  margin-top: 40px;
+  margin-top: 1em;
   padding: 1em;
   border-radius: 3px;
   -webkit-box-shadow: 0px 0px 0px -1px rgba(168,168,184,1);
   -moz-box-shadow: 0px 0px 0px -1px rgba(168,168,184,1);
   box-shadow: 0px 0px 0px -1px rgba(168,168,184,1);
+}
+
+.breadcrumbs {
+  margin-top: 1.5em;
+  color: $text-on-background;
+  font-family: "Open Sans";
+  font-size: 14px;
+  a {
+  color: $text-on-background;
+  font-family: "Open Sans";
+  font-size: 14px;
+
+  }
+  a:hover {
+    color: $text-on-background;
+  }
 }
 
 .main-background {
@@ -342,6 +368,11 @@ transition: all 0.5s ease;
   border-color: $placeholder-grey;
 }
 
+.divider {
+  border-color: $placeholder-grey;
+
+}
+
 .sidebar-nav li {
   text-indent: 30px;
   line-height: 40px;
@@ -437,12 +468,68 @@ transition: all 0.5s ease;
 
 
 
+// ------ DOCUMENT //
+.document-item {
+  color: $primary-c;
+  #document-folder {
+    font-size: 4em;
+  }
+
+}
 
 
 
 
+.document-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: $secondary-c;
+}
+.document-link:hover {
+  text-decoration: none;
+  color: $secondary-c;
+}
+
+.document-list-cell {
+  display: inline-block;
+  .document-list-icon {
+    font-size: 2em;
+  }
+  .document-list-name {
+    display: inline-block;
+    vertical-align: super;
+  }
+
+  .document-list-created-at {
+    display: inline-block;
+    vertical-align: bottom;
+    font-size: 0.7em;
+  }
+
+}
+
+.document-form {
+  display: flex;
+  flex-flow: row;
 
 
 
+
+}
+
+.document-title-field {
+  border: 1px solid #CED4DA !important;
+}
+.custom-file-input ~ .custom-file-label::after {
+    content: "Velg fil";
+    color: $primary-c;
+    background-color: #fff;
+}
+.custom-file-label~ .custom-file-input::after {
+    content: "Velg fil";
+    color: $primary-c;
+    background-color: #fff;
+}
 
 // ------- SIDEBAR

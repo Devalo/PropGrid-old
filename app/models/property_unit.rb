@@ -2,6 +2,7 @@ class PropertyUnit < ApplicationRecord
   belongs_to :property
   has_many :todo_items
   has_one :lease
+  has_many :documents
   #has_one :tenant
 
 

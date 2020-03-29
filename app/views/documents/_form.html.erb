@@ -1,4 +1,4 @@
-<%= form_with(model: document, local: true) do |form| %>
+<%= form_with(model: [@property, @property_unit, document], local: true, html: {'class': "document-form"}) do |form| %>
   <% if document.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
+        <div class="col-md-2">
 
-  <div class="field">
-    <%= form.label :doc %>
-    <%= form.file_field :doc %>
-  </div>
+            <%= form.submit "Last opp", class: "btn btn-primary-c btn-upload"%>
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+      <div class="col-md-4">
+        <%= form.text_field :title, placeholder: "Dokumentnavn", class: "form-control document-title-field" %>
+      </div>
+
+      <div class="col-md-4 " >
+
+            <%= form.file_field :doc, class: "custom-file-input", id: "documentUpload", 'aria-describedby': "fileHelp" %>
+            <%= form.label :doc, "Ingen fil er valgt", class: "custom-file-label", for: "documentUpload"  %>
+      </div>
+
+
 <% end %>

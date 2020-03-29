@@ -40,6 +40,9 @@ gem 'devise'
 # IMAGE PROCESSING
 gem "image_processing"
 
+# EASY UX
+gem "breadcrumbs_on_rails"
+
 
 # Google Cloud Platform
 gem 'google-cloud-storage'
