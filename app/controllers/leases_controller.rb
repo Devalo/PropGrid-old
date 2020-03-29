@@ -24,9 +24,12 @@ class LeasesController < ApplicationController
           filename: "leiekontrakt-#{@property.address}-#{@property.property_number}-#{@lease.rent_start_date}.pdf",
           type: "application/pdf",
           disposition: 'inline'
-
       end
     end
+    add_breadcrumb "Eiendommer", properties_path
+    add_breadcrumb "Enheter ", @property
+    add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
+      add_breadcrumb "Dokumenter", [@property, @property_unit, @document]
 
   end
 
