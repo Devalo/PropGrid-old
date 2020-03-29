@@ -59,13 +59,9 @@ class DocumentsController < ApplicationController
         mini_image = MiniMagick::Image.new(uploaded_item.tempfile.path)
         mini_image.resize '1200x1200'
       end
-
-
-
       respond_to do |format|
         if @document.save
-
-          format.html { redirect_to property_property_unit_documents_path(@property, @property_unit), notice: 'Document was successfully created.' }
+          format.html { redirect_to property_property_unit_documents_path(@property, @property_unit), notice: 'Dokumentet ble lagret.' }
           format.json { render :show, status: :created, location: @document }
         else
           format.html { render :new }
@@ -91,9 +87,18 @@ class DocumentsController < ApplicationController
     # DELETE /documents/1
     # DELETE /documents/1.json
     def destroy
+      puts "------------------------"
+      document_item = ActiveStorage::Attachment.find(@document.doc.id)
+      p document_item.purge
+      puts "------------------------"
+
       @document.destroy
       respond_to do |format|
-        format.html { redirect_to documents_url, notice: 'Document was successfully destroyed.' }
+
+
+
+
+        format.html { redirect_to property_property_unit_documents_path(@property, @property_unit), notice: 'Dokumentet ble slettet.' }
         format.json { head :no_content }
       end
     end

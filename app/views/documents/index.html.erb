@@ -27,13 +27,15 @@
             <tr>
               <td>
                 <div class="document-list-cell">
-                  <%= link_to [@property, @property_unit, document], class: "document-link" do %>
+                  <%= link_to rails_blob_path(document.doc), class: "document-link" do %>
                     <%= document_icon(document.doc.filename) %>
-                    <%= document.title %> ( <%= document.doc.filename %> )
-
+                    <%= document.title %> <span class="small">( <%= document.doc.filename %> )</span>
                   <% end %>
               </div>
             </td>
+            <td><%= link_to "Slett", [@property, @property_unit, document],
+                            method: :delete, data: {confirm: "Er du helt sikker?"},
+                            class: "btn btn-danger" %></td>
           </tr>
           <% end %>
         </table>
