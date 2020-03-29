@@ -17,6 +17,9 @@ class PropertiesController < ApplicationController
     def new
       #@property = Property.new
       @property = current_user.properties.build
+
+      add_breadcrumb "Eiendommer", properties_path
+      add_breadcrumb "Opprett", new_property_path
     end
 
     def create
@@ -44,6 +47,9 @@ class PropertiesController < ApplicationController
 
     def edit
       proper_user
+    add_breadcrumb "Eiendommer", properties_path
+    add_breadcrumb "Eiendom", [@property]
+    add_breadcrumb "Rediger", edit_property_path(@property)
     end
 
     def update
