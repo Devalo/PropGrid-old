@@ -37,6 +37,9 @@ class PropertyUnitsController < ApplicationController
     @property_unit = @property.property_units.build
     # @tenants = Tenant.all
     @tenants = current_user.tenants
+    add_breadcrumb "Eiendommer", properties_path
+    add_breadcrumb "Enheter ", @property
+    add_breadcrumb "Opprett", new_property_property_unit_path
 
 
   end
@@ -45,6 +48,10 @@ class PropertyUnitsController < ApplicationController
   def edit
     proper_user
     @tenants = current_user.tenants
+    add_breadcrumb "Eiendommer", properties_path
+    add_breadcrumb "Enheter ", @property
+    add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
+    add_breadcrumb "Rediger", edit_property_property_unit_path(@property, @property_unit)
   end
 
   def show_documents
