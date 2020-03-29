@@ -1,7 +1,20 @@
 <div class="container">
   <div class="main-background main-container">
+    <div class="row">
+  <div class="col-md-4">
 
   <h4>Leiekontakt</h4>
+  </div>
+  <div class="col-md-7">
+
+  <%= link_to "Last ned kontrakt som PDF",
+              property_property_unit_lease_path(@property, @property_unit, "#{@lease.id}.pdf"),
+              class: "btn btn-primary-c" %>
+
+  </div>
+
+    </div>
+
   <hr>
     <div class="row">
       <div class="col-md-12">

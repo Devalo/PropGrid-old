@@ -54,21 +54,17 @@
   </div>
   <div class="col-md-6 text-center">
     <div class="row">
-      <div class="col-md-2 text-center">
+      <div class="col-md-4 text-center">
         <%= link_to property_property_unit_documents_path(@property, @property_unit) do %>
         <div class="document-item ">
-          <i class="far fa-folder text-center" id="document-folder"></i>Dokumenter
+          <i class="far fa-folder text-center" id="document-folder"></i><br>Dokumenter
         </div>
         <% end %>
       </div>
-
-      <div class="col-md-8">
-        <h5><%= show_proper_links_if_or_not_lease_exist %>
-            <% if @lease %>|
-              <%= link_to "Last ned kontrakt", property_property_unit_lease_path(@property, @property_unit, "#{@lease.id}.pdf") %>
-            <% end %>
-        </h5>
+      <div class="col-md-4 col-offset-4 text-center">
+          <%= show_proper_links_if_or_not_lease_exist %>
       </div>
+
     </div>
     <div class="row">
       <div class="col-md-12">

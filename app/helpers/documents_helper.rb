@@ -10,7 +10,8 @@ module DocumentsHelper
       raw('<i class="far fa-file-excel document-list-icon"></i>')
     elsif file_name.to_s.upcase.include?('PNG' || 'JPG' || 'JPEG' || 'BMP')
       raw('<i class="far fa-file-image document-list-icon"></i>')
-
+    else
+      raw('<i class="far fa-file document-list-icon"></i>')
     end
   end
 end
