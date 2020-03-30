@@ -1,3 +1,61 @@
 // Place all the styles related to the TenantSpace controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
+$background-color: #ECF0F5;
+$primary-c: #2B5074;
+$secondary-c: #1F1F56;
+$support-green-c: #35C2A1;
+$support-red-c: #FF0000;
+
+$primary-hoover-c: #273238;
+$click-c: #FFAB54;
+$gray-p-text: #6A757B;
+
+$placeholder-grey: #B1B9BD;
+
+$navigation-info: #3C4045;
+$text-on-background: #4E637A;
+
+
+.tenant-container {
+
+  .tenant-headline {
+    background-color: #fff;
+    padding: 1em;
+
+    h3 {
+
+    font-family: "Open Sans";
+    font-weight: 600;
+    color: $text-on-background;
+    }
+  }
+
+  .menu-box {
+    border-left: 1px solid black;
+  }
+  .tenant-icons-container {
+    margin-top: 1em;
+    padding: 1em;
+    background-color: #fff;
+    color: $text-on-background;
+
+    i {
+      font-size: 3em;
+    }
+
+  }
+
+  .tenant-main-box {
+    background-color: #fff;
+    padding: 1em;
+  }
+
+  .list-group-item {
+    font-size: 15px;
+  }
+
+
+}

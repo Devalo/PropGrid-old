@@ -1,15 +1,76 @@
-<div class="container main-container">
+<div class="container ">
+  <div class="tenant-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tenant-headline">
+          <h3><%= current_tenant.email %></h3>
+        </div>
+      </div>
+    </div>
+      <div class="tenant-icons-container">
+    <div class="row text-center">
+      <div class="col">
+        <i class="fas fa-user"></i><br>
+        Opplysninger
 
-<h2><%= current_tenant.email %></h2>
-<hr>
-<div class="row">
-  <div class="col-md-6">
-  <strong>Navn: </strong><%= current_tenant.first_name %> <%= current_tenant.last_name %><br>
-  <strong>Epost: </strong><%= current_tenant.email %><br>
-  <strong>Telefonnummer: </strong><%= current_tenant.phone_number %><br>
-  <strong>Fødselsdato: </strong> <%= current_tenant.birth_date.strftime("%d.%m.%Y")  %>
+      </div>
+      <div class="col">
+        <i class="fas fa-inbox"></i><br>
+        Meldinger
+
+      </div>
+      <div class="col">
+        <i class="fas fa-file-contract"></i><br>
+        Leiekontrakt
+      </div>
+      <div class="col">
+        <i class="fas fa-user-cog"></i><br>
+        Innstillinger
+      </div>
+    </div>
+      <hr class="divider">
+      </div>
+
+      <div class="tenant-main-box">
+        <div class="row ">
+          <div class="col-md-6">
+            <h4>Personopplysninger</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Navn: <%= current_tenant.first_name %> <%= current_tenant.last_name %>
+            </li>
+            <li class="list-group-item">
+                Epost: <%= current_tenant.email %>
+            </li>
+            <li class="list-group-item">
+                Telefonnummer: <%= current_tenant.phone_number %>
+            </li>
+            <li class="list-group-item">
+                Fødselsnummer: <%= current_tenant.phone_number %>
+            </li>
+            </ul>
+
+          </div>
+          <div class="col-md-6">
+            <h4>Leieopplysninger</h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                Adresse: <%= @property.address %> <%= @property.property_number %>
+              </li>
+              <li class="list-group-item">
+                Sted: <%= @property.postal_code %> <%= @property.city %>
+              </li>
+              <li class="list-group-item">
+                Huseier: <%= User.find(@property.user_id).first_name %> <%= User.find(@property.user_id).last_name %>
+              </li>
+              <li class="list-group-item">
+                Telefonnummer: <%= User.find(@property.user_id).phone_number %>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
 
   </div>
-
-</div>
 </div>
