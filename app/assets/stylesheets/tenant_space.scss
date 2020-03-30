@@ -42,6 +42,13 @@ $text-on-background: #4E637A;
     background-color: #fff;
     color: $text-on-background;
 
+    a {
+    color: $text-on-background;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+
     i {
       font-size: 3em;
     }

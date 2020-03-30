@@ -1,4 +1,5 @@
 class PropertyUnitsController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_property
   before_action :set_property_unit, only: [:show, :edit, :update, :destroy]
 

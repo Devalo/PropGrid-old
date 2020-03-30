@@ -10,18 +10,20 @@
       <div class="tenant-icons-container">
     <div class="row text-center">
       <div class="col">
-        <i class="fas fa-user"></i><br>
-        Opplysninger
-
+        <%= link_to tenant_space_path do %>
+          <i class="fas fa-user"></i><br>
+          <span class="tenant-icons-text">Opplysninger</span>
+        <% end %>
       </div>
       <div class="col">
         <i class="fas fa-inbox"></i><br>
         Meldinger
-
       </div>
       <div class="col">
+        <%= link_to property_property_unit_lease_path(@property.id, @property_unit.id, @lease) do %>
         <i class="fas fa-file-contract"></i><br>
         Leiekontrakt
+        <% end %>
       </div>
       <div class="col">
         <i class="fas fa-user-cog"></i><br>

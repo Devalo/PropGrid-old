@@ -1,4 +1,6 @@
 class LeasesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
+  before_action :authenticate_tenant!, only: [:show]
   before_action :get_property_unit
   before_action :get_property
   before_action :set_lease, only: [:edit, :update, :destroy]
@@ -126,5 +128,7 @@ class LeasesController < ApplicationController
     end
 
   end
+
+
 
 end
