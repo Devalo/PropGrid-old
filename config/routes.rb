@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   devise_for :users, path: "user", controllers: { sessions: "users/sessions", registrations: "users/registrations"}
 
-  devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions", confirmations: "tenants/confirmations"}
+  devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions", confirmations: "tenants/confirmations", registrations: "tenants/registrations"}
   get 'tenant_space/index', as: 'tenant_space'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

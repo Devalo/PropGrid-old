@@ -17,9 +17,15 @@ class Tenants::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+
+   def edit
+     puts "HELLO"
+    @property_unit = PropertyUnit.find_by(tenant: current_tenant.id)
+    @property = Property.find_by(id: @property_unit.property_id)
+    @tenant = Tenant.find_by(id: current_tenant.id)
+    p @lease = Lease.find_by(property_unit_id: @property_unit.id)
+     super
+   end
 
   # PUT /resource
   # def update

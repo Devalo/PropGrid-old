@@ -21,13 +21,15 @@
       </div>
       <div class="col">
         <%= link_to property_property_unit_lease_path(@property.id, @property_unit.id, @lease) do %>
-        <i class="fas fa-file-contract"></i><br>
-        Leiekontrakt
+          <i class="fas fa-file-contract"></i><br>
+          Leiekontrakt
         <% end %>
       </div>
       <div class="col">
-        <i class="fas fa-user-cog"></i><br>
-        Innstillinger
+        <%= link_to edit_tenant_registration_path do %>
+          <i class="fas fa-user-cog"></i><br>
+          Innstillinger
+        <% end %>
       </div>
     </div>
       <hr class="divider">
