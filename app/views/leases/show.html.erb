@@ -4,6 +4,19 @@
     <%= render_breadcrumbs %>
   </div>
   <% end %>
+  <% if current_tenant %>
+  <div class="tenant-container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="tenant-headline">
+        <h3><%= current_tenant.email %>
+      </div>
+    </div>
+  </div>
+  <%= render 'tenant_space/menu' %>
+
+  </div>
+  <% end %>
 
   <div class="main-background main-container">
     <div class="row">

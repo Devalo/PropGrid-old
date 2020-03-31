@@ -1,0 +1,27 @@
+<div class="tenant-icons-container">
+<div class="row text-center">
+<div class="col">
+  <%= link_to tenant_space_path do %>
+    <i class="fas fa-user"></i><br>
+    <span class="tenant-icons-text">Opplysninger</span>
+  <% end %>
+</div>
+<div class="col">
+  <i class="fas fa-inbox"></i><br>
+  Meldinger
+</div>
+<div class="col">
+  <%= link_to tenant_space_leases_path do %>
+    <i class="fas fa-file-contract"></i><br>
+    Leiekontrakter
+  <% end %>
+</div>
+<div class="col">
+  <%= link_to edit_tenant_registration_path do %>
+    <i class="fas fa-user-cog"></i><br>
+    Innstillinger
+  <% end %>
+</div>
+</div>
+<hr class="divider">
+</div>

@@ -7,34 +7,8 @@
         </div>
       </div>
     </div>
-      <div class="tenant-icons-container">
-    <div class="row text-center">
-      <div class="col">
-        <%= link_to tenant_space_path do %>
-          <i class="fas fa-user"></i><br>
-          <span class="tenant-icons-text">Opplysninger</span>
-        <% end %>
-      </div>
-      <div class="col">
-        <i class="fas fa-inbox"></i><br>
-        Meldinger
-      </div>
-      <div class="col">
-        <%= link_to property_property_unit_lease_path(@property.id, @property_unit.id, @lease) do %>
-          <i class="fas fa-file-contract"></i><br>
-          Leiekontrakt
-        <% end %>
-        <%= link_to "link", tenant_space_contract_path %>
-      </div>
-      <div class="col">
-        <%= link_to edit_tenant_registration_path do %>
-          <i class="fas fa-user-cog"></i><br>
-          Innstillinger
-        <% end %>
-      </div>
-    </div>
-      <hr class="divider">
-      </div>
+    <%= render 'menu' %>
+
 
       <div class="tenant-main-box">
         <div class="row ">
@@ -59,18 +33,6 @@
           <div class="col-md-6">
             <h4>Leieopplysninger</h4>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                Adresse: <%= @property.address %> <%= @property.property_number %>
-              </li>
-              <li class="list-group-item">
-                Sted: <%= @property.postal_code %> <%= @property.city %>
-              </li>
-              <li class="list-group-item">
-                Huseier: <%= User.find(@property.user_id).first_name %> <%= User.find(@property.user_id).last_name %>
-              </li>
-              <li class="list-group-item">
-                Telefonnummer: <%= User.find(@property.user_id).phone_number %>
-              </li>
             </ul>
           </div>
         </div>

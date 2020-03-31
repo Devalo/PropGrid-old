@@ -1,9 +1,21 @@
-<%= @property.id %><br>
-<%= @property_unit.id %><br>
-<%= @lease.tenant_id %><br>
-<%= @lease.id %>
 
-<br>
-<% @tenant_lease.each do |a| %>
-<%= a.id %>
-<% end %>
+<div class="container">
+  <div class="tenant-container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tenant-headline">
+          <h3><%= current_tenant.email %>
+        </div>
+      </div>
+    </div>
+    <%= render 'menu' %>
+    <div class="tenant-main-box">
+      <h4>Mine leiekontrakter</h4>
+      <% @tenant_lease.each do |enhet| %>
+        <%= link_to "#{enhet.property_address}, Enhet #{enhet.unit_number}", property_property_unit_lease_path(enhet.property_id, enhet.property_unit_id, enhet.id) %><br>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

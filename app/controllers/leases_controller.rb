@@ -68,6 +68,7 @@ class LeasesController < ApplicationController
     number_of_rooms = @property_unit.number_of_rooms
     storage_spaces = @property_unit.storage_spaces
     parking_lots = @property_unit.parking_lots
+    property_id = @property_unit.property_id
 
 
     @lease = @property_unit.create_lease(lease_params.merge(user_id: userid,
@@ -88,7 +89,8 @@ class LeasesController < ApplicationController
                                                             bathroom: bathroom,
                                                             number_of_rooms: number_of_rooms,
                                                             storage_spaces: storage_spaces,
-                                                            parking_lots: parking_lots))
+                                                            parking_lots: parking_lots,
+                                                            property_id: property_id))
 
 
       respond_to do |format|
@@ -133,8 +135,15 @@ class LeasesController < ApplicationController
         redirect_to properties_url
         flash[:notice] = 'Fant ikke siden du letet etter'
       end
+    elsif current_tenant.present? == true
+      if current_tenant.id != @lease.tenant_id
+        redirect_to tenant_space_path
+        flash[:error] = 'Fant ikke siden du letet etter'
+        puts "Current tenant"
+      end
 
     else
+      puts "no current user"
 
       redirect_to properties_url
 

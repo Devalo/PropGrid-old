@@ -1,10 +1,11 @@
 class TenantSpaceController < ApplicationController
   before_action :authenticate_tenant!
   def index
-    @property_unit = PropertyUnit.find_by(tenant: current_tenant.id)
-    @property = Property.find_by(id: @property_unit.property_id)
+
+  #  @property_unit = PropertyUnit.find_by(tenant: current_tenant.id)
+  #  @property = Property.find_by(id: @property_unit.property_id)
   #  @tenant = Tenant.find_by(id: current_tenant.id)
-    @lease = Lease.find_by(tenant_id: current_tenant.id)
+  #  @lease = Lease.find_by(tenant_id: current_tenant.id)
 
     puts "---- INFO FROM TENANT SPACE CONTROLLER"
     puts "-----"
@@ -15,9 +16,6 @@ class TenantSpaceController < ApplicationController
   end
 
   def leases
-    @property_unit = PropertyUnit.find_by(id: current_tenant.id)
-    @property = Property.find_by(id: @property_unit.property_id)
-    @lease = Lease.find_by(tenant_id: current_tenant.id)
 
     @tenant_lease = []
 

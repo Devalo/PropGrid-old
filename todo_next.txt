@@ -12,23 +12,18 @@ colors: #274869 - lilla - nav
         #4E637A
         #6A757B
         #B1B9BD
-
-SETTE PROPER REDIRECT URL VED OPPRETTE DOKUMENT
-
-
-<% @documents.each do |document| %>
-<tr>
-  <td>
-    <div class="document-list-cell">
-      <%= link_to [@property, @property_unit, document], class: "document-link" do %>
-        <%= document_icon(document.doc.filename) %>hei
-      <%= link_to rails_blob_path(document.doc) do %>
-      <% end %>
-
-      <% end %>
+        #45
 
 
-    </div>
-  </td>
-</tr>
-<% end %>
+
+Tenant har units = []
+on create
+property_unit_id pushed to units
+
+
+
+Søk tenant id i property_unit
+hvis property_unit.id count =< 1
+  vis kontrakt
+hvis flere
+  vis alle 
