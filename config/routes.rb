@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   devise_for :tenants, path: "tenant_space", controllers: { sessions: "tenants/sessions", confirmations: "tenants/confirmations", registrations: "tenants/registrations"}
   get 'tenant_space/index', as: 'tenant_space'
+  get 'tenant_space/leases'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "properties#index"

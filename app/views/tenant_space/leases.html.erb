@@ -1,0 +1,9 @@
+<%= @property.id %><br>
+<%= @property_unit.id %><br>
+<%= @lease.tenant_id %><br>
+<%= @lease.id %>
+
+<br>
+<% @tenant_lease.each do |a| %>
+<%= a.id %>
+<% end %>

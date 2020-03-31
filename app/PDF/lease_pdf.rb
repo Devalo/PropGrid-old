@@ -92,23 +92,23 @@ class LeasePdf < Prawn::Document
   def contract_about
     text "2. Leiekontrakten gjelder", size: 20
     stroke_horizontal_line 0, 230, :at => 483
-    text_box "<strong>Type leieobjekt:</strong> #{@property_unit.property_type}
-              <strong>Enhetsnummer:</strong> #{@property_unit.unit_number}
-              <strong>Adresse: </strong> #{@property.address}
-              <strong>Postnummer: </strong> #{@property.postal_code}
-              <strong>Sted: </strong>#{@property.city}", at: [0, 470], :inline_format => true, :leading => 3
+    text_box "<strong>Type leieobjekt:</strong> #{@lease.property_type}
+              <strong>Enhetsnummer:</strong> #{@lease.unit_number}
+              <strong>Adresse: </strong> #{@lease.property_address}
+              <strong>Postnummer: </strong> #{@lease.property_postal_code}
+              <strong>Sted: </strong>#{@lease.property_city}", at: [0, 470], :inline_format => true, :leading => 3
 
-    text_box "<strong>Bad:</strong> #{human_boolean(@property_unit.bathroom)}
-              <strong>Kjøkken:</strong> #{human_boolean(@property_unit.kitchen)}
-              <strong>Antall rom: </strong> #{@property_unit.number_of_rooms}
-              <strong>Antall boder: </strong> #{@property_unit.storage_spaces}
-              <strong>Parkeringsplasser: </strong>#{@property_unit.parking_lots}", at: [300, 470], :inline_format => true, :leading => 3
+    text_box "<strong>Bad:</strong> #{human_boolean(@lease.bathroom)}
+              <strong>Kjøkken:</strong> #{human_boolean(@lease.kitchen)}
+              <strong>Antall rom: </strong> #{@lease.number_of_rooms}
+              <strong>Antall boder: </strong> #{@lease.storage_spaces}
+              <strong>Parkeringsplasser: </strong>#{@lease.parking_lots}", at: [300, 470], :inline_format => true, :leading => 3
   end
 
   def rent_info
     text "3. Husleie", size: 20
     stroke_horizontal_line 0, 230, :at => 340
-    text_box "<strong>Husleie per måned:</strong> #{nok_currency(@property_unit.rent)}
+    text_box "<strong>Husleie per måned:</strong> #{nok_currency(@lease.rent_amount)}
               <strong>Forskuddsvis betaling av leie innen denne dato: #{@lease.due_date}
               <strong>Betales inn på kontonummer:</strong> #{@lease.rent_account}", at: [0, 327], :inline_format => true, :leading => 3
     draw_text "Strøm", at: [0, 250], size: 15

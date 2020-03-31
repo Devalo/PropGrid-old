@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_184636) do
+ActiveRecord::Schema.define(version: 2020_03_31_170257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,18 @@ ActiveRecord::Schema.define(version: 2020_03_27_184636) do
     t.string "tenant_name"
     t.string "tenant_email"
     t.string "tenant_phone"
+    t.decimal "rent_amount", precision: 8, scale: 2
+    t.integer "property_type_int"
+    t.string "property_type"
+    t.integer "unit_number"
+    t.string "property_address"
+    t.integer "property_postal_code"
+    t.string "property_city"
+    t.boolean "kitchen"
+    t.boolean "bathroom"
+    t.integer "number_of_rooms"
+    t.integer "storage_spaces"
+    t.integer "parking_lots"
     t.index ["property_unit_id"], name: "index_leases_on_property_unit_id"
     t.index ["tenant_id"], name: "index_leases_on_tenant_id"
     t.index ["user_id"], name: "index_leases_on_user_id"

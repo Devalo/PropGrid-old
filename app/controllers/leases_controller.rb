@@ -1,6 +1,4 @@
 class LeasesController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :authenticate_tenant!, only: [:show]
   before_action :get_property_unit
   before_action :get_property
   before_action :set_lease, only: [:edit, :update, :destroy]
@@ -12,6 +10,7 @@ class LeasesController < ApplicationController
   def new
     lease_exists?
 
+
     add_breadcrumb "Eiendommer", properties_path
     add_breadcrumb "Enheter", @property
     add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
@@ -20,8 +19,8 @@ class LeasesController < ApplicationController
 
   def show
     @lease = Lease.find_by(property_unit_id: @property_unit.id)
+    proper_user
 
-    puts "---"
 
     respond_to do |format|
       format.html
@@ -36,7 +35,7 @@ class LeasesController < ApplicationController
     add_breadcrumb "Eiendommer", properties_path
     add_breadcrumb "Enheter ", @property
     add_breadcrumb "Enhet #{@property_unit.unit_number}", [@property, @property_unit]
-      add_breadcrumb "Dokumenter", [@property, @property_unit, @document]
+      add_breadcrumb "Leiekontrakt", [@property, @property_unit, @lease]
 
   end
 
@@ -58,6 +57,17 @@ class LeasesController < ApplicationController
     landlord_email = current_user.email
     landlord_phone_number = current_user.phone_number
 
+    rent_amount = @property_unit.rent
+    property_type = @property_unit.property_type
+    unit_number = @property_unit.unit_number
+    property_address = @property.address
+    property_postal_code = @property.postal_code
+    property_city = @property.city
+    kitchen = @property_unit.kitchen
+    bathroom = @property_unit.bathroom
+    number_of_rooms = @property_unit.number_of_rooms
+    storage_spaces = @property_unit.storage_spaces
+    parking_lots = @property_unit.parking_lots
 
 
     @lease = @property_unit.create_lease(lease_params.merge(user_id: userid,
@@ -67,7 +77,18 @@ class LeasesController < ApplicationController
                                                             landlord_email: landlord_email,
                                                             tenant_name: tenant_name,
                                                             tenant_email: tenant_email,
-                                                            tenant_phone: tenant_phone))
+                                                            tenant_phone: tenant_phone,
+                                                            rent_amount: rent_amount,
+                                                            property_type: property_type,
+                                                            unit_number: unit_number,
+                                                            property_address: property_address,
+                                                            property_postal_code: property_postal_code,
+                                                            property_city: property_city,
+                                                            kitchen: kitchen,
+                                                            bathroom: bathroom,
+                                                            number_of_rooms: number_of_rooms,
+                                                            storage_spaces: storage_spaces,
+                                                            parking_lots: parking_lots))
 
 
       respond_to do |format|
@@ -105,10 +126,24 @@ class LeasesController < ApplicationController
   end
 
   def proper_user
-    if current_user.id != @lease.user_id || current_tenant.id != @lease.tenant_id
+
+    if current_user.present? == true
+      puts "Current user present == true"
+      if current_user.id != @lease.user_id
+        redirect_to properties_url
+        flash[:notice] = 'Fant ikke siden du letet etter'
+      end
+
+    else
+
       redirect_to properties_url
-      flash[:notice] = 'Fant ikke det du letet etter.'
+
     end
+
+     # if current_user.id != @lease.user_id
+     #   redirect_to properties_url
+     #   flash[:notice] = 'Fant ikke det du letet etter.'
+     # end
   end
 
   def lease_exists?

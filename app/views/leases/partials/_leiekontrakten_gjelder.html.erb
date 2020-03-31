@@ -7,18 +7,18 @@
 
 <div class="row">
   <div class="col-md-6">
-    <p><strong>Type leieobjekt:</strong> <%= @property_unit.property_type %></p>
-    <p><strong>Enhetsnummer:</strong> <%= @property_unit.unit_number %></p>
-    <p><strong>Adresse: </strong> <%= @property.address %></p>
-    <p><strong>Postnummer:</strong> <%= @property.postal_code%> </p>
-    <p><strong>Sted:</strong> <%= @property.city %> </p>
+    <p><strong>Type leieobjekt:</strong> <%= @lease.property_type %></p>
+    <p><strong>Enhetsnummer:</strong> <%= @lease.unit_number %></p>
+    <p><strong>Adresse: </strong> <%= @lease.property_address %></p>
+    <p><strong>Postnummer:</strong> <%= @lease.property_postal_code%> </p>
+    <p><strong>Sted:</strong> <%= @lease.property_city %> </p>
   </div>
   <div class="col-md-6">
-    <p><strong>Bad:</strong> <%= human_boolean(@property_unit.bathroom) %></p>
-    <p><strong>Kjøkken:</strong> <%= human_boolean(@property_unit.kitchen) %></p>
-    <p><strong>Antall rom:</strong> <%= @property_unit.number_of_rooms %></p>
-    <p><strong>Antall boder:</strong> <%= @property_unit.storage_spaces %></p>
-    <p><strong>Parkeringsplasser:</strong> <%= @property_unit.parking_lots %></p>
+    <p><strong>Bad:</strong> <%= human_boolean(@lease.bathroom) %></p>
+    <p><strong>Kjøkken:</strong> <%= human_boolean(@lease.kitchen) %></p>
+    <p><strong>Antall rom:</strong> <%= @lease.number_of_rooms %></p>
+    <p><strong>Antall boder:</strong> <%= @lease.storage_spaces %></p>
+    <p><strong>Parkeringsplasser:</strong> <%= @lease.parking_lots %></p>
   </div>
 </div>
 <br>

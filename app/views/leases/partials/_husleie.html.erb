@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <p><strong>Husleie pr måned:</strong> <%= nok_currency(@property_unit.rent) %></p>
+    <p><strong>Husleie pr måned:</strong> <%= nok_currency(@lease.rent_amount) %></p>
     <div class="col-md-12 row">
         <p><strong>Forskuddsvis betaling av leie innen denne dato:</strong> <%= @lease.due_date %></p>
     </div>
