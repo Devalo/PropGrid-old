@@ -11,9 +11,16 @@
     <%= render 'menu' %>
     <div class="tenant-main-box">
       <h4>Mine leiekontrakter</h4>
-      <% @tenant_lease.each do |enhet| %>
-        <%= link_to "#{enhet.property_address}, Enhet #{enhet.unit_number}", property_property_unit_lease_path(enhet.property_id, enhet.property_unit_id, enhet.id) %><br>
-      <% end %>
+      <ul class="list-group list-group-flush">
+        <% @tenant_lease.each do |enhet| %>
+        <li class="list-group-item">
+          <%= link_to "#{enhet.property_address},
+                        Enhet #{enhet.unit_number}",
+                        property_property_unit_lease_path(enhet.property_id,
+                        enhet.property_unit_id, enhet.id), class: "tenant-leases-link" %>
+        </li>
+        <% end %>
+      <ul>
 
     </div>
   </div>
