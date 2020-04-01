@@ -33,6 +33,14 @@ en:
   activerecord:
     errors:
       models:
+        bug_report:
+          attributes:
+            ticket_name:
+              blank: "må fylles ut"
+            ticket_urgency:
+              blank: "må fylles ut"
+            ticket_body:
+              blank: "må fylles ut"
         tenant:
           attributes:
             email:
@@ -66,6 +74,10 @@ en:
             attributes:
 
     attributes:
+      bug_report:
+        ticket_name: "Navn på hendelse, "
+        ticket_urgency: "Hvor mye det haster, "
+        ticket_body: "Beskrivelse"
       tenant:
         email: "Epost"
       property:

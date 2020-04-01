@@ -1,7 +1,7 @@
 <%= form_with(model: bug_report, local: true) do |form| %>
   <% if bug_report.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(bug_report.errors.count, "error") %> prohibited this bug_report from being saved:</h2>
+      <h4><%= bug_report.errors.count %> feil gjorde at skjemaet ikke kunne sendes:</h4>
 
       <ul>
         <% bug_report.errors.full_messages.each do |message| %>

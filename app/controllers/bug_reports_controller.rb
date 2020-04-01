@@ -1,5 +1,6 @@
 class BugReportsController < ApplicationController
   before_action :set_bug_report, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin, except: [:new, :create]
 
   # GET /bug_reports
   # GET /bug_reports.json
@@ -14,7 +15,12 @@ class BugReportsController < ApplicationController
 
   # GET /bug_reports/new
   def new
-    @bug_report = BugReport.new
+    if current_user
+      @bug_report = current_user.bug_reports.build
+    elsif current_tenant
+      @bug_report = current_tenant.bug_reports.build
+
+    end
 
     add_breadcrumb "Support", new_bug_report_path
   end
@@ -27,16 +33,29 @@ class BugReportsController < ApplicationController
   # POST /bug_reports.json
   def create
     if current_user
-    @bug_report = BugReport.new(bug_report_params)
+      @bug_report = current_user.bug_reports.build(bug_report_params)
+    elsif current_tenant
+      @bug_report = current_tenant.bug_reports.build(bug_report_params)
     end
 
     respond_to do |format|
-      if @bug_report.save
-        format.html { redirect_to @bug_report, notice: 'Bug report was successfully created.' }
-        format.json { render :show, status: :created, location: @bug_report }
+      if current_user.admin_role == true
+        if @bug_report.save
+          format.html { redirect_to @bug_report, notice: 'Ticket er opprettet' }
+          format.json { render :show, status: :created, location: @bug_report }
+        else
+          format.html { render :new }
+          format.json { render json: @bug_report.errors, status: :unprocessable_entity }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @bug_report.errors, status: :unprocessable_entity }
+        if @bug_report.save
+          format.html { redirect_to properties_path, notice: 'Ticket er opprettet.' }
+          format.json { render :show, status: :created, location: @bug_report }
+        else
+          format.html { render :new }
+          format.json { render json: @bug_report.errors, status: :unprocessable_entity }
+        end
+
       end
     end
   end
@@ -69,6 +88,19 @@ class BugReportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bug_report
       @bug_report = BugReport.find(params[:id])
+    end
+
+    def authenticate_admin
+      if current_user.present? == true
+        puts "NEI"
+        if current_user.admin_role != true
+          redirect_to properties_url
+          flash[:error] = "Ingen tilgang"
+        end
+      else
+        redirect_to root_url
+        flash[:error] = "Ingen tilgang"
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -36,20 +36,30 @@
         <hr class="sidebar-divider">
           <% if user_signed_in? %>
             <% if current_user.admin_role? %>
-        <li>
-              <%= link_to rails_admin_path do %>
-                <i class="fa fa-toolbox"></i>
-                Admin
-              <% end %>
-        </li>
+              <li>
+                <%= link_to rails_admin_path do %>
+                  <i class="fa fa-toolbox"></i>
+                  Admin
+                <% end %>
+              </li>
+
+              <li>
+                <%= link_to bug_reports_path do %>
+                  <i class="fa fa-bug"></i>
+                  Support
+                <% end %>
+              </li>
             <% end %>
           <% end %>
+          <% if current_user.admin_role? == false %>
         <li>
           <%= link_to new_bug_report_path do %>
             <i class="fa fa-bug"></i>
             Support
           <% end %>
+
         </li>
+        <% end %>
         <li>
           <%= link_to  edit_user_registration_path do %>
           <i class="fa fa-cogs"></i>

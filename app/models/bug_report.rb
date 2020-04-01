@@ -3,6 +3,10 @@ class BugReport < ApplicationRecord
   belongs_to :user, optional: true
 
 
+  validates :ticket_name, presence: true
+  validates :ticket_urgency, presence: true
+  validates :ticket_body, presence: true
+
   enum ticket_urgency: {
     "Hindrer meg i å jobbe"      => 0,
     "Hindrer meg litt i å jobbe" => 1,
