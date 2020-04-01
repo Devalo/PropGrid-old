@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_174343) do
+ActiveRecord::Schema.define(version: 2020_04_01_150945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,20 @@ ActiveRecord::Schema.define(version: 2020_03_31_174343) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "bug_reports", force: :cascade do |t|
+    t.string "ticket_name"
+    t.integer "ticket_type"
+    t.integer "ticket_number"
+    t.text "ticket_body"
+    t.bigint "tenant_id"
+    t.integer "ticket_answered_by"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tenant_id"], name: "index_bug_reports_on_tenant_id"
+    t.index ["user_id"], name: "index_bug_reports_on_user_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -192,6 +206,8 @@ ActiveRecord::Schema.define(version: 2020_03_31_174343) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bug_reports", "tenants"
+  add_foreign_key "bug_reports", "users"
   add_foreign_key "documents", "property_units"
   add_foreign_key "documents", "users"
   add_foreign_key "leases", "property_units"

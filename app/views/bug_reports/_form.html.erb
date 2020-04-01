@@ -1,0 +1,52 @@
+<%= form_with(model: bug_report, local: true) do |form| %>
+  <% if bug_report.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bug_report.errors.count, "error") %> prohibited this bug_report from being saved:</h2>
+
+      <ul>
+        <% bug_report.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ticket_name %>
+    <%= form.text_field :ticket_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_type %>
+    <%= form.number_field :ticket_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_number %>
+    <%= form.number_field :ticket_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_body %>
+    <%= form.text_area :ticket_body %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tenant_id %>
+    <%= form.text_field :tenant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ticket_answered_by %>
+    <%= form.number_field :ticket_answered_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

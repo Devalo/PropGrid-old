@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :todo_items, dependent: :destroy
   has_one :lease
   has_many :documents
+  has_many :bug_reports
 end

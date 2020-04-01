@@ -26,6 +26,16 @@
           Leietakere
           <% end %>
         </li>
+          <% if user_signed_in? %>
+            <% if current_user.admin_role? %>
+        <li>
+              <%= link_to rails_admin_path do %>
+                <i class="fa fa-toolbox"></i>
+                Admin
+              <% end %>
+        </li>
+            <% end %>
+          <% end %>
         <hr class="sidebar-divider">
         <li>
           <%= link_to  edit_user_registration_path do %>

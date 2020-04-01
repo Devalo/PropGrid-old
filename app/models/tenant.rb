@@ -5,6 +5,7 @@ class Tenant < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to :user
   has_one :lease
+  has_many :bug_reports
   #has_many :property_units
 
   protected

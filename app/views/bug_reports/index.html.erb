@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Bug Reports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ticket name</th>
+      <th>Ticket type</th>
+      <th>Ticket number</th>
+      <th>Ticket body</th>
+      <th>Tenant</th>
+      <th>Ticket answered by</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bug_reports.each do |bug_report| %>
+      <tr>
+        <td><%= bug_report.ticket_name %></td>
+        <td><%= bug_report.ticket_type %></td>
+        <td><%= bug_report.ticket_number %></td>
+        <td><%= bug_report.ticket_body %></td>
+        <td><%= bug_report.tenant_id %></td>
+        <td><%= bug_report.ticket_answered_by %></td>
+        <td><%= bug_report.user_id %></td>
+        <td><%= link_to 'Show', bug_report %></td>
+        <td><%= link_to 'Edit', edit_bug_report_path(bug_report) %></td>
+        <td><%= link_to 'Destroy', bug_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bug Report', new_bug_report_path %>
