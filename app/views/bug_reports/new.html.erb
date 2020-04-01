@@ -1,5 +1,17 @@
-<h1>New Bug Report</h1>
+<div class="container">
+  <div class="breadcrumbs">
+    <%= render_breadcrumbs %>
+  </div>
+  <div class="main-background main-container">
+    <h4>Support</h4>
+    <hr class="divider">
+    <p>Opplever du problemer med applikasjone? Har du oppdaget en bug?<br>
+    Send inn en ticket. Vi vil svært gjerne høre fra deg.</p>
+    <p>Du hører fra oss så snart vi har sett på din ticket.</p>
 
-<%= render 'form', bug_report: @bug_report %>
+    <%= render 'form', bug_report: @bug_report %>
 
-<%= link_to 'Back', bug_reports_path %>
+
+  </div>
+
+</div>

@@ -15,6 +15,8 @@ class BugReportsController < ApplicationController
   # GET /bug_reports/new
   def new
     @bug_report = BugReport.new
+
+    add_breadcrumb "Support", new_bug_report_path
   end
 
   # GET /bug_reports/1/edit
@@ -24,7 +26,9 @@ class BugReportsController < ApplicationController
   # POST /bug_reports
   # POST /bug_reports.json
   def create
+    if current_user
     @bug_report = BugReport.new(bug_report_params)
+    end
 
     respond_to do |format|
       if @bug_report.save
@@ -69,6 +73,6 @@ class BugReportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bug_report_params
-      params.require(:bug_report).permit(:ticket_name, :ticket_type, :ticket_number, :ticket_body, :tenant_id, :ticket_answered_by, :user_id)
+      params.require(:bug_report).permit(:ticket_name, :ticket_type, :ticket_number, :ticket_body, :tenant_id, :ticket_answered_by, :user_id, :ticket_urgency, :ticket_browser)
     end
 end

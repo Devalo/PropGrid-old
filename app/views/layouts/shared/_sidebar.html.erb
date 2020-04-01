@@ -15,6 +15,13 @@
           <% end %>
         </li>
         <li>
+          <%= link_to "#" do %>
+          <i class="fa fa-inbox"></i>
+          Meldinger
+          <% end %>
+        </li>
+        <hr class="divider">
+        <li>
           <%= link_to properties_path do %>
           <i class="fa fa-home"></i>
           Eiendommer
@@ -26,6 +33,7 @@
           Leietakere
           <% end %>
         </li>
+        <hr class="sidebar-divider">
           <% if user_signed_in? %>
             <% if current_user.admin_role? %>
         <li>
@@ -36,7 +44,12 @@
         </li>
             <% end %>
           <% end %>
-        <hr class="sidebar-divider">
+        <li>
+          <%= link_to new_bug_report_path do %>
+            <i class="fa fa-bug"></i>
+            Support
+          <% end %>
+        </li>
         <li>
           <%= link_to  edit_user_registration_path do %>
           <i class="fa fa-cogs"></i>
