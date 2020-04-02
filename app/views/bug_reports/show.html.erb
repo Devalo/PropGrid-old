@@ -1,38 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="breadcrumbs">
+    <%= render_breadcrumbs %>
+  </div>
+  <div class="main-container main-background">
+    <h4><%= @bug_report.ticket_name %></h4>
+    <hr class="divider">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ticket name:</strong>
-  <%= @bug_report.ticket_name %>
-</p>
 
-<p>
-  <strong>Ticket urgency:</strong>
-  <%= @bug_report.ticket_urgency %>
-</p>
+    <p>
+      <strong>Viktighet:</strong>
+      <%= @bug_report.ticket_urgency %>
+    </p>
 
-<p>
-  <strong>Ticket number:</strong>
-  <%= @bug_report.ticket_number %>
-</p>
+    <p>
+      <strong>Nummer:</strong>
+      <%= @bug_report.id %>
+    </p>
 
-<p>
-  <strong>Ticket body:</strong>
-  <%= @bug_report.ticket_body %>
-</p>
+    <p>
+      <strong>Henvendelse:</strong>
+      <%= @bug_report.ticket_body %>
+    </p>
 
-<p>
-  <strong>Tenant:</strong>
-  <%= @bug_report.tenant_id %>
-</p>
+    <p>
+      <strong>Avsender:</strong>
+      <%= ticket_from(@bug_report) %>
+    </p>
 
-<p>
-  <strong>Ticket answered by:</strong>
-  <%= @bug_report.ticket_answered_by %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @bug_report.user_id %>
-</p>
 
-<%= link_to 'Back', bug_reports_path %>
+    <%= link_to 'Tilbake', bug_reports_path, class: "btn btn-outline-secondary btn-sm" %>
+
+  </div>
+</div>

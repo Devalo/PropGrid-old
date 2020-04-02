@@ -17,8 +17,9 @@ class BugReportsController < ApplicationController
     if @bug_report.status == false
       @bug_report.status = true
       @bug_report.save
-
     end
+      add_breadcrumb "Henvendelser", bug_reports_path
+      add_breadcrumb "Henvendelse #{@bug_report.id}", @bug_report
   end
 
   # GET /bug_reports/new
