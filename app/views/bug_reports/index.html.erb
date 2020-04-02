@@ -1,39 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="breadcrumbs">
+      <%= render_breadcrumbs %>
+  </div>
+  <div class="main-container main-background">
+    <h4>Henvendelser fra brukere</h4>
+    <hr class="divider">
 
-<h1>Bug Reports</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Ticket name</th>
-      <th>Ticket type</th>
-      <th>Ticket number</th>
-      <th>Ticket body</th>
-      <th>Tenant</th>
-      <th>Ticket answered by</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table class="table table-bordered">
+      <thead style="border-top-color: #fff !important;">
+        <tr>
+          <th>Nummer</th>
+          <th>Henvendelse</th>
+          <th>Viktighet</th>
+          <th>Status</th>
+          <th>Avsender</th>
+          <th>Handling</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @bug_reports.each do |bug_report| %>
-      <tr>
-        <td><%= bug_report.ticket_name %></td>
-        <td><%= bug_report.ticket_type %></td>
-        <td><%= bug_report.ticket_number %></td>
-        <td><%= bug_report.ticket_body %></td>
-        <td><%= bug_report.tenant_id %></td>
-        <td><%= bug_report.ticket_answered_by %></td>
-        <td><%= bug_report.user_id %></td>
-        <td><%= link_to 'Show', bug_report %></td>
-        <td><%= link_to 'Edit', edit_bug_report_path(bug_report) %></td>
-        <td><%= link_to 'Destroy', bug_report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @bug_reports.each do |bug_report| %>
+          <tr>
+            <td><%= bug_report.id %></td>
+            <td><%= truncate(bug_report.ticket_name, length: 10) %></td>
+            <td><%= bug_report.ticket_urgency %></td>
+            <td><%= ticket_read?(bug_report.status) %></td>
+            <td><%= ticket_from(bug_report) %></td>
 
-<br>
+            <td class="text-center"><%= link_to 'Vis', bug_report, class: "btn btn-outline-primary-c btn-sm" %>
+            <%= link_to 'Slett', bug_report, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Bug Report', new_bug_report_path %>
+    <br>
+
+    <%= link_to 'New Bug Report', new_bug_report_path %>
+
+  </div>
+
+</div>

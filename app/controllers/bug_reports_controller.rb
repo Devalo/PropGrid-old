@@ -6,11 +6,19 @@ class BugReportsController < ApplicationController
   # GET /bug_reports.json
   def index
     @bug_reports = BugReport.all
+
+
+    add_breadcrumb "Henvendelser", bug_reports_path
   end
 
   # GET /bug_reports/1
   # GET /bug_reports/1.json
   def show
+    if @bug_report.status == false
+      @bug_report.status = true
+      @bug_report.save
+
+    end
   end
 
   # GET /bug_reports/new
@@ -39,17 +47,22 @@ class BugReportsController < ApplicationController
     end
 
     respond_to do |format|
-      if current_user.admin_role == true
-        if @bug_report.save
-          format.html { redirect_to @bug_report, notice: 'Ticket er opprettet' }
-          format.json { render :show, status: :created, location: @bug_report }
-        else
-          format.html { render :new }
-          format.json { render json: @bug_report.errors, status: :unprocessable_entity }
-        end
+      if current_user.present? == true
+          if @bug_report.save
+            if current_user.admin_role == true
+              format.html { redirect_to @bug_report, notice: 'Ticket er opprettet' }
+            else
+              format.html { redirect_to properties_path, notice: "Ticket er opprettet" }
+            end
+            format.json { render :show, status: :created, location: @bug_report }
+          else
+            format.html { render :new }
+            format.json { render json: @bug_report.errors, status: :unprocessable_entity }
+          end
+        #end
       else
         if @bug_report.save
-          format.html { redirect_to properties_path, notice: 'Ticket er opprettet.' }
+          format.html { redirect_to tenant_space_path, notice: 'Ticket er opprettet.' }
           format.json { render :show, status: :created, location: @bug_report }
         else
           format.html { render :new }
@@ -92,7 +105,6 @@ class BugReportsController < ApplicationController
 
     def authenticate_admin
       if current_user.present? == true
-        puts "NEI"
         if current_user.admin_role != true
           redirect_to properties_url
           flash[:error] = "Ingen tilgang"

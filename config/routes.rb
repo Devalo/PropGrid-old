@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :bug_reports
+  resources :bug_reports, except: [:edit, :update]
   resources :documents
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tenants

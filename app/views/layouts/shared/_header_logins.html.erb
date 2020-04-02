@@ -15,6 +15,7 @@
   <li class="nav-item navbar-links">
       <%= link_to 'Logg ut', destroy_user_session_path, method: :delete, class: "nav-link" %>
     <% elsif current_tenant %>
+      <%= link_to "Support", new_bug_report_path, class: "nav-link" %>
       <%= link_to 'Logg ut', destroy_tenant_session_path, method: :delete, class: "nav-link" %>
     <% else %>
   </li>
